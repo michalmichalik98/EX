@@ -11,7 +11,7 @@ public class BootcampApp {
         ex2.setExnum("Ex2");
         ex2.setDescription("Podaj wynik mnożenia liczb 6 i 3.");
         ex2.setPoints(10);
-        
+
 
         Student ania = new Student();
         Student jan = new Student();
@@ -30,6 +30,19 @@ public class BootcampApp {
         max.setFeedBack("Zadnia wykonane bardzo dobrze");
         max.setPoints(10);
         min.setPoints(5);
+
+        min.setStudent(ania);
+        min.setStudent(jan);
+        min.setTask(ex1);
+        min.setTask(ex2);
+
+
+        max.setStudent(ania);
+        max.setStudent(jan);
+        max.setTask(ex1);
+        max.setTask(ex2);
+
+
 
         System.out.println();
 

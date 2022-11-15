@@ -32,6 +32,10 @@ public class Score {
         return task;
     }
 
+    public String getFeedBack() {
+        return feedBack;
+    }
+
     public void setStudent(Student student) {
         this.student = student;
     }
