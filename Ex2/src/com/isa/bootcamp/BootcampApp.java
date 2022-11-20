@@ -41,7 +41,8 @@ public class BootcampApp {
         max.setTask(ex2);
 
 
-        System.out.println();
+        System.out.println(min.getStudent().getName() + " " + min.getStudent().getSecondName() + " " + "za zadanie" + " " + min.getTask().getExnum() + " " + "otrzymał" + " " + min.getPoints() + " pkt.");
+
 
 
 
