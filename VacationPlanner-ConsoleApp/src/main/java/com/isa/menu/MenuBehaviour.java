@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MenuBehaviour {
 
-    private MenuList getMenuItem(int number){
+    public MenuList getMenuItem(int number){
 
         MenuList chooseToReturn = null;
         for(MenuList menuList: MenuList.values()){
@@ -16,7 +16,7 @@ public class MenuBehaviour {
         return chooseToReturn;
     }
 
-    private void printMenu(){
+    public void printMenu(){
         for (MenuList menuList : MenuList.values()){
             System.out.println(menuList);
         }
@@ -24,10 +24,9 @@ public class MenuBehaviour {
 
     public void retrieveSelection() {
 
-
         int value = 0;
         boolean stayInLoop = true;
-        do {
+        while (!stayInLoop){
             printMenu();
             System.out.println("\nProszę wybierz opcję za pomocą numeru: \n");
             try {
@@ -42,33 +41,7 @@ public class MenuBehaviour {
             } catch (Exception e) {
                 System.out.println("Niespotykany błąd.\n");
             }
-        } while (stayInLoop);
-    }
-
-       public void behaviour(int value){
-            switch (value) {
-                case 1:
-                    System.out.println("Dodaje Urlop.\n");
-                    break;
-                case 2:
-                    System.out.println("Dodaje Pracownika.\n");
-                    break;
-                case 3:
-                    System.out.println("Usuwam Pracownika.\n");
-                    break;
-                case 4:
-                    System.out.println("Dodaje Zespół.\n");
-                    break;
-                case 5:
-                    System.out.println("Usuwam Zespół.\n");
-                    break;
-                case 0:
-                    System.out.println("Wychodzę!\n");
-                    break;
-                default:
-                    System.out.println("Nie ma takiej opcji.\n");
-                    break;
-
-            }
+        }
     }
 }
+

@@ -25,6 +25,23 @@ public enum MenuList {
         return description;
     }
 
+    public MenuList getMenuItem(int number){
+
+        MenuList chooseToReturn = null;
+        for(MenuList menuList: MenuList.values()){
+            if(menuList.getPosition() == number){
+                chooseToReturn = menuList;
+            }
+        }
+        return chooseToReturn;
+    }
+
+    public void printMenu(){
+        for (MenuList menuList : MenuList.values()){
+            System.out.println(menuList);
+        }
+    }
+
     @Override
     public String toString() {
         return position + " - " + description;
