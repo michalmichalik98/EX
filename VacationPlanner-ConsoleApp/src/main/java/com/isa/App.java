@@ -1,7 +1,6 @@
 package com.isa;
 
 import com.isa.menu.MenuBehaviour;
-import com.isa.menu.MenuList;
 
 public class App
 {

@@ -31,9 +31,15 @@ public class MenuBehaviour {
             try {
                 Scanner scanner = new Scanner(System.in);
                 value = scanner.nextInt();
-                System.out.println(getMenuItem(value) + "\n");
+                if (getMenuItem(value) == null){
+                    throw new RuntimeException("Proszę podaj numer z zakresu przedstawionego w menu.");
+                }else {
+                    System.out.println(getMenuItem(value) + "\n");
+                }
             } catch (InputMismatchException ex){
                 System.out.println("Podaj cyfrę.\n");
+            } catch (RuntimeException ex){
+                System.out.println("Proszę podaj numer z zakresu przedstawionego w menu.");
             } catch (Exception e) {
                 System.out.println("Niespotykany błąd.\n");
             }
