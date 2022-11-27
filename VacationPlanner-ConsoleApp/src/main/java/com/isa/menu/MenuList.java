@@ -1,19 +1,27 @@
 package com.isa.menu;
 
-public class MenuList {
+public enum MenuList {
 
-    public void printOption() {
+    ADD_VACATION_DAY(1, "Dodaj dzień urlopowy."),
+    ADD_EMPLOYEE(2, "Dodaj Pracownika."),
+    REMOVE_EMPLOYEE(2, "Usuń Pracownika"),
+    ADD_TEAM(4, "Dodaj Zespół."),
+    REMOVE_TEAM(5, "Usuń Zespół."),
+    EXIT_PROGRAM(0, "Zakończ Działanie Programu.");
 
-        System.out.println("1 - Dodaj dzień urlopowy.");
-        System.out.println("2 - Dodaj pracownika.");
-        System.out.println("3 - Usuń pracownika.");
-        System.out.println("4 - Dodaj zespół.");
-        System.out.println("5 - Usuń zespół.");
-        System.out.println("0 - Wyjdź z programu");
-        System.out.println("\nWybierz opcje: ");
+    private final int position;
+    private final String description;
+
+    MenuList(int position, String description) {
+        this.position = position;
+        this.description = description;
     }
 
+    public int getPosition() {
+        return position;
+    }
 
+    public String getDescription() {
+        return description;
+    }
 }
-
-

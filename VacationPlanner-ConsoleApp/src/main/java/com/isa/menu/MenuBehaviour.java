@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MenuBehaviour {
 
-    MenuList list = new MenuList();
+    MenuList_old list = new MenuList_old();
 
     public void retrieveSelection() {
 
