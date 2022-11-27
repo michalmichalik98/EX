@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MenuBehaviour {
 
-    public MenuList getMenuItem(int number){
+    public static MenuList getMenuItem(int number){
 
         MenuList chooseToReturn = null;
         for(MenuList menuList: MenuList.values()){
@@ -26,13 +26,13 @@ public class MenuBehaviour {
 
         int value = 0;
         boolean stayInLoop = true;
-        while (!stayInLoop){
+        do {
             printMenu();
-            System.out.println("\nProszę wybierz opcję za pomocą numeru: \n");
+            System.out.println("\nWybierz opcję za pomocą numeru: \n");
             try {
                 Scanner scanner = new Scanner(System.in);
                 value = scanner.nextInt();
-                getMenuItem(value);
+                System.out.println(getMenuItem(value) + "\n");
                 if (value == 0) {
                     stayInLoop = false;
                 }
@@ -41,7 +41,7 @@ public class MenuBehaviour {
             } catch (Exception e) {
                 System.out.println("Niespotykany błąd.\n");
             }
-        }
+        } while (stayInLoop);
     }
 }
 
