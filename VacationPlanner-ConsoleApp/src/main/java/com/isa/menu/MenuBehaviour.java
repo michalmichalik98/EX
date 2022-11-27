@@ -5,7 +5,16 @@ import java.util.Scanner;
 
 public class MenuBehaviour {
 
-    MenuList_old list = new MenuList_old();
+    public MenuList getMenuItem(int number){
+
+        MenuList chooseToReturn = null;
+        for(MenuList menuList: MenuList.values()){
+            if(menuList.getPosition() == number){
+                chooseToReturn = menuList;
+            }
+        }
+        return chooseToReturn;
+    }
 
     public void retrieveSelection() {
 
@@ -13,7 +22,7 @@ public class MenuBehaviour {
         int value = 0;
         boolean stayInLoop = true;
         do {
-            list.printOption();
+            //list.printOption();
             try {
                 Scanner scanner = new Scanner(System.in);
                 value = scanner.nextInt();

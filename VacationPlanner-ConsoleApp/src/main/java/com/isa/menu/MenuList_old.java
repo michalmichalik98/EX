@@ -11,6 +11,7 @@ public class MenuList_old {
         System.out.println("5 - Usuń zespół.");
         System.out.println("0 - Wyjdź z programu");
         System.out.println("\nWybierz opcje: ");
+
     }
 
 
