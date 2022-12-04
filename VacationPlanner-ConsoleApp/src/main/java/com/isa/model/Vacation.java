@@ -1,4 +1,4 @@
-package com.isa;
+package com.isa.model;
 
 public class Vacation {
 
