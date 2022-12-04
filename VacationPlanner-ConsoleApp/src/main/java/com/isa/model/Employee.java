@@ -8,6 +8,11 @@ public class Employee {
     private String address;
     private String phoneNumber;
 
+    public Employee(String name, String secondName, String pesel ) {
+        this.name = name;
+        this.secondName = secondName;
+        this.pesel = pesel;
+    }
 
     public String getName() {
         return name;
