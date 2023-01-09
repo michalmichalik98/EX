@@ -1,5 +1,10 @@
 package com.isa.model;
 
+import com.isa.menu.MenuBehaviour;
+import com.isa.menu.MenuList;
+
+import java.util.Scanner;
+
 public class Employee {
     private String name;
     private String secondName;
@@ -8,6 +13,40 @@ public class Employee {
     private String address;
     private String phoneNumber;
 
+    public void consoleEmployeeData() {
+        Employee employee = new Employee();
+        employee.setName(name);
+        employee.setSecondName(secondName);
+        employee.setAddress(address);
+        employee.setPesel(pesel);
+        employee.setEmail(email);
+        employee.setPhoneNumber(phoneNumber);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj imię pracownika");
+        name = scanner.nextLine();
+        System.out.println("Podaj nazwisko pracownika");
+        secondName = scanner.nextLine();
+        System.out.println("Podaj adres pracownika");
+        address = scanner.nextLine();
+        System.out.println("Podaj PESEL pracownika");
+        pesel = scanner.nextLine();
+        System.out.println("Podaj email pracownika");
+        email = scanner.nextLine();
+        System.out.println("Podaj numer telefonu pracownika");
+        phoneNumber = scanner.nextLine();
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", pesel='" + pesel + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 
     public String getName() {
         return name;
