@@ -1,5 +1,7 @@
 package com.isa.model;
 
+import java.util.ArrayList;
+
 public class Employee {
     private String name;
     private String secondName;
@@ -7,7 +9,31 @@ public class Employee {
     private String email;
     private String address;
     private String phoneNumber;
+    private ArrayList<Holiday> holidays = new ArrayList<Holiday>();
+    private Team team;
 
+    public Employee(String name, String secondName, String pesel, String email, String address, String phoneNumber, ArrayList<Holiday> holidays, Team team) {
+        this.name = name;
+        this.secondName = secondName;
+        this.pesel = pesel;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.holidays = holidays;
+        this.team = team;
+    }
+
+    public void addHoliday(Holiday holiday) {
+        holidays.add(holiday);
+    }
+
+    public void removeHoliday(Holiday holiday) {
+        holidays.remove(holiday);
+    }
+
+    public ArrayList<Holiday> getHolidays() {
+        return holidays;
+    }
 
     public String getName() {
         return name;
@@ -57,3 +83,5 @@ public class Employee {
         this.phoneNumber = phoneNumber;
     }
 }
+
+
