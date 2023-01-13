@@ -17,7 +17,7 @@ public class Employee {
     public void consoleEmployeeData() {
         Employee employee = new Employee();
         employee.setName(name);
-        employee.setSecondName(secondName);
+        employee.setSurname(surname);
         employee.setAddress(address);
         employee.setPesel(pesel);
         employee.setEmail(email);
@@ -26,7 +26,7 @@ public class Employee {
         System.out.println("Podaj imię pracownika");
         name = scanner.nextLine();
         System.out.println("Podaj nazwisko pracownika");
-        secondName = scanner.nextLine();
+        surname = scanner.nextLine();
         System.out.println("Podaj adres pracownika");
         address = scanner.nextLine();
         System.out.println("Podaj PESEL pracownika");
@@ -55,20 +55,24 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "name='" + name + '\'' +
-                ", secondName='" + secondName + '\'' +
+                ", secondName='" + surname + '\'' +
                 ", pesel='" + pesel + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
+    }
 
     public Employee(String name, String surname, String pesel) {
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
+    }
 
+    public Employee(){
 
     }
+
 
     public String getName() {
         return name;
