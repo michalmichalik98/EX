@@ -4,7 +4,7 @@ public enum MenuList {
 
     ADD_VACATION_DAY(1, "Dodaj dzień urlopowy."),
     ADD_EMPLOYEE(2, "Dodaj Pracownika."),
-    REMOVE_EMPLOYEE(2, "Usuń Pracownika"),
+    REMOVE_EMPLOYEE(3, "Usuń Pracownika"),
     ADD_TEAM(4, "Dodaj Zespół."),
     REMOVE_TEAM(5, "Usuń Zespół."),
     EXIT_PROGRAM(9, "Zakończ Działanie Programu.");
