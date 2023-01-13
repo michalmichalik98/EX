@@ -1,8 +1,5 @@
 package com.isa.model;
 
-import com.isa.menu.MenuBehaviour;
-import com.isa.menu.MenuList;
-
 import java.util.Scanner;
 
 public class Employee {
@@ -29,11 +26,25 @@ public class Employee {
         System.out.println("Podaj adres pracownika");
         address = scanner.nextLine();
         System.out.println("Podaj PESEL pracownika");
-        pesel = scanner.nextLine();
+        while (true) {
+            pesel = scanner.nextLine();
+            if (pesel.length() == 11 && pesel.matches("[0-9]+")) {
+                break;
+            } else {
+                System.out.println("Niepoprawny PESEL, PESEL powinien posiadać 11 cyfr.\nPodaj PESEL jeszcze raz.");
+            }
+        }
         System.out.println("Podaj email pracownika");
         email = scanner.nextLine();
         System.out.println("Podaj numer telefonu pracownika");
-        phoneNumber = scanner.nextLine();
+        while (true) {
+            phoneNumber = scanner.nextLine();
+            if (phoneNumber.length() == 9 && phoneNumber.matches("[0-9]+")){
+                break;
+            } else {
+                System.out.println("Niepoprawny numer telefonu, numer telefonu powinien składać się z 9 cyfr.\nPodaj numer telefonu jeszcze raz.");
+            }
+        }
     }
 
     @Override
