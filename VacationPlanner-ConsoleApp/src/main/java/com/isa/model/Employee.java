@@ -1,14 +1,18 @@
 package com.isa.model;
 
+
 import java.util.Scanner;
+import java.util.Objects;
+
 
 public class Employee {
     private String name;
-    private String secondName;
+    private String surname;
     private String pesel;
     private String email;
     private String address;
     private String phoneNumber;
+
 
     public void consoleEmployeeData() {
         Employee employee = new Employee();
@@ -57,6 +61,13 @@ public class Employee {
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
+
+    public Employee(String name, String surname, String pesel) {
+        this.name = name;
+        this.surname = surname;
+        this.pesel = pesel;
+
+
     }
 
     public String getName() {
@@ -67,13 +78,6 @@ public class Employee {
         this.name = name;
     }
 
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
 
     public String getPesel() {
         return pesel;
@@ -103,7 +107,30 @@ public class Employee {
         return phoneNumber;
     }
 
+
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(pesel, employee.pesel) && Objects.equals(email, employee.email) && Objects.equals(address, employee.address) && Objects.equals(phoneNumber, employee.phoneNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, pesel, email, address, phoneNumber);
     }
 }
