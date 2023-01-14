@@ -54,11 +54,9 @@ public class MenuBehaviour {
 
     public void consoleEmpData(int value) {
         if (MenuList.ADD_EMPLOYEE.getPosition() == value) {
-            HashSet<Employee> employees = new HashSet<>();
             while (true) {
                 Employee employee = new Employee();
                 employee.consoleEmployeeData();
-                employees.add(employee);
                 employee.toString();
                 DataManager dataManager = new DataManager();
                 dataManager.addEmployee(employee);
@@ -67,10 +65,6 @@ public class MenuBehaviour {
                 String response = scanner.nextLine();
                 if (response.equals("n")) {
                     break;
-                }
-                Iterator<Employee> employeeIterator = employees.iterator();
-                while (employeeIterator.hasNext()) {
-                    System.out.println(employeeIterator.next());
                 }
             }
         }
