@@ -15,9 +15,9 @@ public class Employee {
     private ArrayList<Holiday> holidays = new ArrayList<Holiday>();
     private Team team;
 
-    public Employee(String name, String secondName, String pesel, String email, String address, String phoneNumber, ArrayList<Holiday> holidays, Team team) {
+    public Employee(String name, String surname, String pesel, String email, String address, String phoneNumber, ArrayList<Holiday> holidays, Team team) {
         this.name = name;
-        this.secondName = secondName;
+        this.surname = surname;
         this.pesel = pesel;
         this.email = email;
         this.address = address;
