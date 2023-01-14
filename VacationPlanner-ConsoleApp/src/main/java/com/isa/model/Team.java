@@ -1,17 +1,50 @@
 package com.isa.model;
 
-import com.isa.model.Employee;
-
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Team {
     private String teamName;
-    private Employee[] employees = new Employee[5];
+   private Employee[] employees = new Employee[5];
 
-    public Team(String teamName, Employee[] employees) {
+    public void consoleTeamData() {
+        Team team = new Team();
+        team.setTeamName(teamName);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj nazwę zespołu");
+        teamName = scanner.nextLine();
+    }
+
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "teamName='" + teamName + '\'' +
+                ", employees=" + Arrays.toString(employees) +
+                '}';
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
         this.teamName = teamName;
+    }
+
+    public Employee[] getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Employee[] employees) {
         this.employees = employees;
+    }
+
+    public Team() {
+        this.teamName = teamName;
+     //   this.employees = employees;
     }
 
     @Override

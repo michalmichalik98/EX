@@ -1,7 +1,7 @@
 package com.isa.menu;
 
 import com.isa.model.Employee;
-
+import com.isa.model.Team;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Iterator;
@@ -36,6 +36,7 @@ public class MenuBehaviour {
                 Scanner scanner = new Scanner(System.in);
                 value = scanner.nextInt();
                 consoleEmpData(value);
+                consoleTeamsData(value);
                 if (getMenuItem(value) == null) {
                     throw new RuntimeException("Proszę podaj numer z zakresu przedstawionego w menu.");
                 } else {
@@ -68,6 +69,28 @@ public class MenuBehaviour {
                 Iterator<Employee> employeeIterator = employees.iterator();
                 while (employeeIterator.hasNext()) {
                     System.out.println(employeeIterator.next());
+                }
+            }
+        }
+    }
+
+    public void consoleTeamsData(int value) {
+        if (MenuList.ADD_TEAM.getPosition() == value) {
+            HashSet<Team> teams = new HashSet<>();
+            while (true) {
+                Team team = new Team();
+                team.consoleTeamData();
+                teams.add(team);
+                team.toString();
+                System.out.println("Dodać kolejny zespół? (y/n)");
+                Scanner scanner = new Scanner(System.in);
+                String response = scanner.nextLine();
+                if (response.equals("n")) {
+                    break;
+                }
+                Iterator<Team> teamIterator = teams.iterator();
+                while (teamIterator.hasNext()) {
+                    System.out.println(teamIterator.next());
                 }
             }
         }
