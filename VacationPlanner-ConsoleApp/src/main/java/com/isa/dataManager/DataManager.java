@@ -16,13 +16,15 @@ public class DataManager {
 
     public ArrayList<Employee> employeeList = new ArrayList<>();
 
-    public void addEmployee(Employee employee) {
 
+    public void addEmployee(Employee employee) {
+        employeeList = loadEmployeeList();
         if (employeeList.contains(employee)) {
             System.out.println("Pracownik już istnieje");
         } else {
             employeeList.add(employee);
-            saveEmployees();
+            saveEmployees(employeeList);
+
         }
     }
 
@@ -30,10 +32,10 @@ public class DataManager {
         employeeList.remove(employee);
     }
 
-    public void saveEmployees() {
+    public void saveEmployees(ArrayList<Employee> employees) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("VacationPlanner-ConsoleApp/src/main/java/com/isa/dataManager/Employees.txt"), employeeList);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/java/com/isa/dataManager/Employees.txt"), employeeList);
 
         } catch (JsonParseException e) {
             e.printStackTrace();
@@ -48,7 +50,7 @@ public class DataManager {
     public ArrayList<Employee> loadEmployeeList() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            return employeeList = objectMapper.readValue(Paths.get("VacationPlanner-ConsoleApp/src/main/java/com/isa/dataManager/Employees.txt").toFile(), ArrayList.class);
+            return employeeList = objectMapper.readValue(Paths.get("src/main/java/com/isa/dataManager/Employees.txt").toFile(), ArrayList.class);
 
         } catch (JsonParseException e) {
             e.printStackTrace();

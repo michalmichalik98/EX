@@ -1,5 +1,6 @@
 package com.isa.menu;
 
+import com.isa.dataManager.DataManager;
 import com.isa.model.Employee;
 import com.isa.model.Team;
 import java.util.HashSet;
@@ -54,21 +55,17 @@ public class MenuBehaviour {
 
     public void consoleEmpData(int value) {
         if (MenuList.ADD_EMPLOYEE.getPosition() == value) {
-            HashSet<Employee> employees = new HashSet<>();
             while (true) {
                 Employee employee = new Employee();
                 employee.consoleEmployeeData();
-                employees.add(employee);
                 employee.toString();
+                DataManager dataManager = new DataManager();
+                dataManager.addEmployee(employee);
                 System.out.println("Dodać kolejnego pracownika? (y/n)");
                 Scanner scanner = new Scanner(System.in);
                 String response = scanner.nextLine();
                 if (response.equals("n")) {
                     break;
-                }
-                Iterator<Employee> employeeIterator = employees.iterator();
-                while (employeeIterator.hasNext()) {
-                    System.out.println(employeeIterator.next());
                 }
             }
         }
