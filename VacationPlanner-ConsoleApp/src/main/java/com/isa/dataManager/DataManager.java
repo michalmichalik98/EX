@@ -2,6 +2,7 @@ package com.isa.dataManager;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.exc.StreamReadException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,8 +10,10 @@ import com.isa.model.Employee;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataManager {
 
@@ -18,12 +21,11 @@ public class DataManager {
 
 
     public void addEmployee(Employee employee) {
-        employeeList = loadEmployeeList();
         if (employeeList.contains(employee)) {
             System.out.println("Pracownik już istnieje");
         } else {
             employeeList.add(employee);
-            saveEmployees(employeeList);
+            saveEmployees();
 
         }
     }
@@ -32,7 +34,7 @@ public class DataManager {
         employeeList.remove(employee);
     }
 
-    public void saveEmployees(ArrayList<Employee> employees) {
+    public void saveEmployees() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/java/com/isa/dataManager/Employees.txt"), employeeList);
@@ -47,10 +49,12 @@ public class DataManager {
     }
 
 
-    public ArrayList<Employee> loadEmployeeList() {
+    public List<Employee> loadEmployeeList() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            return employeeList = objectMapper.readValue(Paths.get("src/main/java/com/isa/dataManager/Employees.txt").toFile(), ArrayList.class);
+            return employeeList = objectMapper.readValue(Paths.get("src/main/java/com/isa/dataManager/Employees.txt").toFile(), new TypeReference<ArrayList<Employee>>() {
+
+            });
 
         } catch (JsonParseException e) {
             e.printStackTrace();

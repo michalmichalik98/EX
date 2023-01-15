@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class MenuBehaviour {
+    DataManager dataManager = new DataManager();
 
     public static MenuList getMenuItem(int number) {
 
@@ -59,7 +60,6 @@ public class MenuBehaviour {
                 Employee employee = new Employee();
                 employee.consoleEmployeeData();
                 employee.toString();
-                DataManager dataManager = new DataManager();
                 dataManager.addEmployee(employee);
                 System.out.println("Dodać kolejnego pracownika? (y/n)");
                 Scanner scanner = new Scanner(System.in);

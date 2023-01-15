@@ -2,12 +2,12 @@ package com.isa.menu;
 
 public enum MenuList {
 
-    ADD_VACATION_DAY(1, "Dodaj dzień urlopowy."),
-    ADD_EMPLOYEE(2, "Dodaj Pracownika."),
-    REMOVE_EMPLOYEE(3, "Usuń Pracownika"),
-    ADD_TEAM(4, "Dodaj Zespół."),
-    REMOVE_TEAM(5, "Usuń Zespół."),
-    EXIT_PROGRAM(9, "Zakończ Działanie Programu.");
+    ADD_VACATION_DAY(1, "DODAJ DZIEŃ URLOPOWY."),
+    ADD_EMPLOYEE(2, "DODAJ PRACOWNIKA."),
+    REMOVE_EMPLOYEE(3, "USUŃ PRACOWNIKA"),
+    ADD_TEAM(4, "DODAJ ZESPÓŁ."),
+    REMOVE_TEAM(5, "USUŃ ZESPÓŁ."),
+    EXIT_PROGRAM(9, "ZAKOŃCZ DZIAŁANIE PROGRAMU.");
 
     private final int position;
     private final String description;
