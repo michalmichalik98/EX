@@ -25,7 +25,7 @@ public class MenuBehaviour {
     public void retrieveSelection() {
 
         int value = 0;
-        while (value != 9) {
+        while (value != 10) {
             printMenu();
             System.out.println("\nWybierz opcję za pomocą numeru: \n");
             try {
