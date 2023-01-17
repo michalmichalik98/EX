@@ -25,7 +25,7 @@ public class MenuBehaviour {
     public void retrieveSelection() {
 
         int value = 0;
-        while (value != 10) {
+        while (value != 11) {
             printMenu();
             System.out.println("\nWybierz opcję za pomocą numeru: \n");
             try {
@@ -51,43 +51,58 @@ public class MenuBehaviour {
 
         switch (value) {
             case 1:
-
+                CreateVacationDay createVacationDay = new CreateVacationDay();
+                createVacationDay.creat();
+                break;
             case 2:
-                CreateEmployee creat = new CreateEmployee();
-                creat.creatEmployee( );
+                CreateEmployee createEmployee = new CreateEmployee();
+                createEmployee.create();
+                break;
+
             case 3:
+                DeleteEmployee deleteEmployee = new DeleteEmployee();
+                deleteEmployee.delete();
+                break;
+
             case 4:
+                CreateTeam createTeam = new CreateTeam();
+                createTeam.creat();
+                break;
+
             case 5:
+                DeleteTeam deleteTeam = new DeleteTeam();
+                deleteTeam.delete();
+                break;
+
             case 6:
+                AddEmployeeToTeam addEmployeeToTeam = new AddEmployeeToTeam();
+                addEmployeeToTeam.add();
+                break;
+
             case 7:
+                DeleteEmployeeFromTeam deleteEmployeeFromTeam = new DeleteEmployeeFromTeam();
+                deleteEmployeeFromTeam.delete();
+                break;
+
             case 8:
+                SearchForEmployee searchForEmployee = new SearchForEmployee();
+                searchForEmployee.search();
+                break;
+
+            case 9:
+                PrintHolidayCalendar printHolidayCalendar = new PrintHolidayCalendar();
+                printHolidayCalendar.print();
+                break;
+
+            case 10:
+                PrintVacationForTeam printVacationForTeam = new PrintVacationForTeam();
+                printVacationForTeam.print();
+                break;
+
             default:
+                break;
+
         }
     }
-
-/*
-    public void consoleEmpData(int value) {
-        if (MenuList.ADD_EMPLOYEE.getPosition() == value) {
-            HashSet<Employee> employees = new HashSet<>();
-            while (true) {
-                Employee employee = new Employee();
-                employee.consoleEmployeeData();
-                employees.add(employee);
-                employee.toString();
-                System.out.println("Dodać kolejnego pracownika? (y/n)");
-                Scanner scanner = new Scanner(System.in);
-                String response = scanner.nextLine();
-                if (response.equals("n")) {
-                    break;
-                }
-                Iterator<Employee> employeeIterator = employees.iterator();
-                while (employeeIterator.hasNext()) {
-                    System.out.println(employeeIterator.next());
-                }
-            }
-        }
-    }
-    */
-
 }
 

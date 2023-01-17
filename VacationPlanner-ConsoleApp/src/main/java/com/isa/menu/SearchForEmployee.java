@@ -1,7 +1,7 @@
 package com.isa.menu;
 
-public class CreateEmployee {
-    public void create( ){
+public class SearchForEmployee {
+    public void search(){
         System.out.println("Maja do dzieła");
     }
 }
