@@ -7,6 +7,9 @@ public enum MenuList {
     REMOVE_EMPLOYEE(3, "USUŃ PRACOWNIKA"),
     ADD_TEAM(4, "DODAJ ZESPÓŁ."),
     REMOVE_TEAM(5, "USUŃ ZESPÓŁ."),
+    REMOVE_TEAM(6, "USUŃ ZESPÓŁ."),
+    REMOVE_TEAM(7, "USUŃ ZESPÓŁ."),
+    REMOVE_TEAM(8, "USUŃ ZESPÓŁ."),
     EXIT_PROGRAM(9, "ZAKOŃCZ DZIAŁANIE PROGRAMU.");
 
     private final int position;

@@ -1,15 +1,9 @@
 package com.isa.menu;
 
-import com.isa.dataManager.DataManager;
-import com.isa.model.Employee;
-import com.isa.model.Team;
-import java.util.HashSet;
 import java.util.InputMismatchException;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class MenuBehaviour {
-    DataManager dataManager = new DataManager();
 
     public static MenuList getMenuItem(int number) {
 
@@ -37,8 +31,7 @@ public class MenuBehaviour {
             try {
                 Scanner scanner = new Scanner(System.in);
                 value = scanner.nextInt();
-                consoleEmpData(value);
-                consoleTeamsData(value);
+                selectionAction(value);
                 if (getMenuItem(value) == null) {
                     throw new RuntimeException("Proszę podaj numer z zakresu przedstawionego w menu.");
                 } else {
@@ -54,43 +47,47 @@ public class MenuBehaviour {
         }
     }
 
+    public void selectionAction(int value) {
+
+        switch (value) {
+            case 1:
+
+            case 2:
+                CreateEmployee creat = new CreateEmployee();
+                creat.creatEmployee( );
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            default:
+        }
+    }
+
+/*
     public void consoleEmpData(int value) {
         if (MenuList.ADD_EMPLOYEE.getPosition() == value) {
+            HashSet<Employee> employees = new HashSet<>();
             while (true) {
                 Employee employee = new Employee();
                 employee.consoleEmployeeData();
+                employees.add(employee);
                 employee.toString();
-                dataManager.addEmployee(employee);
                 System.out.println("Dodać kolejnego pracownika? (y/n)");
                 Scanner scanner = new Scanner(System.in);
                 String response = scanner.nextLine();
                 if (response.equals("n")) {
                     break;
                 }
+                Iterator<Employee> employeeIterator = employees.iterator();
+                while (employeeIterator.hasNext()) {
+                    System.out.println(employeeIterator.next());
+                }
             }
         }
     }
+    */
 
-    public void consoleTeamsData(int value) {
-        if (MenuList.ADD_TEAM.getPosition() == value) {
-            HashSet<Team> teams = new HashSet<>();
-            while (true) {
-                Team team = new Team();
-                team.consoleTeamData();
-                teams.add(team);
-                team.toString();
-                System.out.println("Dodać kolejny zespół? (y/n)");
-                Scanner scanner = new Scanner(System.in);
-                String response = scanner.nextLine();
-                if (response.equals("n")) {
-                    break;
-                }
-                Iterator<Team> teamIterator = teams.iterator();
-                while (teamIterator.hasNext()) {
-                    System.out.println(teamIterator.next());
-                }
-            }
-        }
-    }
 }
 
