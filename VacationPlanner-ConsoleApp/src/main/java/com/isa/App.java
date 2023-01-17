@@ -1,11 +1,5 @@
 package com.isa;
-
-import com.isa.dataManager.DataManager;
 import com.isa.menu.MenuBehaviour;
-
-import com.isa.model.Employee;
-
-import java.util.ArrayList;
 
 public class App
 {

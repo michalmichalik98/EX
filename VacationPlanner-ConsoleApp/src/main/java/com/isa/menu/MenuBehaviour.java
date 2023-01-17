@@ -1,15 +1,9 @@
 package com.isa.menu;
 
-import com.isa.dataManager.DataManager;
-import com.isa.model.Employee;
-import com.isa.model.Team;
-import java.util.HashSet;
 import java.util.InputMismatchException;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class MenuBehaviour {
-    DataManager dataManager = new DataManager();
 
     public static MenuList getMenuItem(int number) {
 
@@ -31,14 +25,13 @@ public class MenuBehaviour {
     public void retrieveSelection() {
 
         int value = 0;
-        while (value != 9) {
+        while (value != 11) {
             printMenu();
             System.out.println("\nWybierz opcję za pomocą numeru: \n");
             try {
                 Scanner scanner = new Scanner(System.in);
                 value = scanner.nextInt();
-                consoleEmpData(value);
-                consoleTeamsData(value);
+                selectionAction(value);
                 if (getMenuItem(value) == null) {
                     throw new RuntimeException("Proszę podaj numer z zakresu przedstawionego w menu.");
                 } else {
@@ -54,42 +47,61 @@ public class MenuBehaviour {
         }
     }
 
-    public void consoleEmpData(int value) {
-        if (MenuList.ADD_EMPLOYEE.getPosition() == value) {
-            while (true) {
-                Employee employee = new Employee();
-                employee.consoleEmployeeData();
-                employee.toString();
-                dataManager.addEmployee(employee);
-                System.out.println("Dodać kolejnego pracownika? (y/n)");
-                Scanner scanner = new Scanner(System.in);
-                String response = scanner.nextLine();
-                if (response.equals("n")) {
-                    break;
-                }
-            }
-        }
-    }
+    public void selectionAction(int value) {
 
-    public void consoleTeamsData(int value) {
-        if (MenuList.ADD_TEAM.getPosition() == value) {
-            HashSet<Team> teams = new HashSet<>();
-            while (true) {
-                Team team = new Team();
-                team.consoleTeamData();
-                teams.add(team);
-                team.toString();
-                System.out.println("Dodać kolejny zespół? (y/n)");
-                Scanner scanner = new Scanner(System.in);
-                String response = scanner.nextLine();
-                if (response.equals("n")) {
-                    break;
-                }
-                Iterator<Team> teamIterator = teams.iterator();
-                while (teamIterator.hasNext()) {
-                    System.out.println(teamIterator.next());
-                }
-            }
+        switch (value) {
+            case 1:
+                CreateVacationDay createVacationDay = new CreateVacationDay();
+                createVacationDay.creat();
+                break;
+            case 2:
+                CreateEmployee createEmployee = new CreateEmployee();
+                createEmployee.create();
+                break;
+
+            case 3:
+                DeleteEmployee deleteEmployee = new DeleteEmployee();
+                deleteEmployee.delete();
+                break;
+
+            case 4:
+                CreateTeam createTeam = new CreateTeam();
+                createTeam.creat();
+                break;
+
+            case 5:
+                DeleteTeam deleteTeam = new DeleteTeam();
+                deleteTeam.delete();
+                break;
+
+            case 6:
+                AddEmployeeToTeam addEmployeeToTeam = new AddEmployeeToTeam();
+                addEmployeeToTeam.add();
+                break;
+
+            case 7:
+                DeleteEmployeeFromTeam deleteEmployeeFromTeam = new DeleteEmployeeFromTeam();
+                deleteEmployeeFromTeam.delete();
+                break;
+
+            case 8:
+                SearchForEmployee searchForEmployee = new SearchForEmployee();
+                searchForEmployee.search();
+                break;
+
+            case 9:
+                PrintHolidayCalendar printHolidayCalendar = new PrintHolidayCalendar();
+                printHolidayCalendar.print();
+                break;
+
+            case 10:
+                PrintVacationForTeam printVacationForTeam = new PrintVacationForTeam();
+                printVacationForTeam.print();
+                break;
+
+            default:
+                break;
+
         }
     }
 }
