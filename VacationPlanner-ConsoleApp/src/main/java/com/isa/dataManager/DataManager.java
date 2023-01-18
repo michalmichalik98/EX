@@ -21,9 +21,9 @@ public class DataManager {
   public static ArrayList<Team> teamList = new ArrayList<>();
   public static ArrayList<Vacation> vacationList = new ArrayList<>();
 
-    private static final Path pathForEmployeeDataFile = Paths.get("VacationPlanner-ConsoleApp", "src", "main", "resources", "Employee.json");
-    private static final Path pathForTeamDataFile = Paths.get("VacationPlanner-ConsoleApp", "src", "main", "resources", "Team.json");
-    private static final Path pathForVacationDataFile = Paths.get("VacationPlanner-ConsoleApp", "src", "main", "resources", "Vacation.json");
+    private static final Path pathForEmployeeDataFile = Paths.get( "src", "main", "resources", "Employee.json");
+    private static final Path pathForTeamDataFile = Paths.get("src", "main", "resources", "Team.json");
+    private static final Path pathForVacationDataFile = Paths.get("src", "main", "resources", "Vacation.json");
 
 
     public static List<Employee> getEmployeeList() {
