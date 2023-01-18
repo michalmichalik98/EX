@@ -23,10 +23,8 @@ public class PrintVacationForTeam {
         Employee employee3 = new Employee();
         Employee employee4 = new Employee();
 
-
         team1.setTeamName("luzblue1");
         team2.setTeamName("luzblue2");
-
 
         DataManager.addTeam(team1);
         DataManager.addTeam(team2);

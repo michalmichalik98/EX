@@ -39,7 +39,6 @@ public class DataManager {
         } else {
             employeeList.add(employee);
             saveEmployees();
-            System.out.println("eureka");
             return true;
         }
     }
