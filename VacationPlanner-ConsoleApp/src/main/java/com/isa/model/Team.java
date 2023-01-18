@@ -21,14 +21,6 @@ public class Team {
     }
 
 
-    @Override
-    public String toString() {
-        return "Team{" +
-                "teamName='" + teamName + '\'' +
-                ", employees=" + Arrays.toString(employees) +
-                '}';
-    }
-
     public String getTeamName() {
         return teamName;
     }
@@ -40,10 +32,10 @@ public class Team {
     public Employee[] getEmployees() {
         return employees;
     }
+
     public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
-
     public Integer getEmployeeId() {
         return employeeId;
     }
@@ -55,6 +47,14 @@ public class Team {
     public Team() {
         this.teamName = teamName;
         this.employees = employees;
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "teamName='" + teamName + '\'' +
+                ", employees=" + Arrays.toString(employees) +
+                '}';
     }
 
     @Override

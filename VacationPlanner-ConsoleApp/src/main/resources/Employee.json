@@ -1,33 +1,109 @@
 [ {
-  "name" : "Michał",
-  "surname" : "Michalik",
-  "pesel" : "12345678910",
-  "email" : "sd",
-  "address" : "dsfsf",
-  "phoneNumber" : "123445789",
-  "holidays" : [ ]
+  "name" : "Patryk",
+  "surname" : "Gwardzik",
+  "pesel" : "870627865",
+  "email" : "malyfiat@wp.pl",
+  "address" : "Szkolna 3/6",
+  "phoneNumber" : "678543789",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
 }, {
-  "name" : "patryk",
-  "surname" : "sdf",
-  "pesel" : "10987654321",
-  "email" : "hjhgj",
-  "address" : "mom",
-  "phoneNumber" : "123456789",
-  "holidays" : [ ]
+  "name" : "Tomek",
+  "surname" : "Kopytko",
+  "pesel" : "98759807654",
+  "email" : "kopytko@wp.pl",
+  "address" : "Nastajni 5b/8",
+  "phoneNumber" : "678564568",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
 }, {
-  "name" : "dfh",
-  "surname" : "ghj",
-  "pesel" : "12345678910",
-  "email" : "gjk",
-  "address" : "kgh",
-  "phoneNumber" : "123456789",
-  "holidays" : [ ]
+  "name" : "Malina",
+  "surname" : "Tokarczyk",
+  "pesel" : "6785435678",
+  "email" : "tokarczyk@gmail.com",
+  "address" : "długa 3/4",
+  "phoneNumber" : "765834670",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
 }, {
-  "name" : "jhty",
-  "surname" : "rthr",
-  "pesel" : "12345678910",
-  "email" : "et",
-  "address" : "rtg",
-  "phoneNumber" : "123456789",
-  "holidays" : [ ]
+  "name" : "Antonina",
+  "surname" : "Kowalczyk",
+  "pesel" : "9345674523",
+  "email" : "dlugiechude@interia.pl",
+  "address" : "Długie 3/2",
+  "phoneNumber" : "978654875",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
+}, {
+  "name" : "Grzegorz",
+  "surname" : "Chmurzyński",
+  "pesel" : "87457354278",
+  "email" : "chmurzynski@wp.pl",
+  "address" : "Cienista",
+  "phoneNumber" : "674532643",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
+}, {
+  "name" : "Natalia",
+  "surname" : "Chojnacka",
+  "pesel" : "8897435654",
+  "email" : "porannasowa@gmail.com",
+  "address" : "Poranna 5",
+  "phoneNumber" : "65476865",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
+}, {
+  "name" : "Jan",
+  "surname" : "Gwardzikowy",
+  "pesel" : "870624865",
+  "email" : "malyfdsiat@wp.pl",
+  "address" : "Szkolniacka 3/6",
+  "phoneNumber" : "678529789",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
+}, {
+  "name" : "Roman",
+  "surname" : "Jakob",
+  "pesel" : "98736807654",
+  "email" : "kopytkowo@wp.pl",
+  "address" : "Czarna 5b/8",
+  "phoneNumber" : "678784568",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
+}, {
+  "name" : "Karolina",
+  "surname" : "Bojada",
+  "pesel" : "6785437568",
+  "email" : "tokarczyk4@gmail.com",
+  "address" : "Ważna 8/4",
+  "phoneNumber" : "762334670",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
+}, {
+  "name" : "Aleksandra",
+  "surname" : "Malecka",
+  "pesel" : "6745674523",
+  "email" : "dlugiechudewazne@interia.pl",
+  "address" : "Okrągła 3/2",
+  "phoneNumber" : "678654875",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
+}, {
+  "name" : "Małorycy",
+  "surname" : "Hola",
+  "pesel" : "87452354278",
+  "email" : "ynski@wp.pl",
+  "address" : "Cientrista 11",
+  "phoneNumber" : "674573643",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
+}, {
+  "name" : "Katarzyna",
+  "surname" : "Pawłowska",
+  "pesel" : "8797875654",
+  "email" : "znannasowa@gmail.com",
+  "address" : "Nastoku 5",
+  "phoneNumber" : "653476865",
+  "assignedTeam" : "UnAssignedTeam",
+  "eployeeId" : null
 } ]

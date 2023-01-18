@@ -25,10 +25,10 @@ public class DataManager {
     private static final Path pathForTeamDataFile = Paths.get("src", "main", "resources", "Team.json");
     private static final Path pathForVacationDataFile = Paths.get("src", "main", "resources", "Vacation.json");
 
-
-    public static List<Employee> getEmployeeList() {
+    public static void loadAllDataFromFile(){
         loadEmployeeFromFile();
-        return employeeList;
+        loadVacationFromFile();
+        loadTeamFromFile();
     }
 
     public static boolean addEmployee(Employee employee) {
@@ -43,16 +43,6 @@ public class DataManager {
             return true;
         }
     }
-
-    public static void deleteAllEmployeeDataFromFile() {
-        try {
-            Files.deleteIfExists(pathForEmployeeDataFile);
-            Files.createFile(pathForEmployeeDataFile);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
     public static void saveEmployees() {
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -69,7 +59,6 @@ public class DataManager {
             e.printStackTrace();
         }
     }
-
     public static void loadEmployeeFromFile() {
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -84,6 +73,18 @@ public class DataManager {
             System.out.println("Brak danych do załadowania");
         }
 
+    }
+    public static List<Employee> getEmployeeList() {
+        loadEmployeeFromFile();
+        return employeeList;
+    }
+    public static void deleteAllEmployeeDataFromFile() {
+        try {
+            Files.deleteIfExists(pathForEmployeeDataFile);
+            Files.createFile(pathForEmployeeDataFile);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -112,7 +113,6 @@ public class DataManager {
             e.printStackTrace();
         }
     }
-
     public static void loadTeamFromFile() {
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -127,6 +127,10 @@ public class DataManager {
             System.out.println("Brak danych do załadowania");
         }
 
+    }
+    public static List<Team> getTeamList() {
+        loadTeamFromFile();
+        return teamList;
     }
     public static void deleteAllTeamsFromFile() {
         try {
@@ -162,7 +166,6 @@ public class DataManager {
             e.printStackTrace();
         }
     }
-
     public static void loadVacationFromFile() {
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -178,6 +181,10 @@ public class DataManager {
         }
 
     }
+    public static List<Vacation> getVacationList() {
+        loadVacationFromFile();
+        return vacationList;
+    }
     public static void deleteAllVacationFromFile(){
         try {
             Files.deleteIfExists(pathForVacationDataFile);
@@ -186,5 +193,6 @@ public class DataManager {
             e.printStackTrace();
         }
     }
+
 
 }
