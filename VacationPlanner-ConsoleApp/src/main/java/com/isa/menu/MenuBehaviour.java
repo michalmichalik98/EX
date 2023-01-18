@@ -56,7 +56,7 @@ public class MenuBehaviour {
                 break;
             case 2:
                 CreateEmployee createEmployee = new CreateEmployee();
-                createEmployee.create();
+                createEmployee.consoleEmployeeData();
                 break;
 
             case 3:
