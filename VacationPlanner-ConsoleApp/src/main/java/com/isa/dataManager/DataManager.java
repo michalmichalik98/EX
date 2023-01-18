@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isa.model.Employee;
+import com.isa.model.Team;
+import com.isa.model.Vacation;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,6 +18,9 @@ import java.util.List;
 public class DataManager {
 
   public static ArrayList<Employee> employeeList = new ArrayList<>();
+  public static ArrayList<Team> teamList = new ArrayList<>();
+  public static ArrayList<Vacation> vacationList = new ArrayList<>();
+
     private static final Path pathForEmployeeDataFile = Paths.get("VacationPlanner-ConsoleApp", "src", "main", "resources", "Employee.json");
     private static final Path pathForTeamDataFile = Paths.get("VacationPlanner-ConsoleApp", "src", "main", "resources", "Team.json");
     private static final Path pathForVacationDataFile = Paths.get("VacationPlanner-ConsoleApp", "src", "main", "resources", "Vacation.json");
@@ -37,10 +42,6 @@ public class DataManager {
             System.out.println("eureka");
             return true;
         }
-    }
-
-    public static void deleteEmployee(){
-
     }
 
     public static void deleteAllEmployeeDataFromFile() {
@@ -72,10 +73,9 @@ public class DataManager {
     public static void loadEmployeeFromFile() {
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Path path = Paths.get("VacationPlanner-ConsoleApp", "src", "main", "resources", "Employee.json");
 
         try {
-            String employeeObjectAsStrings = Files.readString(path);
+            String employeeObjectAsStrings = Files.readString(pathForEmployeeDataFile);
             employeeList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {
             });
         } catch (JsonParseException e) {
@@ -86,5 +86,106 @@ public class DataManager {
 
     }
 
+
+    public static boolean addTeam(Team team){
+        if(teamList.contains(team)){
+            System.out.println("Taka drużyna już istnieje");
+            return false;
+            }else{
+            teamList.add(team);
+            saveTeam();
+            return true;
+        }
+    }
+    public static void saveTeam() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String teamJson = objectMapper
+                    .writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(teamList);
+
+            Files.write(pathForTeamDataFile, teamJson.getBytes());
+
+        } catch (JsonParseException | JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadTeamFromFile() {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            String employeeObjectAsStrings = Files.readString(pathForTeamDataFile);
+            teamList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {
+            });
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Brak danych do załadowania");
+        }
+
+    }
+    public static void deleteAllTeamsFromFile() {
+        try {
+            Files.deleteIfExists(pathForTeamDataFile);
+            Files.createFile(pathForTeamDataFile);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    public static boolean addVacation(Vacation vacation){
+        if(vacationList.contains(vacation)){
+            System.out.println("Taka drużyna już istnieje");
+            return false;
+        }else{
+            vacationList.add(vacation);
+            saveVacation();
+            return true;
+        }
+    }
+    public static void saveVacation() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String teamJson = objectMapper
+                    .writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(vacationList);
+
+            Files.write(pathForVacationDataFile, teamJson.getBytes());
+
+        } catch (JsonParseException | JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadVacationFromFile() {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            String employeeObjectAsStrings = Files.readString(pathForVacationDataFile);
+            vacationList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {
+            });
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Brak danych do załadowania");
+        }
+
+    }
+    public static void deleteAllVacationFromFile(){
+        try {
+            Files.deleteIfExists(pathForVacationDataFile);
+            Files.createFile(pathForVacationDataFile);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
 }
