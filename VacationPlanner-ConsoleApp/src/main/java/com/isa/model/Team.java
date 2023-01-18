@@ -7,7 +7,10 @@ import java.util.Scanner;
 
 public class Team {
     private String teamName;
+    private Integer employeeId;
    private Employee[] employees = new Employee[5];
+
+
 
     public void consoleTeamData() {
         Team team = new Team();
@@ -36,6 +39,13 @@ public class Team {
 
     public Employee[] getEmployees() {
         return employees;
+    }
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public Integer getEmployeeId() {
+        return employeeId;
     }
 
     public void setEmployees(Employee[] employees) {

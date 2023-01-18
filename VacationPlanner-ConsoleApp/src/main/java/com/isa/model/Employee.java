@@ -12,6 +12,12 @@ public class Employee {
     private String email;
     private String address;
     private String phoneNumber;
+    private Integer eployeeId;
+
+
+
+    private ArrayList<Integer> vacationId;
+
     private ArrayList<Holiday> holidays = new ArrayList<Holiday>();
     private Team team;
 
@@ -67,6 +73,9 @@ public class Employee {
         this.name = name;
     }
 
+    public void setVacationId(Integer vacationId) {
+        this.vacationId.add(vacationId);
+    }
 
     public String getPesel() {
         return pesel;
@@ -90,6 +99,13 @@ public class Employee {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public void setEployeeId(Integer eployeeId) {
+        this.eployeeId = eployeeId;
+    }
+
+    public Integer getEployeeId() {
+        return eployeeId;
     }
 
     public String getPhoneNumber() {

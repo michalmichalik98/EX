@@ -1,0 +1,33 @@
+[ {
+  "name" : "Michał",
+  "surname" : "Michalik",
+  "pesel" : "12345678910",
+  "email" : "sd",
+  "address" : "dsfsf",
+  "phoneNumber" : "123445789",
+  "holidays" : [ ]
+}, {
+  "name" : "patryk",
+  "surname" : "sdf",
+  "pesel" : "10987654321",
+  "email" : "hjhgj",
+  "address" : "mom",
+  "phoneNumber" : "123456789",
+  "holidays" : [ ]
+}, {
+  "name" : "dfh",
+  "surname" : "ghj",
+  "pesel" : "12345678910",
+  "email" : "gjk",
+  "address" : "kgh",
+  "phoneNumber" : "123456789",
+  "holidays" : [ ]
+}, {
+  "name" : "jhty",
+  "surname" : "rthr",
+  "pesel" : "12345678910",
+  "email" : "et",
+  "address" : "rtg",
+  "phoneNumber" : "123456789",
+  "holidays" : [ ]
+} ]
