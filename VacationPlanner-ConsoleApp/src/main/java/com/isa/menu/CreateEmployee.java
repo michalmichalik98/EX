@@ -18,18 +18,17 @@ public class CreateEmployee {
             employee.setEmail(dataInput("Podaj Email Pracownika"));
             employee.setPhoneNumber(dataInput("Podaj numer telefonu pracownika"));
 
-            DataManager dataManager = new DataManager();
-            dataManager.addEmployee(employee);
+           DataManager dataManager = new DataManager();
+           dataManager.addEmployee(employee);
 
-            System.out.println("Dodać kolejnego pracownika? (y/n)");
-
-            String response = dataInput("Dodać kolejnego pracownika? (y/n)");
-
+            String response=  dataInput("Dodać kolejnego pracownika? (y/n)");
+            System.out.println(response);
             if (response.equals("n")) {
                 break;
             }
         }
     }
+
     public String dataInput(String question) {
         Scanner scanner = new Scanner(System.in);
         String input;
