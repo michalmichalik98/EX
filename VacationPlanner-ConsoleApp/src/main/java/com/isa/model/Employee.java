@@ -12,57 +12,20 @@ public class Employee {
     private String email;
     private String address;
     private String phoneNumber;
+    private String assignedTeam;
     private Integer eployeeId;
-
-
-
     private ArrayList<Integer> vacationId;
 
-    private ArrayList<Holiday> holidays = new ArrayList<Holiday>();
-    private Team team;
-
-    public Employee(String name, String surname, String pesel, String email, String address, String phoneNumber, ArrayList<Holiday> holidays, Team team) {
-        this.name = name;
-        this.surname = surname;
-        this.pesel = pesel;
-        this.email = email;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.holidays = holidays;
-        this.team = team;
-    }
-
-    public void addHoliday(Holiday holiday) {
-        holidays.add(holiday);
-    }
-
-    public void removeHoliday(Holiday holiday) {
-        holidays.remove(holiday);
-    }
-
-    public ArrayList<Holiday> getHolidays() {
-        return holidays;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", secondName='" + surname + '\'' +
-                ", pesel='" + pesel + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
-    }
-
-    public Employee(String name, String surname, String pesel) {
-        this.name = name;
-        this.surname = surname;
-        this.pesel = pesel;
-    }
     public Employee(){
+        assignedTeam = "UnAssignedTeam";
+    }
 
+    public String getAssignedTeam() {
+        return assignedTeam;
+    }
+
+    public void setAssignedTeam(String assignedTeam) {
+        this.assignedTeam = assignedTeam;
     }
 
     public String getName() {
@@ -100,10 +63,10 @@ public class Employee {
     public void setAddress(String address) {
         this.address = address;
     }
+
     public void setEployeeId(Integer eployeeId) {
         this.eployeeId = eployeeId;
     }
-
     public Integer getEployeeId() {
         return eployeeId;
     }
@@ -111,8 +74,6 @@ public class Employee {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
-
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -137,6 +98,18 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(name, surname, pesel, email, address, phoneNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", secondName='" + surname + '\'' +
+                ", pesel='" + pesel + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }
 
