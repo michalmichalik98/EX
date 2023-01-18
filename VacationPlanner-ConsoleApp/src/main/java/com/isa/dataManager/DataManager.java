@@ -10,7 +10,6 @@ import com.isa.model.Employee;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +18,16 @@ public class DataManager {
 
     public ArrayList<Employee> employeeList = new ArrayList<>();
 
+    public boolean addEmployee(Employee employee) {
+        loadEmployeeList();
 
-    public void addEmployee(Employee employee) {
         if (employeeList.contains(employee)) {
             System.out.println("Pracownik już istnieje");
+            return false;
         } else {
             employeeList.add(employee);
             saveEmployees();
-
+            return true;
         }
     }
 
@@ -35,6 +36,7 @@ public class DataManager {
     }
 
     public void saveEmployees() {
+
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/java/com/isa/dataManager/Employees.txt"), employeeList);

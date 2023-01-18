@@ -55,6 +55,9 @@ public class Employee {
         this.surname = surname;
         this.pesel = pesel;
     }
+    public Employee(){
+
+    }
 
     public String getName() {
         return name;
