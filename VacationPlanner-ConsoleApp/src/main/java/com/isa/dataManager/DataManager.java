@@ -137,7 +137,6 @@ public class DataManager {
         }
     }
 
-
     public static boolean addVacation(Vacation vacation){
         if(vacationList.contains(vacation)){
             System.out.println("Taka drużyna już istnieje");
