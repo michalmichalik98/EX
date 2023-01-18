@@ -18,8 +18,7 @@ public class CreateEmployee {
             employee.setEmail(dataInput("Podaj Email Pracownika"));
             employee.setPhoneNumber(dataInput("Podaj numer telefonu pracownika"));
 
-           DataManager dataManager = new DataManager();
-           dataManager.addEmployee(employee);
+           DataManager.addEmployee(employee);
 
             String response=  dataInput("Dodać kolejnego pracownika? (y/n)");
             System.out.println(response);

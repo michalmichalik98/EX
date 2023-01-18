@@ -19,9 +19,14 @@ import java.util.List;
 
 public class DataManager {
 
-    public ArrayList<Employee> employeeList = new ArrayList<>();
+    public static ArrayList<Employee> employeeList = new ArrayList<>();
 
-    public boolean addEmployee(Employee employee) {
+    public static List<Employee> getEmployeeList() {
+        loadEmployeeFromFile();
+        return employeeList;
+    }
+
+    public static boolean addEmployee(Employee employee) {
 
         if (employeeList.contains(employee)) {
             System.out.println("Pracownik już istnieje");
@@ -34,20 +39,20 @@ public class DataManager {
         }
     }
 
-    public void deleteEmployee(Employee employee) {
+    public static void deleteEmployee(Employee employee) {
         employeeList.remove(employee);
     }
 
-    public void saveEmployees() {
+    public static void saveEmployees() {
         ObjectMapper objectMapper = new ObjectMapper();
-        Path path = Paths.get("VacationPlanner-ConsoleApp","src", "main", "resources", "Employee.json");
+        Path path = Paths.get("VacationPlanner-ConsoleApp", "src", "main", "resources", "Employee.json");
 
         try {
             String employeeJson = objectMapper
                     .writerWithDefaultPrettyPrinter()
                     .writeValueAsString(employeeList);
 
-            Files.write(path,employeeJson.getBytes());
+            Files.write(path, employeeJson.getBytes());
 
         } catch (JsonParseException | JsonMappingException e) {
             e.printStackTrace();
@@ -55,23 +60,22 @@ public class DataManager {
             e.printStackTrace();
         }
     }
-    public List<Employee> loadEmployeeList() {
+
+    public static void loadEmployeeFromFile() {
+
         ObjectMapper objectMapper = new ObjectMapper();
+        Path path = Paths.get("VacationPlanner-ConsoleApp", "src", "main", "resources", "Employee.json");
+
         try {
-            return employeeList = objectMapper.readValue(Paths.get("src/main/java/com/isa/dataManager/Employees.txt").toFile(), new TypeReference<ArrayList<Employee>>() {
-
+            String employeeObjectAsStrings = Files.readString(path);
+            employeeList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {
             });
-
         } catch (JsonParseException e) {
             e.printStackTrace();
-        } catch (StreamReadException e) {
-            throw new RuntimeException(e);
-        } catch (DatabindException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Brak danych do załadowania");
         }
-        return null;
+
     }
 
 
