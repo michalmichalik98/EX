@@ -1,13 +1,4 @@
 [ {
-  "name" : "Gaja",
-  "surname" : "Lika",
-  "pesel" : "870627345",
-  "email" : "koło@fortuny",
-  "address" : "Szkolna 3/6",
-  "phoneNumber" : "3243342423",
-  "team" : "Czarna Mamba",
-  "employeeId" : null
-}, {
   "name" : "Bartosz",
   "surname" : "Król",
   "pesel" : "870627345",
