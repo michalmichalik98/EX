@@ -19,13 +19,8 @@ public class AddEmployeeToTeam {
             printUnassignedEmployees();
             System.out.print("Podaj numer pracownika: ");
             setUnassignedPositionsMap();
-            System.out.println(unassignedPositionsMap);
-
             int selectin = selectEmployee();
-            System.out.println("To wybrałes" + selectin);
-
             int employeeSelected = unassignedPositionsMap.get(selectin);
-            System.out.println("taki value dostałes od klucza" + employeeSelected);
             System.out.println("\nDostępne zespoły");
             printAllTeams();
             System.out.print("Wybież numer zestołu do którego przypisać pracownika: ");
@@ -38,15 +33,15 @@ public class AddEmployeeToTeam {
                     DataManager.employeeList.get(employeeSelected).getName() + " " +
                     DataManager.employeeList.get(employeeSelected).getSurname() + " został dodany do zespołu " +
                     DataManager.employeeList.get(employeeSelected).getTeam());
-            //exit = employeeSelected;
+            exit = employeeSelected;
         }
     }
 
     private int selectEmployee() {
-        int employeeSelected = userInput()-1;
+        int employeeSelected = userInput();
         System.out.println("Wybrałeś: "
-                + DataManager.employeeList.get(employeeSelected).getName() + " "
-                + DataManager.employeeList.get(employeeSelected).getSurname());
+                + DataManager.employeeList.get(unassignedPositionsMap.get(employeeSelected)).getName() + " "
+                + DataManager.employeeList.get(unassignedPositionsMap.get(employeeSelected)).getSurname());
         return employeeSelected;
     }
 
