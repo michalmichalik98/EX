@@ -11,7 +11,7 @@ public class DeleteTeam {
         int exit = 1;
         DataManager.loadTeamFromFile();
         while (exit != 0) {
-            System.out.println("Podaj numer zespołu który chcesz usunąć:");
+            System.out.println("Podaj numer zespoł który chcesz usunąć:");
             printAllTeams();
             int selection = userInput();
             cleanTeamFromEmployee(DataManager.teamList.get(selection).getTeamName());
