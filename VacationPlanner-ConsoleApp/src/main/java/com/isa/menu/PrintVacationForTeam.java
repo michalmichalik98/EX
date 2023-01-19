@@ -6,7 +6,6 @@ import com.isa.model.Team;
 import com.isa.model.Vacation;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PrintVacationForTeam {
     public void print() {
@@ -36,13 +35,12 @@ public class PrintVacationForTeam {
         DataManager.loadEmployeeFromFile();
         employee = DataManager.employeeList;
 
-        team1.setEmployeeId(1);
-        team2.setEmployeeId(2);
 
-        employee1.setEployeeId(1);
-        employee2.setEployeeId(1);
-        employee3.setEployeeId(2);
-        employee4.setEployeeId(2);
+
+        employee1.setEmployeeId(1);
+        employee2.setEmployeeId(1);
+        employee3.setEmployeeId(2);
+        employee4.setEmployeeId(2);
 
         Vacation vacation1 = new Vacation();
         Vacation vacation2 = new Vacation();
@@ -71,16 +69,7 @@ public class PrintVacationForTeam {
         employee4.setVacationId(7);
         employee4.setVacationId(8);
 
-        if(team1.getEmployeeId().equals(employee.get(0).getEployeeId())){
-
         }
-
-
-        System.out.println(employee);
-
-
-    }
-
 
 }
 

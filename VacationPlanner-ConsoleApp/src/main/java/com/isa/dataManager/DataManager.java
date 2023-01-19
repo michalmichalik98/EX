@@ -17,19 +17,27 @@ import java.util.List;
 
 public class DataManager {
 
-  public static ArrayList<Employee> employeeList = new ArrayList<>();
-  public static ArrayList<Team> teamList = new ArrayList<>();
-  public static ArrayList<Vacation> vacationList = new ArrayList<>();
+    public static ArrayList<Employee> employeeList = new ArrayList<>();
+    public static ArrayList<Team> teamList = new ArrayList<>();
+    public static ArrayList<Vacation> vacationList = new ArrayList<>();
 
-    private static final Path pathForEmployeeDataFile = Paths.get( "src", "main", "resources", "Employee.json");
+
+    private static final Path pathForEmployeeDataFile = Paths.get("src", "main", "resources", "Employee.json");
     private static final Path pathForTeamDataFile = Paths.get("src", "main", "resources", "Team.json");
     private static final Path pathForVacationDataFile = Paths.get("src", "main", "resources", "Vacation.json");
 
-    public static void loadAllDataFromFile(){
+
+    public static void loadAllDataFromFile() {
         loadEmployeeFromFile();
         loadVacationFromFile();
         loadTeamFromFile();
     }
+    public static void saveAllDataToFile() {
+        saveEmployeesToFIle();
+        saveTeamToFile();
+        saveVacationToFile();
+    }
+
 
     public static boolean addEmployee(Employee employee) {
 
@@ -38,11 +46,11 @@ public class DataManager {
             return false;
         } else {
             employeeList.add(employee);
-            saveEmployees();
+            saveEmployeesToFIle();
             return true;
         }
     }
-    public static void saveEmployees() {
+    public static void saveEmployeesToFIle() {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
@@ -64,8 +72,7 @@ public class DataManager {
 
         try {
             String employeeObjectAsStrings = Files.readString(pathForEmployeeDataFile);
-            employeeList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {
-            });
+            employeeList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {});
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -81,23 +88,23 @@ public class DataManager {
         try {
             Files.deleteIfExists(pathForEmployeeDataFile);
             Files.createFile(pathForEmployeeDataFile);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-    public static boolean addTeam(Team team){
-        if(teamList.contains(team)){
+    public static boolean addTeam(Team team) {
+        if (teamList.contains(team)) {
             System.out.println("Taka drużyna już istnieje");
             return false;
-            }else{
+        } else {
             teamList.add(team);
-            saveTeam();
+            saveTeamToFile();
             return true;
         }
     }
-    public static void saveTeam() {
+    public static void saveTeamToFile() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String teamJson = objectMapper
@@ -135,22 +142,23 @@ public class DataManager {
         try {
             Files.deleteIfExists(pathForTeamDataFile);
             Files.createFile(pathForTeamDataFile);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static boolean addVacation(Vacation vacation){
-        if(vacationList.contains(vacation)){
+
+    public static boolean addVacation(Vacation vacation) {
+        if (vacationList.contains(vacation)) {
             System.out.println("Taka drużyna już istnieje");
             return false;
-        }else{
+        } else {
             vacationList.add(vacation);
-            saveVacation();
+            saveVacationToFile();
             return true;
         }
     }
-    public static void saveVacation() {
+    public static void saveVacationToFile() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String teamJson = objectMapper
@@ -184,11 +192,11 @@ public class DataManager {
         loadVacationFromFile();
         return vacationList;
     }
-    public static void deleteAllVacationFromFile(){
+    public static void deleteAllVacationFromFile() {
         try {
             Files.deleteIfExists(pathForVacationDataFile);
             Files.createFile(pathForVacationDataFile);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

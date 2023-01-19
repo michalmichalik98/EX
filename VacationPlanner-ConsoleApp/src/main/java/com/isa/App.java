@@ -11,5 +11,8 @@ public class App
         System.out.println( "*Luz_Blue Team*" + "\n" + "Hello!" + "\n" + "Welcome to the VacationPlanner\n" );
         MenuBehaviour menu = new MenuBehaviour();
         menu.retrieveSelection();
+
+        DataManager.saveAllDataToFile();
+
     }
 }

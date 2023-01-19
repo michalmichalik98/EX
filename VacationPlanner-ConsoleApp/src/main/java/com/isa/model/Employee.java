@@ -2,7 +2,6 @@ package com.isa.model;
 
 import java.util.ArrayList;
 
-import java.util.Scanner;
 import java.util.Objects;
 
 public class Employee {
@@ -12,20 +11,20 @@ public class Employee {
     private String email;
     private String address;
     private String phoneNumber;
-    private String assignedTeam;
+    private String team;
     private Integer eployeeId;
     private ArrayList<Integer> vacationId;
 
     public Employee(){
-        assignedTeam = "UnAssignedTeam";
+        team = "UnAssignedTeam";
     }
 
-    public String getAssignedTeam() {
-        return assignedTeam;
+    public String getTeam() {
+        return team;
     }
 
-    public void setAssignedTeam(String assignedTeam) {
-        this.assignedTeam = assignedTeam;
+    public void setTeam(String team) {
+        this.team = team;
     }
 
     public String getName() {
@@ -64,10 +63,10 @@ public class Employee {
         this.address = address;
     }
 
-    public void setEployeeId(Integer eployeeId) {
+    public void setEmployeeId(Integer eployeeId) {
         this.eployeeId = eployeeId;
     }
-    public Integer getEployeeId() {
+    public Integer getEmployeeId() {
         return eployeeId;
     }
 

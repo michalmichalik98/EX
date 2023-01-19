@@ -1,16 +1,13 @@
 package com.isa.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Team {
     private String teamName;
-    private Integer employeeId;
-   private Employee[] employees = new Employee[5];
 
-
+    private ArrayList<Integer> employeesID = new ArrayList<>();
 
     public void consoleTeamData() {
         Team team = new Team();
@@ -20,7 +17,6 @@ public class Team {
         teamName = scanner.nextLine();
     }
 
-
     public String getTeamName() {
         return teamName;
     }
@@ -29,32 +25,24 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public Employee[] getEmployees() {
-        return employees;
+    public void addEmployeesID(Integer employeesID) {
+        this.employeesID.add(employeesID);
+    }
+    public void deleteEmployeesID(Integer employeesID) {
+        this.employeesID.remove(employeesID);
     }
 
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
-    }
-    public Integer getEmployeeId() {
-        return employeeId;
+    public ArrayList<Integer> getEmployeesID() {
+        return employeesID;
     }
 
-    public void setEmployees(Employee[] employees) {
-        this.employees = employees;
-    }
-
-    public Team() {
-        this.teamName = teamName;
-        this.employees = employees;
+    public void addEmployees(Employee employee) {
+        this.employeesID.add(employee.getEmployeeId());
     }
 
     @Override
     public String toString() {
-        return "Team{" +
-                "teamName='" + teamName + '\'' +
-                ", employees=" + Arrays.toString(employees) +
-                '}';
+        return teamName;
     }
 
     @Override
@@ -62,13 +50,11 @@ public class Team {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Team team = (Team) o;
-        return Objects.equals(teamName, team.teamName) && Arrays.equals(employees, team.employees);
+        return Objects.equals(teamName, team.teamName) && Objects.equals(employeesID, team.employeesID);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(teamName);
-        result = 31 * result + Arrays.hashCode(employees);
-        return result;
+        return Objects.hash(teamName, employeesID);
     }
 }

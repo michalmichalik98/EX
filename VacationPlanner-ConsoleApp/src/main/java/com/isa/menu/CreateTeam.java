@@ -1,7 +1,6 @@
 package com.isa.menu;
 
 import com.isa.dataManager.DataManager;
-import com.isa.model.Employee;
 import com.isa.model.Team;
 
 import java.util.Scanner;
@@ -15,7 +14,7 @@ public class CreateTeam {
 
             DataManager.addTeam(team);
 
-            String response=  dataInput("Dodać kolejny team? (y/n)");
+            String response = dataInput("Dodać kolejny team? (y/n)");
             System.out.println(response);
             if (response.equals("n")) {
                 break;
