@@ -34,9 +34,7 @@ public class MenuBehaviour {
                 selectionAction(value);
                 if (getMenuItem(value) == null) {
                     throw new RuntimeException("Proszę podaj numer z zakresu przedstawionego w menu.");
-                } else {
-                    System.out.println(getMenuItem(value) + "\n");
-                }
+                } else System.out.println("\n");
             } catch (InputMismatchException ex) {
                 System.out.println("Podaj cyfrę.\n");
             } catch (RuntimeException ex) {
