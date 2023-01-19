@@ -76,7 +76,7 @@ public class DataManager {
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Brak danych do załadowania");
+           e.printStackTrace();
         }
 
     }

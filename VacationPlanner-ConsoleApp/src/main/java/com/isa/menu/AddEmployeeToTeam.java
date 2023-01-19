@@ -23,7 +23,7 @@ public class AddEmployeeToTeam {
             int employeeSelected = unassignedPositionsMap.get(selectin);
             System.out.println("\nDostępne zespoły");
             printAllTeams();
-            System.out.print("Wybież numer zestołu do którego przypisać pracownika: ");
+            System.out.print("Wybierz numer zestołu do którego przypisać pracownika: ");
             int teamSelected = userInput();
 
             DataManager.employeeList.get(employeeSelected)

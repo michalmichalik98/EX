@@ -64,7 +64,7 @@ public class MenuBehaviour {
 
             case 4:
                 CreateTeam createTeam = new CreateTeam();
-                createTeam.creat();
+                createTeam.create();
                 break;
 
             case 5:

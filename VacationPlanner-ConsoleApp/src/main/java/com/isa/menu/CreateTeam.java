@@ -6,15 +6,15 @@ import com.isa.model.Team;
 import java.util.Scanner;
 
 public class CreateTeam {
-    public void creat() {
+    public void create() {
         while (true) {
             Team team = new Team();
 
-            team.setTeamName(dataInput("Podaj nazwe drużyny"));
+            team.setTeamName(dataInput("Podaj nazwe zespołu"));
 
             DataManager.addTeam(team);
 
-            String response = dataInput("Dodać kolejny team? (y/n)");
+            String response = dataInput("Dodać kolejny zespół? (y/n)");
             System.out.println(response);
             if (response.equals("n")) {
                 break;
