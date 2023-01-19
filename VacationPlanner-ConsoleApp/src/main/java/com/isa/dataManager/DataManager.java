@@ -72,8 +72,7 @@ public class DataManager {
 
         try {
             String employeeObjectAsStrings = Files.readString(pathForEmployeeDataFile);
-            employeeList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {
-            });
+            employeeList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {});
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (IOException e) {

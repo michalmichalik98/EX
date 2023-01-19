@@ -1,7 +1,6 @@
 package com.isa.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -38,7 +37,7 @@ public class Team {
     }
 
     public void addEmployees(Employee employee) {
-        this.employeesID.add(employee.getEployeeId());
+        this.employeesID.add(employee.getEmployeeId());
     }
 
     @Override

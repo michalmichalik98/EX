@@ -71,7 +71,7 @@ public class MenuBehaviour {
 
             case 5:
                 DeleteTeam deleteTeam = new DeleteTeam();
-                deleteTeam.delete();
+                deleteTeam.deleteTeam();
                 break;
 
             case 6:
