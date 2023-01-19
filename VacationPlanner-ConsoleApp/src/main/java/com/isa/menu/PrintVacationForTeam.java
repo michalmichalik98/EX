@@ -70,7 +70,6 @@ public class PrintVacationForTeam {
         employee4.setVacationId(8);
 
         }
-
 }
 
 

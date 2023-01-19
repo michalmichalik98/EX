@@ -27,5 +27,4 @@ public class DeleteEmployee {
         input = scanner.nextLine();
         return input;
     }
-
 }
