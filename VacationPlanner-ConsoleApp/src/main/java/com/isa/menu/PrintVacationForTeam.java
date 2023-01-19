@@ -36,8 +36,7 @@ public class PrintVacationForTeam {
         DataManager.loadEmployeeFromFile();
         employee = DataManager.employeeList;
 
-        team1.setEmployeeId(1);
-        team2.setEmployeeId(2);
+
 
         employee1.setEployeeId(1);
         employee2.setEployeeId(1);
@@ -71,16 +70,7 @@ public class PrintVacationForTeam {
         employee4.setVacationId(7);
         employee4.setVacationId(8);
 
-        if(team1.getEmployeeId().equals(employee.get(0).getEployeeId())){
-
         }
-
-
-        System.out.println(employee);
-
-
-    }
-
 
 }
 

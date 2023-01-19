@@ -1,7 +1,6 @@
 package com.isa.menu;
 
 import com.isa.dataManager.DataManager;
-import com.isa.model.Employee;
 import com.isa.model.Team;
 
 import java.util.Scanner;
