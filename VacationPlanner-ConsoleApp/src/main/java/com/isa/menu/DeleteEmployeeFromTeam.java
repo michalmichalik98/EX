@@ -13,7 +13,7 @@ public class DeleteEmployeeFromTeam {
     Map<Integer,Integer> employeeMap = new HashMap<>();
 
     public void delete() {
-        System.out.println("Z któreho zespołu usunąć pracownika?");
+        System.out.println("Z którego zespołu usunąć pracownika?");
         printAllTeams();
         int teamSelection = userSelectionForTeam();
         String selectedTeam = DataManager.teamList.get(teamSelection).getTeamName();
