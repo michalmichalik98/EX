@@ -17,6 +17,7 @@ public class CreateEmployee {
             employee.setPesel(dataInput("Podaj PESEL pracownika"));
             employee.setEmail(dataInput("Podaj Email Pracownika"));
             employee.setPhoneNumber(dataInput("Podaj numer telefonu pracownika"));
+            employee.setEmployeeId(DataManager.employeeIdGenerator());
 
            DataManager.addEmployee(employee);
 

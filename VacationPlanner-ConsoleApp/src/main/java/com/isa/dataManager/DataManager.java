@@ -25,6 +25,7 @@ public class DataManager {
     private static final Path pathForEmployeeDataFile = Paths.get("src", "main", "resources", "Employee.json");
     private static final Path pathForTeamDataFile = Paths.get("src", "main", "resources", "Team.json");
     private static final Path pathForVacationDataFile = Paths.get("src", "main", "resources", "Vacation.json");
+    private static final Path pathForIdNumberDataFile = Paths.get("src", "main", "resources", "ID.txt");
 
 
     public static void loadAllDataFromFile() {
@@ -32,6 +33,7 @@ public class DataManager {
         loadVacationFromFile();
         loadTeamFromFile();
     }
+
     public static void saveAllDataToFile() {
         saveEmployeesToFIle();
         saveTeamToFile();
@@ -46,10 +48,10 @@ public class DataManager {
             return false;
         } else {
             employeeList.add(employee);
-            saveEmployeesToFIle();
             return true;
         }
     }
+
     public static void saveEmployeesToFIle() {
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -66,13 +68,15 @@ public class DataManager {
             e.printStackTrace();
         }
     }
+
     public static void loadEmployeeFromFile() {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
             String employeeObjectAsStrings = Files.readString(pathForEmployeeDataFile);
-            employeeList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {});
+            employeeList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {
+            });
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -80,10 +84,12 @@ public class DataManager {
         }
 
     }
+
     public static List<Employee> getEmployeeList() {
         loadEmployeeFromFile();
         return employeeList;
     }
+
     public static void deleteAllEmployeeDataFromFile() {
         try {
             Files.deleteIfExists(pathForEmployeeDataFile);
@@ -100,10 +106,10 @@ public class DataManager {
             return false;
         } else {
             teamList.add(team);
-            saveTeamToFile();
             return true;
         }
     }
+
     public static void saveTeamToFile() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -119,6 +125,7 @@ public class DataManager {
             e.printStackTrace();
         }
     }
+
     public static void loadTeamFromFile() {
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -134,10 +141,12 @@ public class DataManager {
         }
 
     }
+
     public static List<Team> getTeamList() {
         loadTeamFromFile();
         return teamList;
     }
+
     public static void deleteAllTeamsFromFile() {
         try {
             Files.deleteIfExists(pathForTeamDataFile);
@@ -154,10 +163,10 @@ public class DataManager {
             return false;
         } else {
             vacationList.add(vacation);
-            saveVacationToFile();
             return true;
         }
     }
+
     public static void saveVacationToFile() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -173,13 +182,14 @@ public class DataManager {
             e.printStackTrace();
         }
     }
+
     public static void loadVacationFromFile() {
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapperForVacation = new ObjectMapper();
 
         try {
             String employeeObjectAsStrings = Files.readString(pathForVacationDataFile);
-            vacationList = objectMapper.readValue(employeeObjectAsStrings, new TypeReference<>() {
+            vacationList = objectMapperForVacation.readValue(employeeObjectAsStrings, new TypeReference<>() {
             });
         } catch (JsonParseException e) {
             e.printStackTrace();
@@ -188,10 +198,12 @@ public class DataManager {
         }
 
     }
+
     public static List<Vacation> getVacationList() {
         loadVacationFromFile();
         return vacationList;
     }
+
     public static void deleteAllVacationFromFile() {
         try {
             Files.deleteIfExists(pathForVacationDataFile);
@@ -201,5 +213,17 @@ public class DataManager {
         }
     }
 
+    public static Integer employeeIdGenerator() {
 
+        Integer lastUsedI = 0;
+        try {
+            lastUsedI = Integer.parseInt(Files.readString(pathForIdNumberDataFile));
+            lastUsedI++;
+            Files.write(pathForIdNumberDataFile, lastUsedI.toString().getBytes());
+            return lastUsedI;
+        } catch (IOException e) {
+            System.out.println("Nie ma pliku ID do załadowania");
+        }
+        return 0;
+    }
 }

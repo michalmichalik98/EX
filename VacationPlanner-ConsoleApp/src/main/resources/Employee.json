@@ -5,8 +5,8 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "team" : "Kobry Wieczności",
+  "employeeId" : 1
 }, {
   "name" : "Łukasz",
   "surname" : "Olafak",
@@ -14,8 +14,8 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "team" : "Czarna Mamba",
+  "employeeId" : 2
 }, {
   "name" : "Jan",
   "surname" : "Kowalski",
@@ -23,8 +23,8 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "team" : "Czarna Mamba",
+  "employeeId" : 3
 }, {
   "name" : "Paweł",
   "surname" : "Aleś",
@@ -32,8 +32,8 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "team" : "Czarna Mamba",
+  "employeeId" : 4
 }, {
   "name" : "Grzegorz",
   "surname" : "Miłański",
@@ -42,7 +42,7 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "employeeId" : 5
 }, {
   "name" : "Lidia",
   "surname" : "Lika",
@@ -51,7 +51,7 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "employeeId" : 6
 }, {
   "name" : "Paweł",
   "surname" : "Miloko",
@@ -60,7 +60,7 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "employeeId" : 7
 }, {
   "name" : "Jarek",
   "surname" : "Gorski",
@@ -69,7 +69,7 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "employeeId" : 8
 }, {
   "name" : "Natalia",
   "surname" : "Haja",
@@ -78,7 +78,7 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "employeeId" : 9
 }, {
   "name" : "Juras",
   "surname" : "Buraś",
@@ -87,7 +87,7 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "employeeId" : 10
 }, {
   "name" : "Mikosz",
   "surname" : "Gojek",
@@ -96,5 +96,14 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "UnAssignedTeam",
-  "employeeId" : null
+  "employeeId" : 11
+}, {
+  "name" : "Alicja",
+  "surname" : "Zkrainy",
+  "pesel" : "8790345234",
+  "email" : "jak@gmail.com",
+  "address" : "Czarów",
+  "phoneNumber" : "678543678",
+  "team" : "UnAssignedTeam",
+  "employeeId" : 12
 } ]
