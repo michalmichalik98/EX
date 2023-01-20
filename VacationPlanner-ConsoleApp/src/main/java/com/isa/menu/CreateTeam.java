@@ -21,7 +21,6 @@ public class CreateTeam {
             }
         }
     }
-
     public String dataInput(String question) {
         Scanner scanner = new Scanner(System.in);
         String input;
