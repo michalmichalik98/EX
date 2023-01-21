@@ -216,13 +216,22 @@ public class DataManager {
     public static Integer employeeIdGenerator() {
 
         Integer lastUsedI = 0;
+
+        if(!Files.exists(pathForIdNumberDataFile)){
+            try {
+                Files.createFile(pathForIdNumberDataFile);
+                Files.write(pathForIdNumberDataFile,"0".getBytes());
+            }catch (Exception e){
+                System.out.println("Nie mogłem stworzyc pliku");
+            }
+        };
         try {
             lastUsedI = Integer.parseInt(Files.readString(pathForIdNumberDataFile));
             lastUsedI++;
             Files.write(pathForIdNumberDataFile, lastUsedI.toString().getBytes());
             return lastUsedI;
         } catch (IOException e) {
-            System.out.println("Nie ma pliku ID do załadowania");
+            System.out.println(".");
         }
         return 0;
     }
