@@ -41,7 +41,9 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "Pytony Zagłębia",
+  "team" : "Kobry Wieczności",
+
+
   "employeeId" : 5
 }, {
   "name" : "Lidia",
@@ -50,7 +52,8 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "Bengale Północy",
+  "team" : "Czarna Mamba",
+
   "employeeId" : 6
 }, {
   "name" : "Paweł",
@@ -68,7 +71,7 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
+  "team" : "Pytony Zagłębia",
   "employeeId" : 8
 }, {
   "name" : "Natalia",
@@ -77,7 +80,8 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "Czarna Mamba",
+  "team" : "Pytony Zagłębia",
+
   "employeeId" : 9
 }, {
   "name" : "Juras",
@@ -86,7 +90,7 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
+  "team" : "Kobry Wieczności",
   "employeeId" : 10
 }, {
   "name" : "Mikosz",
@@ -95,7 +99,7 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
+  "team" : "Kobry Wieczności",
   "employeeId" : 11
 }, {
   "name" : "Alicja",
@@ -104,7 +108,7 @@
   "email" : "jak@gmail.com",
   "address" : "Czarów",
   "phoneNumber" : "678543678",
-  "team" : "UnAssignedTeam",
+  "team" : "Czarna Mamba",
   "employeeId" : 12
 }, {
   "name" : "Antoni",
