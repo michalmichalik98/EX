@@ -42,6 +42,8 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "Kobry Wieczności",
+
+
   "employeeId" : 5
 }, {
   "name" : "Lidia",
@@ -51,6 +53,7 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "Czarna Mamba",
+
   "employeeId" : 6
 }, {
   "name" : "Paweł",
@@ -59,7 +62,7 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "Czarna Mamba",
+  "team" : "Bengale Północy",
   "employeeId" : 7
 }, {
   "name" : "Jarek",
@@ -78,6 +81,7 @@
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
   "team" : "Pytony Zagłębia",
+
   "employeeId" : 9
 }, {
   "name" : "Juras",
@@ -106,4 +110,13 @@
   "phoneNumber" : "678543678",
   "team" : "Czarna Mamba",
   "employeeId" : 12
+}, {
+  "name" : "Antoni",
+  "surname" : "Giewont",
+  "pesel" : "87054356734",
+  "email" : "gites@wp.pl",
+  "address" : "Dziubki małe",
+  "phoneNumber" : "687434785",
+  "team" : "UnAssignedTeam",
+  "employeeId" : 13
 } ]
