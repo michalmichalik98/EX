@@ -21,18 +21,19 @@ public class AddEmployeeToTeam {
             setUnassignedPositionsMap();
             int selectin = selectEmployee();
             int employeeSelected = unassignedPositionsMap.get(selectin);
-            System.out.println("\nDostępne zespoły");
+            System.out.println("\nDo którego zespołu przypisać pracownika?");
             printAllTeams();
-            System.out.print("Wybierz numer zestołu do którego przypisać pracownika: ");
-            int teamSelected = userInput();
+            System.out.print("Wybierz numer zespołu do którego przypisać pracownika: ");
+            int teamSelected = userInput()-1;
 
             DataManager.employeeList.get(employeeSelected)
                     .setTeam(DataManager.teamList.get(teamSelected).getTeamName());
 
-            System.out.println("Pracownik " +
+            System.out.println("\nPracownik " +
                     DataManager.employeeList.get(employeeSelected).getName() + " " +
                     DataManager.employeeList.get(employeeSelected).getSurname() + " został dodany do zespołu " +
-                    DataManager.employeeList.get(employeeSelected).getTeam());
+                    DataManager.employeeList.get(employeeSelected).getTeam() + "\n");
+            System.out.println("Wybierz kolejnego pracownika:\n");
             exit = employeeSelected;
         }
     }

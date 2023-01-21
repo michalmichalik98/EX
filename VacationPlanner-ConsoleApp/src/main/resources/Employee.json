@@ -41,7 +41,7 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
+  "team" : "Pytony Zagłębia",
   "employeeId" : 5
 }, {
   "name" : "Lidia",
@@ -50,7 +50,7 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
+  "team" : "Bengale Północy",
   "employeeId" : 6
 }, {
   "name" : "Paweł",
@@ -59,7 +59,7 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
+  "team" : "Bengale Północy",
   "employeeId" : 7
 }, {
   "name" : "Jarek",
@@ -77,7 +77,7 @@
   "email" : "koło@fortuny",
   "address" : "Szkolna 3/6",
   "phoneNumber" : "3243342423",
-  "team" : "UnAssignedTeam",
+  "team" : "Czarna Mamba",
   "employeeId" : 9
 }, {
   "name" : "Juras",
@@ -106,4 +106,13 @@
   "phoneNumber" : "678543678",
   "team" : "UnAssignedTeam",
   "employeeId" : 12
+}, {
+  "name" : "Antoni",
+  "surname" : "Giewont",
+  "pesel" : "87054356734",
+  "email" : "gites@wp.pl",
+  "address" : "Dziubki małe",
+  "phoneNumber" : "687434785",
+  "team" : "UnAssignedTeam",
+  "employeeId" : 13
 } ]
