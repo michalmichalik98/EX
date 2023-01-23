@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DataManager {
 
     public static ArrayList<Employee> employeeList = new ArrayList<>();
@@ -22,10 +23,10 @@ public class DataManager {
     public static ArrayList<Vacation> vacationList = new ArrayList<>();
 
 
-    private static final Path pathForEmployeeDataFile = Paths.get("src", "main", "resources", "Employee.json");
-    private static final Path pathForTeamDataFile = Paths.get("src", "main", "resources", "Team.json");
-    private static final Path pathForVacationDataFile = Paths.get("src", "main", "resources", "Vacation.json");
-    private static final Path pathForIdNumberDataFile = Paths.get("src", "main", "resources", "ID.txt");
+    private static final Path pathForEmployeeDataFile = Paths.get("VacationPlanner-ConsoleApp","src", "main", "resources", "Employee.json");
+    private static final Path pathForTeamDataFile = Paths.get("VacationPlanner-ConsoleApp","src", "main", "resources", "Team.json");
+    private static final Path pathForVacationDataFile = Paths.get("VacationPlanner-ConsoleApp","src", "main", "resources", "Vacation.json");
+    private static final Path pathForIdNumberDataFile = Paths.get("VacationPlanner-ConsoleApp","src", "main", "resources", "ID.txt");
 
 
     public static void loadAllDataFromFile() {
