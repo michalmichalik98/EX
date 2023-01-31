@@ -1,10 +1,16 @@
 package com.isa.vacationplanerwebapp;
 
+import com.isa.vacationplanerwebapp.dataManager.DataManager;
+import com.isa.vacationplanerwebapp.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class EmployeeController {
 
     private final DataManager dataManager;
@@ -13,9 +19,17 @@ public class EmployeeController {
         this.dataManager = dataManager;
     }
 
-    @GetMapping("/")
-    String employees(){
-        return dataManager.displeyEmployeeList().toString();
+    @GetMapping("/index")
+    String addEmployees(Model model){
+        Employee employee = new Employee();
+
+        model.addAttribute("employee", employee);
+        return "index";
     }
 
+    @PostMapping("/saveEmployee")
+    public String saveEmployee(@ModelAttribute Employee employee){
+        DataManager.employeeList.add(employee);
+        return "redirect:/index/";
+    }
 }
