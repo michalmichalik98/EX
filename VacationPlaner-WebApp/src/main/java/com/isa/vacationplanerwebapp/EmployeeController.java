@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class EmployeeController {
@@ -22,14 +21,15 @@ public class EmployeeController {
     @GetMapping("/index")
     String addEmployees(Model model){
         Employee employee = new Employee();
+        dataManager.test();
 
         model.addAttribute("employee", employee);
         return "index";
     }
 
+
     @PostMapping("/saveEmployee")
     public String saveEmployee(@ModelAttribute Employee employee){
-        DataManager.employeeList.add(employee);
         return "redirect:/index/";
     }
 }

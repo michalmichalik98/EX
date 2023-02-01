@@ -9,6 +9,7 @@ import com.isa.vacationplanerwebapp.model.Team;
 import com.isa.vacationplanerwebapp.model.Vacation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
@@ -28,18 +29,19 @@ public class DataManager {
     public static ArrayList<Vacation> vacationList = new ArrayList<>();
 
 
-    public DataManager() {
-
-    }
-
 
     private static final Path pathForEmployeeDataFile = Paths.get("src", "main", "resources","dataFiles", "Employee.json");
     private static final Path pathForTeamDataFile = Paths.get("src", "main", "resources","dataFiles", "Team.json");
     private static final Path pathForVacationDataFile = Paths.get("src", "main", "resources","dataFiles", "Vacation.json");
     private static final Path pathForIdNumberDataFile = Paths.get("src", "main", "resources","dataFiles", "ID.txt");
+    @Value("${path.name}")
+    public Resource resourceFile;
 
 
-    public static void loadAllDataFromFile() {
+    public DataManager() {
+    }
+    public void test(){
+        System.out.println(resourceFile.toString());
 
     }
 
@@ -107,7 +109,6 @@ public class DataManager {
             e.printStackTrace();
         }
     }
-
 
     public static boolean addTeam(Team team) {
         if (teamList.contains(team)) {

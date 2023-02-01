@@ -1,9 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org"><head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>VacationPlanner</title>
 </head>
 <body>
-<h1 th:text="${employee}"></h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Vacation Planner</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/addEmployee}">Add Employee</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/addTeam}">Add Team</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/addVacation}">Add Vacation</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="text-center">Welcome to Vacation Planner</h1>
+
+    <form class="form-inline my-2 my-lg-0 mt-5" th:action="@{/searchEmployee}" method="get">
+        <input class="form-control mr-sm-2" type="search" name="employee" placeholder="Search employees"
+               aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <form class="form-inline my-2 my-lg-0 mt-5" th:action="@{/searchTeam}" method="get">
+        <input class="form-control mr-sm-2" type="search" name="team" placeholder="Search teams"
+               aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-
+
 </body>
 </html>
