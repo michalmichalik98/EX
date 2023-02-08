@@ -70,4 +70,20 @@ public class ThemController {
     public String getTeamList() {
         return "/teamList.html";
     }
+    @GetMapping("/vacationDelete.html")
+    public String getVacationDelete() {
+        return "/vacationDelete.html";
+    }
+    @GetMapping("/vacationAdd.html")
+    public String getVacationAdd() {
+        return "/vacationAdd.html";
+    }
+    @GetMapping("/vacationModify.html")
+    public String getVacationModify() {
+        return "/vacationModify.html";
+    }
+    @GetMapping("/vacationList.html")
+    public String getVacationList() {
+        return "/vacationList.html";
+    }
 }
