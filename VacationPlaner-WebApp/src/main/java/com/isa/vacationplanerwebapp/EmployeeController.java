@@ -10,16 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class EmployeeController {
 
-
-    @GetMapping("/index")
-    public String addEmployees(Model model){
-        Employee employee = new Employee();
-        model.addAttribute("book", employee);
-        return "index";
-    }
-
-    @PostMapping("/saveEmployee")
+  /*  @PostMapping("/saveEmployee")
     public String saveEmployee(@ModelAttribute Employee employee){
         return "redirect:/index/";
-    }
+    }*/
 }
