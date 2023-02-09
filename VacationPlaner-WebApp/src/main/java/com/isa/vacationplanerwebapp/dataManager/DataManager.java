@@ -7,14 +7,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Team;
 import com.isa.vacationplanerwebapp.model.Vacation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,9 +21,6 @@ import java.util.Properties;
 
 @Service
 public class DataManager {
-
-
-    Resource data = new DataManager2();
 
 
     public static ArrayList<Employee> employeeList = new ArrayList<>();
