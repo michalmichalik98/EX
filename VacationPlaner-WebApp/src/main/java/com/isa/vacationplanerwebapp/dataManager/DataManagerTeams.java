@@ -1,6 +1,4 @@
 package com.isa.vacationplanerwebapp.dataManager;
-
-import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Team;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +22,8 @@ public class DataManagerTeams {
         teams.add(team);
     }
 
-    public void deleteEmployee(Employee employee) {
-        teams.remove(employee);
+    public void deleteTeam(Team team) {
+        teams.remove(team);
     }
 
 
