@@ -50,38 +50,47 @@ public class ThemController {
     public String getEmployeeDelete() {
         return "/employeeDelete.html";
     }
+
     @GetMapping("/employeeList.html")
     public String getEmployeeList() {
         return "/employeeList.html";
     }
+
     @GetMapping("/teamDelete.html")
     public String getTeamDelete() {
         return "/teamDelete.html";
     }
+
     @GetMapping("/teamAdd.html")
     public String getTeamAdd() {
         return "/teamAdd.html";
     }
+
     @GetMapping("/teamModify.html")
     public String getTeamModify() {
         return "/teamModify.html";
     }
+
     @GetMapping("/teamList.html")
     public String getTeamList() {
         return "/teamList.html";
     }
+
     @GetMapping("/vacationDelete.html")
     public String getVacationDelete() {
         return "/vacationDelete.html";
     }
+
     @GetMapping("/vacationAdd.html")
     public String getVacationAdd() {
         return "/vacationAdd.html";
     }
+
     @GetMapping("/vacationModify.html")
     public String getVacationModify() {
         return "/vacationModify.html";
     }
+
     @GetMapping("/vacationList.html")
     public String getVacationList() {
         return "/vacationList.html";
