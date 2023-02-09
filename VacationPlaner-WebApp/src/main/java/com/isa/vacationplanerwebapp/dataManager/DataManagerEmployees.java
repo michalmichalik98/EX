@@ -28,7 +28,9 @@ public class DataManagerEmployees {
     }
 
     public Employee findEmployee(String pesel) {
-        return employees.stream().filter(employee -> employee.getPesel().equals(pesel)).findFirst().orElse(null);
+        return employees.stream()
+                .filter(employee -> employee.getPesel().equals(pesel))
+                .findFirst().orElse(null);
     }
 
     private List<Employee> importEmployees() {
