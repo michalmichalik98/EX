@@ -7,22 +7,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Team;
 import com.isa.vacationplanerwebapp.model.Vacation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 @Service
 public class DataManager {
+
 
     public static ArrayList<Employee> employeeList = new ArrayList<>();
     public static ArrayList<Team> teamList = new ArrayList<>();
@@ -34,14 +33,18 @@ public class DataManager {
     private static final Path pathForTeamDataFile = Paths.get("src", "main", "resources","dataFiles", "Team.json");
     private static final Path pathForVacationDataFile = Paths.get("src", "main", "resources","dataFiles", "Vacation.json");
     private static final Path pathForIdNumberDataFile = Paths.get("src", "main", "resources","dataFiles", "ID.txt");
-    @Value("${path.name}")
-    public Resource resourceFile;
-
 
     public DataManager() {
     }
-    public void test(){
-        System.out.println(resourceFile.toString());
+    public void setproperty(){
+        Properties properties = new Properties();
+        properties.setProperty("filePath","src/main/resources/dataFiles/Employee.json");
+
+        try {
+            properties.store(new FileOutputStream("config.properties"), null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -50,7 +53,6 @@ public class DataManager {
         saveTeamToFile();
         saveVacationToFile();
     }
-
 
     public static boolean addEmployee(Employee employee) {
 
@@ -165,7 +167,6 @@ public class DataManager {
             e.printStackTrace();
         }
     }
-
 
     public static boolean addVacation(Vacation vacation) {
         if (vacationList.contains(vacation)) {

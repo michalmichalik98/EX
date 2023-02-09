@@ -7,15 +7,12 @@ import java.util.Scanner;
 public class Team {
     private String teamName;
 
+    public Team(String teamName) {
+        this.teamName = teamName;
+    }
+
     private ArrayList<Integer> employeesID = new ArrayList<>();
 
-    public void consoleTeamData() {
-        Team team = new Team();
-        team.setTeamName(teamName);
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj nazwę zespołu");
-        teamName = scanner.nextLine();
-    }
 
     public String getTeamName() {
         return teamName;
@@ -28,6 +25,7 @@ public class Team {
     public void addEmployeesID(Integer employeesID) {
         this.employeesID.add(employeesID);
     }
+
     public void deleteEmployeesID(Integer employeesID) {
         this.employeesID.remove(employeesID);
     }

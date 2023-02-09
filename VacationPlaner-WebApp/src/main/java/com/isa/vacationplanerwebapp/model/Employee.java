@@ -11,6 +11,17 @@ public class Employee {
     private String address;
     private String phoneNumber;
     private String team;
+
+    public Employee(String name, String surname, String pesel, String email, String address, String phoneNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.pesel = pesel;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+
+    }
+
     private Integer eployeeId;
     private ArrayList<Integer> vacationId;
 
