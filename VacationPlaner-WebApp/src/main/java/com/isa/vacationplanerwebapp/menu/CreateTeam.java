@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class CreateTeam {
     public void create() {
         while (true) {
-            Team team = new Team();
+            Team team = new Team("jako");
 
             team.setTeamName(dataInput("Podaj nazwe zespołu"));
 
