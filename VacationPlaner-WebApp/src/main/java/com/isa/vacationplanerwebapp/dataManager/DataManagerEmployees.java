@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class DataManagerEmployees {
 
@@ -14,18 +15,22 @@ public class DataManagerEmployees {
         this.employees = importEmployees();
     }
 
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
     public void addEmployee(Employee employee) {
         employees.add(employee);
     }
-    public void deleteEmployee(Employee employee){
+
+    public void deleteEmployee(Employee employee) {
         employees.remove(employee);
     }
-    public List<Employee> getAllEmployees(){
-        return employees;
-    }
-    public Employee findEmployee(String pesel){
+
+    public Employee findEmployee(String pesel) {
         return employees.stream().filter(employee -> employee.getPesel().equals(pesel)).findFirst().orElse(null);
     }
+
     private List<Employee> importEmployees() {
         List<Employee> employees = new ArrayList<>();
         employees.add(new Employee("Marcin", "Adamski", "872345601", "adamskim@gmail.com", "Parkowa 3/2", "608753496"));
