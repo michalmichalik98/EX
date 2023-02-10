@@ -1,5 +1,8 @@
 package com.isa.vacationplanerwebapp.model;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
