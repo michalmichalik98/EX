@@ -123,7 +123,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Vacation Planner - Dodawanie Pracowników</h1>
+                <h1 class="mt-4">Vacation Planner - Dodawanie Pracownika</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">by Luz_Blue</li>
                 </ol>
@@ -171,19 +171,16 @@
         </div>
         <div class="col-md-3">
             <label for="validationCustom04" class="form-label">Kod Pocztowy</label>
-            <select class="form-select" id="validationCustom04" required>
-                <option selected disabled value="">Choose...</option>
-                <option>...</option>
-            </select>
+            <input type="text" class="form-control" id="validationCustom04" required>
             <div class="invalid-feedback">
                 Please select a valid state.
             </div>
         </div>
         <div class="col-md-3">
-            <label for="validationCustom05" class="form-label">Zip</label>
+            <label for="validationCustom05" class="form-label">Pesel</label>
             <input type="text" class="form-control" id="validationCustom05" required>
             <div class="invalid-feedback">
-                Please provide a valid zip.
+                Please provide a valid Pesel.
             </div>
         </div>
         <div class="col-12">
@@ -198,7 +195,7 @@
             </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-success" type="submit">Submit form</button>
+            <button class="btn btn-success" type="submit">Dodaj pracownika</button>
         </div>
     </form>
 </div>
