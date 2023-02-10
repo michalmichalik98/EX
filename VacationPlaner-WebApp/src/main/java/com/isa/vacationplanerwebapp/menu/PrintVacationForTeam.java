@@ -4,6 +4,8 @@ package com.isa.vacationplanerwebapp.menu;
 import com.isa.vacationplanerwebapp.dataManager.DataManager;
 import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Team;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 
