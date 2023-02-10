@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PageController {
 
-
+    @GetMapping("/test")
+    public String test() {
+        return "/test";
+    }
 
     @GetMapping("/css/styles.css")
     public String getCSS() {
