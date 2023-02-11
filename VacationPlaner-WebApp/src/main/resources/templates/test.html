@@ -17,6 +17,71 @@
 
 </head>
 <body>
-<div th:insert="~{commonFile :: body}"></div>
+
+<div th:insert="~{commonCode/commonFile :: body}"></div>
+
+<div id="layoutSidenav">
+
+    <div th:insert="~{commonCode/commonFile2 :: body}"></div>
+
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Vacation Planner</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">by Luz_Blue</li>
+                </ol>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Lista Pracowników
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                        <tr>
+                            <th>Imie</th>
+                            <th>Nazwisko</th>
+                            <th>PESEL</th>
+                            <th>Email</th>
+                            <th>Adres</th>
+                            <th>Numer Telefonu</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Imie</th>
+                            <th>Nazwisko</th>
+                            <th>PESEL</th>
+                            <th>Email</th>
+                            <th>Adres</th>
+                            <th>Numer Telefonu</th>
+
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr th:each="Employee: ${AllEmployees}">
+                            <th th:text="${Employee.getName()}"></th>
+                            <td th:text="${Employee.getSurname()}"></td>
+                            <td th:text="${Employee.getPesel()}"></td>
+                            <td th:text="${Employee.getEmail()}"></td>
+                            <td th:text="${Employee.getAddress()}"></td>
+                            <td th:text="${Employee.getPhoneNumber()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; By Luz_Blue Team</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
 </body>
 </html>
