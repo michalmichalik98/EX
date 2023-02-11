@@ -11,6 +11,8 @@ public class Employee {
     private String address;
     private String phoneNumber;
     private String team;
+    private String employeeId;
+
 
     public Employee(String name, String surname, String pesel, String email, String address, String phoneNumber) {
         this.name = name;
