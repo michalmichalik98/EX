@@ -1,5 +1,6 @@
 package com.isa.vacationplanerwebapp.dataManager;
 
+import com.isa.vacationplanerwebapp.exception.EmployeeNotFoundException;
 import com.isa.vacationplanerwebapp.model.Address;
 import com.isa.vacationplanerwebapp.model.Employee;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class DataManagerEmployees {
     public Employee getEmployeeByIdAsString(String id){
         return employees.stream().
                 filter(employee -> employee.getEmployeeIdAsString().equals(id))
-                .findAny().orElse(new Employee());
+                .findAny().orElseThrow(()->new EmployeeNotFoundException("Employee not found with ID".formatted(id)));
     }
 
     public Employee findEmployee(String pesel) {
