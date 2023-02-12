@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PageController {
 
+
+
+
     @GetMapping("/css/styles.css")
     public String getCSS() {
         return "/css/styles.css";
@@ -31,10 +34,7 @@ public class PageController {
         return "/js/scripts.js";
     }
 
-    @GetMapping("/employeeAdd.html")
-    public String getAddEmployee() {
-        return "/employeeAdd.html";
-    }
+
 
     @GetMapping("/employeeModify.html")
     public String getEmployeeModify() {
@@ -50,7 +50,6 @@ public class PageController {
     public String getEmployeeList() {
         return "/employeeList.html";
     }
-
     @GetMapping("/teamDelete.html")
     public String getTeamDelete() {
         return "/teamDelete.html";
