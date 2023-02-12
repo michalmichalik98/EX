@@ -32,9 +32,34 @@
                     <li class="breadcrumb-item active">by Luz_Blue</li>
                 </ol>
             </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Lista Pracowników
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                        <tr>
+                            <th>Team</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Imie</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr th:each="team: ${AllTeam}">
+                            <th th:text="${team.getTeam}"></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </main>
-
-
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">

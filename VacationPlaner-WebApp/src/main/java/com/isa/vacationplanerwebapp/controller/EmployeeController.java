@@ -2,12 +2,15 @@ package com.isa.vacationplanerwebapp.controller;
 
 import com.isa.vacationplanerwebapp.dataManager.DataManagerEmployees;
 import com.isa.vacationplanerwebapp.model.Employee;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class EmployeeController {
@@ -19,16 +22,20 @@ public class EmployeeController {
         this.dataManagerEmployees = dataManagerEmployees;
     }
 
-    @GetMapping ("/employeeAdd.html")
-    public String getAddEmployee(Model model) {
+    @GetMapping ("/employeeAdd")
+    public String getAddEmployee( Model model, @RequestParam(name="Id", required = false) String Id) {
         Employee employee = new Employee();
+        System.out.println(Id);
         model.addAttribute("employee", employee );
-        return "employeeAdd.html";
+        return "employeeAdd";
     }
-    @PostMapping("/employeeAdd.html")
-    public String getAddEmployee2(@ModelAttribute Employee employee) {
+    @PostMapping("/employeeAdd")
+    public String getAddEmployee2(@Valid Employee employee, BindingResult result) {
+        if(result.hasErrors()){
+            return "employeeAdd";
+        }
         dataManagerEmployees.addEmployee(employee);
-        return "redirect:/employeeAdd.html";
+        return "redirect:/index";
     }
 
     @GetMapping("/index")
