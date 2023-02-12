@@ -1,5 +1,6 @@
 package com.isa.vacationplanerwebapp.model;
 
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.UUID;
 
 public class Employee {
 
-    @NotNull
+    @NotEmpty
     private String name;
     private String surname;
     private String pesel;

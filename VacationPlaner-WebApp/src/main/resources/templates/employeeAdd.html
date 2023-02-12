@@ -50,6 +50,13 @@
                             Looks good!
                         </div>
                     </div>
+                    <div class="col-4">
+                        <label for="validationCustom09" class="form-label">PESEL</label>
+                        <input type="text" th:field="*{pesel}" class="form-control" id="validationCustom09">
+                        <div class="invalid-feedback">
+                            Please select a valid state.
+                        </div>
+                    </div>
                     <div class="col-md-4">
                         <label for="validationCustomUsername" class="form-label">Email</label>
                         <input type="text" th:field="*{email}"  class="form-control" id="validationCustomUsername"
@@ -60,38 +67,37 @@
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom03" class="form-label">Ulica</label>
-                        <input type="text"  class="form-control" id="validationCustom03">
+                        <input type="text" th:field="*{address.street}" class="form-control" id="validationCustom03">
                         <div class="invalid-feedback">
                             Please provide a valid city.
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom03" class="form-label">Numer domu / mieszkania</label>
-                        <input type="text" class="form-control" id="validationCustom06">
+                        <input type="text"  th:field="*{address.houseNumber}" class="form-control" id="validationCustom06">
                         <div class="invalid-feedback">
                             Please provide a valid city.
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom03" class="form-label">Miasto</label>
-                        <input type="text" class="form-control" id="validationCustom07">
+                        <input type="text" th:field="*{address.city}" class="form-control" id="validationCustom07">
                         <div class="invalid-feedback">
                             Please provide a valid city.
                         </div>
                     </div>
                     <div class="col-4">
                         <label for="validationCustom08" class="form-label">Kod Pocztowy</label>
-                        <input type="text" class="form-control" id="validationCustom08">
+                        <input type="text" th:field="*{address.zipCode}" class="form-control" id="validationCustom08">
                         <div class="invalid-feedback">
                             Please select a valid state.
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <label for="validationCustom05" class="form-label">Numer Telefonu</label>
-
-                        <input type="text" class="form-control" id="validationCustom05">
+                        <input type="text" th:field="*{phoneNumber}" class="form-control" id="validationCustom05">
                         <div class="invalid-feedback">
-                            Please provide a valid Pesel.
+                            Podaj numer telefonu
                         </div>
                     </div>
 

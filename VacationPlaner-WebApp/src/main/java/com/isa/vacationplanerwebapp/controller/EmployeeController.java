@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -22,8 +23,9 @@ public class EmployeeController {
     }
 
     @GetMapping ("/employeeAdd")
-    public String getAddEmployee(Model model) {
+    public String getAddEmployee( Model model, @RequestParam(name="Id", required = false) String Id) {
         Employee employee = new Employee();
+        System.out.println(Id);
         model.addAttribute("employee", employee );
         return "employeeAdd";
     }
