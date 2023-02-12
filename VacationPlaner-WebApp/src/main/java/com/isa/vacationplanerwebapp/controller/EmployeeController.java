@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,16 +23,17 @@ public class EmployeeController {
         this.dataManagerEmployees = dataManagerEmployees;
     }
 
-    @GetMapping ("/employeeAdd")
-    public String getAddEmployee( Model model, @RequestParam(name="Id", required = false) String Id) {
+    @GetMapping("/employeeAdd")
+    public String AddEmployee(Model model, @RequestParam(name = "Id", required = false) String Id) {
         Employee employee = new Employee();
         System.out.println(Id);
-        model.addAttribute("employee", employee );
+        model.addAttribute("employee", employee);
         return "employeeAdd";
     }
+
     @PostMapping("/employeeAdd")
-    public String getAddEmployee2(@Valid Employee employee, BindingResult result) {
-        if(result.hasErrors()){
+    public String AddEmployeeRequest(@Valid Employee employee, BindingResult result) {
+        if (result.hasErrors()) {
             return "employeeAdd";
         }
         dataManagerEmployees.addEmployee(employee);
@@ -39,9 +41,23 @@ public class EmployeeController {
     }
 
     @GetMapping("/index")
-    public String getEmployee(Model model) {
+    public String getIndex(Model model) {
 
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         return "/index";
+    }
+
+    @GetMapping("/employeeDelete")
+    public String deleteEmployee(Model model) {
+
+        model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
+        return "/employeeDelete";
+    }
+
+    @GetMapping("/employeeDelete/{id}")
+    public String deleteEmployeeRequest(@PathVariable(required = false, name="id") String id) {
+        dataManagerEmployees.deleteEmployee(id);
+        System.out.println(id);
+        return "redirect:/employeeDelete";
     }
 }
