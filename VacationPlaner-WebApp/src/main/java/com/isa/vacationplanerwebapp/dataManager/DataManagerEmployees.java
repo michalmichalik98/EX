@@ -1,10 +1,12 @@
 package com.isa.vacationplanerwebapp.dataManager;
 
+import com.isa.vacationplanerwebapp.model.Address;
 import com.isa.vacationplanerwebapp.model.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class DataManagerEmployees {
@@ -34,11 +36,19 @@ public class DataManagerEmployees {
     }
 
     private List<Employee> importEmployees() {
+
         List<Employee> employees = new ArrayList<>();
-        employees.add(new Employee("Marcin", "Adamski", "872345601", "adamskim@gmail.com", "Parkowa 3/2", "608753496"));
-        employees.add(new Employee("Anna", "Nowak", "872613485", "anna.nowak@gmail.com", "Kwiatowa 5/2", "603984672"));
-        employees.add(new Employee("Jan", "Kowalski", "871425363", "jkowalski@o2.pl", "Parkowa 1/3", "604236589"));
-        employees.add(new Employee("Agnieszka", "Wiśniewska", "873654287", "wiśniewska@wp.pl", "Lasowa 8/4", "604987563"));
+
+        Address address = new Address();
+        address.setStreet("Polna");
+        address.setCity("Gdańsk");
+        address.setHouseNumber("2/5");
+        address.setZipCode("80-809");
+
+        employees.add(new Employee("Marcin", "Adamski", "872345601", "adamskim@gmail.com", address , "608753496"));
+        employees.add(new Employee("Anna", "Nowak", "872613485", "anna.nowak@gmail.com", address , "603984672"));
+        employees.add(new Employee("Jan", "Kowalski", "871425363", "jkowalski@o2.pl", address , "604236589"));
+    /*    employees.add(new Employee("Agnieszka", "Wiśniewska", "873654287", "wiśniewska@wp.pl", "Lasowa 8/4", "604987563"));
         employees.add(new Employee("Tomasz", "Mazur", "877532648", "mazur.t@gmail.com", "Zielona 9/1", "605987236"));
         employees.add(new Employee("Marta", "Wójcik", "871523645", "martawojcik@o2.pl", "Polna 2/6", "608753421"));
         employees.add(new Employee("Katarzyna", "Jankowska", "874567312", "jankowska.k@gmail.com", "Słoneczna 7/3", "609765432"));
@@ -82,7 +92,7 @@ public class DataManagerEmployees {
         employees.add(new Employee("Janusz", "Nowakowski", "369258471", "janusz.nowakowski@gmail.com", "Dąbrowskiego 33/11", "605127498"));
         employees.add(new Employee("Alicja", "Wieczorek", "369245817", "alicja.wieczorek@gmail.com", "Piłsudskiego 35/12", "507213486"));
         employees.add(new Employee("Marek", "Krupa", "369254817", "marek.krupa@gmail.com", "Słoneczna 37/13", "603175892"));
-        employees.add(new Employee("Marta", "Jabłońska", "369258471", "marta.jabonska@gmail.com", "Kwiatowa 39/14", "507213596"));
+        employees.add(new Employee("Marta", "Jabłońska", "369258471", "marta.jabonska@gmail.com", "Kwiatowa 39/*/;
         return employees;
     }
 }

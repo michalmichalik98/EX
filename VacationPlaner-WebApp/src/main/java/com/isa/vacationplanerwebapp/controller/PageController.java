@@ -36,57 +36,57 @@ public class PageController {
 
 
 
-    @GetMapping("/employeeModify.html")
+    @GetMapping("/employeeModify")
     public String getEmployeeModify() {
-        return "/employeeModify.html";
+        return "/employeeModify";
     }
 
-    @GetMapping("/employeeDelete.html")
+    @GetMapping("/employeeDelete")
     public String getEmployeeDelete() {
-        return "/employeeDelete.html";
+        return "/employeeDelete";
     }
 
-    @GetMapping("/employeeList.html")
+    @GetMapping("/employeeList")
     public String getEmployeeList() {
-        return "/employeeList.html";
+        return "/employeeList";
     }
-    @GetMapping("/teamDelete.html")
+    @GetMapping("/teamDelete")
     public String getTeamDelete() {
-        return "/teamDelete.html";
+        return "/teamDelete";
     }
 
-    @GetMapping("/teamAdd.html")
+    @GetMapping("/teamAdd")
     public String getTeamAdd() {
-        return "/teamAdd.html";
+        return "/teamAdd";
     }
 
-    @GetMapping("/teamModify.html")
+    @GetMapping("/teamModify")
     public String getTeamModify() {
-        return "/teamModify.html";
+        return "/teamModify";
     }
 
-    @GetMapping("/teamList.html")
+    @GetMapping("/teamList")
     public String getTeamList() {
-        return "/teamList.html";
+        return "/teamList";
     }
 
-    @GetMapping("/vacationDelete.html")
+    @GetMapping("/vacationDelete")
     public String getVacationDelete() {
-        return "/vacationDelete.html";
+        return "/vacationDelete";
     }
 
-    @GetMapping("/vacationAdd.html")
+    @GetMapping("/vacationAdd")
     public String getVacationAdd() {
-        return "/vacationAdd.html";
+        return "/vacationAdd";
     }
 
-    @GetMapping("/vacationModify.html")
+    @GetMapping("/vacationModify")
     public String getVacationModify() {
-        return "/vacationModify.html";
+        return "/vacationModify";
     }
 
-    @GetMapping("/vacationList.html")
+    @GetMapping("/vacationList")
     public String getVacationList() {
-        return "/vacationList.html";
+        return "/vacationList";
     }
 }

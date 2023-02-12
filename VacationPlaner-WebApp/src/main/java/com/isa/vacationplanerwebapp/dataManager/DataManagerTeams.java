@@ -26,6 +26,9 @@ public class DataManagerTeams {
         teams.remove(team);
     }
 
+    //ToD
+    // Modyfikacja teamu, przekazqanie Team
+
 
     private List<Team> importTeams() {
         List<Team> team = new ArrayList<>();

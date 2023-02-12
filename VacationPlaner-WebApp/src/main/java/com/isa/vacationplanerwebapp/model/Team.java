@@ -34,9 +34,7 @@ public class Team {
         return employeesID;
     }
 
-    public void addEmployees(Employee employee) {
-        this.employeesID.add(employee.getEmployeeId());
-    }
+
 
     @Override
     public String toString() {

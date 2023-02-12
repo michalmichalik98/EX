@@ -33,25 +33,26 @@
             </div>
 
             <div class="container">
-                <form action="#" th:action="@{/employeeAdd.html}" th:object="${employee}" method="post"
+                <form action="#" th:action="@{/employeeAdd}" th:object="${employee}" method="post"
                       class="row g-3 needs-validation" novalidate>
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Imię</label>
-                        <input type="text" class="form-control" id="validationCustom01">
+                        <input type="text" th:field="*{name}" class="form-control" id="validationCustom01">
+                        <div> </div>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Nazwisko</label>
-                        <input type="text" class="form-control" id="validationCustom02">
+                        <input type="text" th:field="*{surname}" class="form-control" id="validationCustom02">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustomUsername" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="validationCustomUsername"
+                        <input type="text" th:field="*{email}"  class="form-control" id="validationCustomUsername"
                                aria-describedby="inputGroupPrepend">
                         <div class="invalid-feedback">
                             Please choose a username.
@@ -59,7 +60,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom03" class="form-label">Ulica</label>
-                        <input type="text" class="form-control" id="validationCustom03">
+                        <input type="text"  class="form-control" id="validationCustom03">
                         <div class="invalid-feedback">
                             Please provide a valid city.
                         </div>

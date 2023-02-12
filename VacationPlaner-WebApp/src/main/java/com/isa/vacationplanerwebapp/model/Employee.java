@@ -1,33 +1,37 @@
 package com.isa.vacationplanerwebapp.model;
 
+import jakarta.validation.constraints.NotNull;
+
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Employee {
+
+    @NotNull
     private String name;
     private String surname;
     private String pesel;
     private String email;
-    private String address;
+    private Address address;
     private String phoneNumber;
     private String team;
-    private String employeeId;
+    private UUID employeeId;
 
 
-    public Employee(String name, String surname, String pesel, String email, String address, String phoneNumber) {
+    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber) {
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
-
+        this.employeeId = UUID.randomUUID();
     }
 
-    private Integer eployeeId;
     private ArrayList<Integer> vacationId;
 
-    public Employee(){
+    public Employee() {
         team = "UnAssignedTeam";
     }
 
@@ -67,20 +71,14 @@ public class Employee {
         this.email = email;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
-    public void setEmployeeId(Integer eployeeId) {
-        this.eployeeId = eployeeId;
-    }
-    public Integer getEmployeeId() {
-        return eployeeId;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
