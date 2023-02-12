@@ -41,10 +41,7 @@ public class PageController {
         return "/employeeModify";
     }
 
-    @GetMapping("/employeeDelete")
-    public String getEmployeeDelete() {
-        return "/employeeDelete";
-    }
+
 
     @GetMapping("/employeeList")
     public String getEmployeeList() {

@@ -1,7 +1,6 @@
 package com.isa.vacationplanerwebapp.model;
 
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -18,7 +17,7 @@ public class Employee {
     private String phoneNumber;
     private String team;
     private UUID employeeId;
-
+    private String employeeIdAsString;
 
     public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber) {
         this.name = name;
@@ -28,6 +27,7 @@ public class Employee {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.employeeId = UUID.randomUUID();
+        this.employeeIdAsString = employeeId.toString();
     }
 
     private ArrayList<Integer> vacationId;
@@ -38,6 +38,10 @@ public class Employee {
 
     public String getTeam() {
         return team;
+    }
+
+    public String getEmployeeIdAsString() {
+        return employeeIdAsString;
     }
 
     public void setTeam(String team) {
@@ -100,14 +104,13 @@ public class Employee {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(pesel, employee.pesel) && Objects.equals(email, employee.email) && Objects.equals(address, employee.address) && Objects.equals(phoneNumber, employee.phoneNumber);
+        if (!(o instanceof Employee employee)) return false;
+        return Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(pesel, employee.pesel) && Objects.equals(email, employee.email) && Objects.equals(address, employee.address) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(team, employee.team) && Objects.equals(employeeId, employee.employeeId) && Objects.equals(employeeIdAsString, employee.employeeIdAsString) && Objects.equals(vacationId, employee.vacationId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, pesel, email, address, phoneNumber);
+        return Objects.hash(name, surname, pesel, email, address, phoneNumber, team, employeeId, employeeIdAsString, vacationId);
     }
 
     @Override

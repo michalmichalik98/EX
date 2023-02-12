@@ -22,16 +22,17 @@ public class EmployeeController {
         this.dataManagerEmployees = dataManagerEmployees;
     }
 
-    @GetMapping ("/employeeAdd")
-    public String getAddEmployee( Model model, @RequestParam(name="Id", required = false) String Id) {
+    @GetMapping("/employeeAdd")
+    public String AddEmployee(Model model, @RequestParam(name = "Id", required = false) String Id) {
         Employee employee = new Employee();
         System.out.println(Id);
-        model.addAttribute("employee", employee );
+        model.addAttribute("employee", employee);
         return "employeeAdd";
     }
+
     @PostMapping("/employeeAdd")
-    public String getAddEmployee2(@Valid Employee employee, BindingResult result) {
-        if(result.hasErrors()){
+    public String AddEmployeeRequest(@Valid Employee employee, BindingResult result) {
+        if (result.hasErrors()) {
             return "employeeAdd";
         }
         dataManagerEmployees.addEmployee(employee);
@@ -39,9 +40,22 @@ public class EmployeeController {
     }
 
     @GetMapping("/index")
-    public String getEmployee(Model model) {
+    public String getIndex(Model model) {
 
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         return "/index";
+    }
+
+    @GetMapping("/employeeDelete")
+    public String deleteEmployee(Model model) {
+
+        model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
+        return "/employeeDelete";
+    }
+
+    @GetMapping("/employeeDelete/{id}/")
+    public String deleteEmployeeRequest(@RequestParam String id) {
+        dataManagerEmployees.deleteEmployee(id);
+        return "redirect:/employeeDelete";
     }
 }
