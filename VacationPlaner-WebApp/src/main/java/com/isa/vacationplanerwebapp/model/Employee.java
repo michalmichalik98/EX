@@ -31,7 +31,6 @@ public class Employee {
         this.phoneNumber = phoneNumber;
         this.team = "UnAssignedTeam";
         this.employeeId = UUID.randomUUID().toString();
-
     }
 
     public Employee() {

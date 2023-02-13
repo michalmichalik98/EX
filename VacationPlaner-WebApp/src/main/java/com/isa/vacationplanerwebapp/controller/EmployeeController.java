@@ -26,8 +26,7 @@ public class EmployeeController {
     @GetMapping("/employeeAdd")
     public String AddEmployee(Model model, @RequestParam(name = "Id", required = false) String Id) {
         Employee employee = new Employee();
-        System.out.println(Id);
-        model.addAttribute("employee", employee);
+        model.addAttribute("employeeKeyAdd", employee);
         return "employeeAdd";
     }
 
@@ -57,7 +56,24 @@ public class EmployeeController {
     @GetMapping("/employeeDelete/{id}")
     public String deleteEmployeeRequest(@PathVariable(required = false, name="id") String id) {
         dataManagerEmployees.deleteEmployee(id);
-        System.out.println(id);
         return "redirect:/employeeDelete";
     }
+    @GetMapping("/employeeModify")
+    public String modifyEmployee(Model model) {
+
+        model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
+
+        model.addAttribute("employeeKeyModify", new Employee());
+        return "/employeeModify";
+    }
+    @GetMapping("/employeeModify/{id}")
+    public String modifyEmployeeRequest(@PathVariable(required = false, name="id") String id, Model model) {
+
+        model.addAttribute("employeeKeyModify", dataManagerEmployees.getEmployeeByIdAsString(id));
+        model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
+
+        return "employeeModify";
+    }
+
+
 }
