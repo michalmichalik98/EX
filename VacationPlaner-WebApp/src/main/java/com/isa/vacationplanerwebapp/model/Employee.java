@@ -16,8 +16,11 @@ public class Employee {
     private Address address;
     private String phoneNumber;
     private String team;
-    private final String employeeIdAsString;
+    private String employeeId;
 
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
 
     public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber) {
         this.name = name;
@@ -26,25 +29,20 @@ public class Employee {
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.employeeIdAsString = setEmployeeIdAsString();
         this.team = "UnAssignedTeam";
+        this.employeeId = UUID.randomUUID().toString();
+
     }
 
     public Employee() {
         team = "UnAssignedTeam";
-        this.employeeIdAsString = setEmployeeIdAsString();
     }
-
-    private String setEmployeeIdAsString() {
-        return UUID.randomUUID().toString();
-    }
-
     public String getTeam() {
         return team;
     }
 
-    public String getEmployeeIdAsString() {
-        return employeeIdAsString;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
     public void setTeam(String team) {
@@ -113,13 +111,13 @@ public class Employee {
         return Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname)
                 && Objects.equals(pesel, employee.pesel) && Objects.equals(email, employee.email)
                 && Objects.equals(address, employee.address) && Objects.equals(phoneNumber, employee.phoneNumber)
-                && Objects.equals(team, employee.team) && Objects.equals(employeeIdAsString, employee.employeeIdAsString)
+                && Objects.equals(team, employee.team) && Objects.equals(employeeId, employee.employeeId)
                 && Objects.equals(vacationId, employee.vacationId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, pesel, email, address, phoneNumber, team, employeeIdAsString, vacationId);
+        return Objects.hash(name, surname, pesel, email, address, phoneNumber, team, employeeId, vacationId);
     }
 
     @Override

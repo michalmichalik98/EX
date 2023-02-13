@@ -23,15 +23,18 @@ public class DataManagerEmployees {
     }
 
     public void addEmployee(Employee employee) {
+        employee.setEmployeeId(UUID.randomUUID().toString());
+        employee.setTeam("UnAssignedTeam");
         employees.add(employee);
     }
 
     public void deleteEmployee(String id) {
         employees.remove(getEmployeeByIdAsString(id));
     }
+
     public Employee getEmployeeByIdAsString(String id){
         return employees.stream().
-                filter(employee -> employee.getEmployeeIdAsString().equals(id))
+                filter(employee -> employee.getEmployeeId().equals(id))
                 .findAny().orElseThrow(()->new EmployeeNotFoundException("Employee not found with ID".formatted(id)));
     }
 

@@ -71,11 +71,11 @@
                             <th th:text="${Employee.getName()}"></th>
                             <td th:text="${Employee.getSurname()}"></td>
                             <td th:text="${Employee.getPesel()}"></td>
-                            <td th:text="${Employee.employeeIdAsString}"></td>
+                            <td th:text="${Employee.employeeId}"></td>
                             <td th:text="${Employee.getAddress()}"></td>
                             <td th:text="${Employee.getPhoneNumber()}"></td>
                             <td>
-                                <a th:href="@{/employeeDelete/{id}(id=${Employee.employeeIdAsString})}"  class="btn btn-danger">
+                                <a th:href="@{/employeeDelete/{id}(id=${Employee.employeeId})}"  class="btn btn-danger">
                                     DELETE
                                 </a>
                             </td>
