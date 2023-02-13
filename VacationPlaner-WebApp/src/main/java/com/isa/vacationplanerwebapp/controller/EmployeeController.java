@@ -80,7 +80,7 @@ public class EmployeeController {
     @PostMapping("/employeeModify")
     public String ModifyEmployeeRequest( Employee employee) {
         dataManagerEmployees.modifyEmployee(employee);
-        return "redirect:/index";
+        return "redirect:/employeeModify";
     }
 
 }

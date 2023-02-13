@@ -12,7 +12,7 @@ import java.util.UUID;
 @Service
 public class DataManagerEmployees {
 
-    private List<Employee> employees;
+    private final List<Employee> employees;
 
     public DataManagerEmployees() {
         this.employees = importEmployees();
@@ -35,14 +35,23 @@ public class DataManagerEmployees {
     public Employee getEmployeeById(String id) {
         return employees.stream().
                 filter(employee -> employee.getEmployeeId().equals(id))
-                .findAny().orElseThrow(() -> new EmployeeNotFoundException("Employee not found with ID".formatted(id)));
+                .findAny().orElseThrow(() -> new EmployeeNotFoundException("Employee not found with ID"));
     }
 
     public void modifyEmployee(Employee employee) {
+    employees.replaceAll(employee1 -> {
+        if(employee1.getEmployeeId().equals(employee.getEmployeeId())){
+            employee1.setName(employee.getName());
+            employee1.setSurname(employee.getSurname());
+            employee1.setPhoneNumber(employee.getPhoneNumber());
+            employee1.setEmail(employee.getEmail());
+            employee1.setAddress(employee.getAddress());
+            employee1.setPesel(employee.getPesel());
+        }
+        return employee1;
+    });
 
-        employees = employees.stream()
-                .map(employee1 -> employee1.getEmployeeId().equals(employee.getEmployeeId()) ? employee : employee1)
-                .toList();
+
     }
 
     private List<Employee> importEmployees() {

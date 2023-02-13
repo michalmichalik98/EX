@@ -43,6 +43,7 @@
                             Looks good!
                         </div>
                     </div>
+                    <input type="hidden" th:field="*{employeeId}" class="form-control" id="hiddenID">
                     <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Nazwisko</label>
                         <input type="text" th:field="*{surname}" class="form-control" id="validationCustom02">
@@ -101,12 +102,17 @@
                         </div>
                     </div>
 
+
                     <div class="col-12">
                         <button class="btn btn-success" type="submit">Zapisz zmiany</button>
                     </div>
                 </form>
             </div>
+
+
             <h3> </h3>
+
+
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
