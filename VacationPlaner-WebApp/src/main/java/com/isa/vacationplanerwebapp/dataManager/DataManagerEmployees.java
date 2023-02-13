@@ -29,19 +29,29 @@ public class DataManagerEmployees {
     }
 
     public void deleteEmployee(String id) {
-        employees.remove(getEmployeeByIdAsString(id));
+        employees.remove(getEmployeeById(id));
     }
 
-    public Employee getEmployeeByIdAsString(String id){
+    public Employee getEmployeeById(String id) {
         return employees.stream().
                 filter(employee -> employee.getEmployeeId().equals(id))
-                .findAny().orElseThrow(()->new EmployeeNotFoundException("Employee not found with ID".formatted(id)));
+                .findAny().orElseThrow(() -> new EmployeeNotFoundException("Employee not found with ID"));
     }
 
-    public Employee findEmployee(String pesel) {
-        return employees.stream()
-                .filter(employee -> employee.getPesel().equals(pesel))
-                .findFirst().orElse(null);
+    public void modifyEmployee(Employee employee) {
+    employees.replaceAll(employee1 -> {
+        if(employee1.getEmployeeId().equals(employee.getEmployeeId())){
+            employee1.setName(employee.getName());
+            employee1.setSurname(employee.getSurname());
+            employee1.setPhoneNumber(employee.getPhoneNumber());
+            employee1.setEmail(employee.getEmail());
+            employee1.setAddress(employee.getAddress());
+            employee1.setPesel(employee.getPesel());
+        }
+        return employee1;
+    });
+
+
     }
 
     private List<Employee> importEmployees() {
@@ -54,10 +64,10 @@ public class DataManagerEmployees {
         address.setHouseNumber("2/5");
         address.setZipCode("80-809");
 
-        employees.add(new Employee("Marcin", "Adamski", "872345601", "adamskim@gmail.com", address , "608753496"));
-        employees.add(new Employee("Anna", "Nowak", "872613485", "anna.nowak@gmail.com", address , "603984672"));
-        employees.add(new Employee("Jan", "Kowalski", "871425363", "jkowalski@o2.pl", address , "604236589"));
-        employees.add(new Employee("Agnieszka", "Wiśniewska", "873654287", "wiśniewska@wp.pl",  address , "604987563"));
+        employees.add(new Employee("Marcin", "Adamski", "872345601", "adamskim@gmail.com", address, "608753496"));
+        employees.add(new Employee("Anna", "Nowak", "872613485", "anna.nowak@gmail.com", address, "603984672"));
+        employees.add(new Employee("Jan", "Kowalski", "871425363", "jkowalski@o2.pl", address, "604236589"));
+        employees.add(new Employee("Agnieszka", "Wiśniewska", "873654287", "wiśniewska@wp.pl", address, "604987563"));
         employees.add(new Employee("Tomasz", "Mazur", "877532648", "mazur.t@gmail.com", address, "605987236"));
         employees.add(new Employee("Marta", "Wójcik", "871523645", "martawojcik@o2.pl", address, "608753421"));
         employees.add(new Employee("Katarzyna", "Jankowska", "874567312", "jankowska.k@gmail.com", address, "609765432"));
