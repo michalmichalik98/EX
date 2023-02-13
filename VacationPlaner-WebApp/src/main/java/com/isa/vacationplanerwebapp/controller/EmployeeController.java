@@ -83,4 +83,13 @@ public class EmployeeController {
         return "redirect:/employeeModify";
     }
 
+    @GetMapping("/employeeList")
+    public String ListOfEmployees(Model model) {
+
+        model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
+        return "/employeeList";
+    }
+
+
+
 }
