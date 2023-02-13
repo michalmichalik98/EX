@@ -16,8 +16,11 @@ public class Employee {
     private Address address;
     private String phoneNumber;
     private String team;
-    private UUID employeeId;
-    private String employeeIdAsString;
+    private String employeeId;
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
 
     public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber) {
         this.name = name;
@@ -26,22 +29,19 @@ public class Employee {
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.employeeId = UUID.randomUUID();
-        this.employeeIdAsString = employeeId.toString();
+        this.team = "UnAssignedTeam";
+        this.employeeId = UUID.randomUUID().toString();
     }
-
-    private ArrayList<Integer> vacationId;
 
     public Employee() {
         team = "UnAssignedTeam";
     }
-
     public String getTeam() {
         return team;
     }
 
-    public String getEmployeeIdAsString() {
-        return employeeIdAsString;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
     public void setTeam(String team) {
@@ -63,6 +63,8 @@ public class Employee {
     public String getPesel() {
         return pesel;
     }
+
+    private ArrayList<Integer> vacationId;
 
     public void setPesel(String pesel) {
         this.pesel = pesel;
@@ -105,12 +107,16 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee employee)) return false;
-        return Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(pesel, employee.pesel) && Objects.equals(email, employee.email) && Objects.equals(address, employee.address) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(team, employee.team) && Objects.equals(employeeId, employee.employeeId) && Objects.equals(employeeIdAsString, employee.employeeIdAsString) && Objects.equals(vacationId, employee.vacationId);
+        return Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname)
+                && Objects.equals(pesel, employee.pesel) && Objects.equals(email, employee.email)
+                && Objects.equals(address, employee.address) && Objects.equals(phoneNumber, employee.phoneNumber)
+                && Objects.equals(team, employee.team) && Objects.equals(employeeId, employee.employeeId)
+                && Objects.equals(vacationId, employee.vacationId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, pesel, email, address, phoneNumber, team, employeeId, employeeIdAsString, vacationId);
+        return Objects.hash(name, surname, pesel, email, address, phoneNumber, team, employeeId, vacationId);
     }
 
     @Override

@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PageController {
 
 
-
-
     @GetMapping("/css/styles.css")
     public String getCSS() {
         return "/css/styles.css";
@@ -34,19 +32,36 @@ public class PageController {
         return "/js/scripts.js";
     }
 
-
-
-    @GetMapping("/employeeModify")
-    public String getEmployeeModify() {
-        return "/employeeModify";
+    @GetMapping("/employeeModify/css/styles.css")
+    public String getCssEmployee() {
+        return "/css/styles.css";
     }
 
+    @GetMapping("/employeeModify/assets/demo/chart-area-demo.js")
+    public String getChartAreaEmployee() {
+        return "/assets/demo/chart-area-demo.js";
+    }
 
+    @GetMapping("/employeeModify/assets/demo/chart-bar-demo.js")
+    public String getCharBarEmployee() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/employeeModify/js/datatables-simple-demo.js")
+    public String getDataTableEmployee() {
+        return "/js/datatables-simple-demo.js";
+    }
+
+    @GetMapping("/employeeModify/js/scripts.js")
+    public String getJScriptsEmployee() {
+        return "/js/scripts.js";
+    }
 
     @GetMapping("/employeeList")
     public String getEmployeeList() {
         return "/employeeList";
     }
+
     @GetMapping("/teamDelete")
     public String getTeamDelete() {
         return "/teamDelete";
