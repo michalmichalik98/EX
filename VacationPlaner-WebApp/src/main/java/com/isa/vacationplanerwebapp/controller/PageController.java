@@ -57,10 +57,6 @@ public class PageController {
         return "/js/scripts.js";
     }
 
-    @GetMapping("/employeeList")
-    public String getEmployeeList() {
-        return "/employeeList";
-    }
 
     @GetMapping("/teamDelete")
     public String getTeamDelete() {
