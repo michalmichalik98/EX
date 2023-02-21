@@ -50,8 +50,6 @@ public class DataManagerEmployees {
         }
         return employee1;
     });
-
-
     }
 
     private List<Employee> importEmployees() {

@@ -10,7 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -22,18 +22,15 @@ public class EmployeeController {
         this.dataManagerEmployees = dataManagerEmployees;
     }
 
-
-
     @GetMapping("/index")
     public String getIndex(Model model) {
-
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         return "/index";
     }
 
 
     @GetMapping("/employeeAdd")
-    public String addEmployee(Model model, @RequestParam(name = "Id", required = false) String Id) {
+    public String addEmployee(Model model) {
         Employee employee = new Employee();
         model.addAttribute("employeeKeyAdd", employee);
         return "employeeAdd";
@@ -50,7 +47,6 @@ public class EmployeeController {
 
     @GetMapping("/employeeDelete")
     public String deleteEmployee(Model model) {
-
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         return "/employeeDelete";
     }
@@ -71,21 +67,19 @@ public class EmployeeController {
     }
     @GetMapping("/employeeModify/{id}")
     public String displayEmployeeToModify(@PathVariable(required = false, name="id") String id, Model model) {
-
         model.addAttribute("employeeKeyModify", dataManagerEmployees.getEmployeeById(id));
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
 
         return "employeeModify";
     }
     @PostMapping("/employeeModify")
-    public String ModifyEmployeeRequest( Employee employee) {
+    public String ModifyEmployeeRequest(Employee employee) {
         dataManagerEmployees.modifyEmployee(employee);
         return "redirect:/employeeModify";
     }
 
     @GetMapping("/employeeList")
     public String ListOfEmployees(Model model) {
-
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         return "/employeeList";
     }

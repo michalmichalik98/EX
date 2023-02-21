@@ -50,7 +50,6 @@
                             <th>Adres</th>
                             <th>Numer Telefonu</th>
                             <th>Opcje</th>
-
                         </tr>
                         </thead>
                         <tfoot>
@@ -71,7 +70,7 @@
                             <th th:text="${Employee.getName()}"></th>
                             <td th:text="${Employee.getSurname()}"></td>
                             <td th:text="${Employee.getPesel()}"></td>
-                            <td th:text="${Employee.email}"></td>
+                            <td th:text="${Employee.getEmail()}"></td>
                             <td th:text="${Employee.getAddress()}"></td>
                             <td th:text="${Employee.getPhoneNumber()}"></td>
                             <td>
@@ -84,10 +83,7 @@
                     </table>
                 </div>
             </div>
-
         </main>
-
-
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">

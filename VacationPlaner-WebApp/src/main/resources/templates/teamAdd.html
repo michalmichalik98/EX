@@ -32,20 +32,20 @@
                 </ol>
             </div>
             <div class="container">
-            <form action="#" th:action="@{/employeeAdd.html}" th:object="${employee}" method="post"
+            <form action="#" th:action="@{/teamAdd}" th:object="${teamKeyAdd}" method="post"
                   class="row g-3 needs-validation" novalidate>
                 <div class="col-md-4">
-                    <label for="validationCustom01" class="form-label">Nazwa zespołu</label>
-                    <input type="text" class="form-control" id="validationCustom01">
+                    <label for="validationCustom01" class="form-label">Podaj nazwę zespołu</label>
+                    <input type="text" name = "teamName" class="form-control" id="validationCustom01">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-success" type="submit">Zapisz</button>
+                    <button class="btn btn-success" type="submit">Zapisz zespół</button>
                 </div>
             </form>
-
+            </div>
         </main>
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">

@@ -58,22 +58,22 @@ public class PageController {
     }
 
 
-    @GetMapping("/teamDelete")
+    @GetMapping("/teamDeleteShow")
     public String getTeamDelete() {
         return "/teamDelete";
     }
 
-    @GetMapping("/teamAdd")
+    @GetMapping("/teamAddShow")
     public String getTeamAdd() {
         return "/teamAdd";
     }
 
-    @GetMapping("/teamModify")
+    @GetMapping("/teamModifyShow")
     public String getTeamModify() {
         return "/teamModify";
     }
 
-    @GetMapping("/teamList")
+    @GetMapping("/teamListShow")
     public String getTeamList() {
         return "/teamList";
     }
