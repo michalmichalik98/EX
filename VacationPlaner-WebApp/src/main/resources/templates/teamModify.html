@@ -33,7 +33,7 @@
             </div>
 
             <div class="container">
-                <form action="#" th:action="@{/teamModify}" th:object="${teamKeyModify}" method="post"
+                <form th:action= "@{/teamModify}" th:object="${teamKeyModify}" method="post"
                       class="row g-3 needs-validation" novalidate>
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Edytuj nazwę zespołu</label>
@@ -73,7 +73,7 @@
                             <td th:text="${iter.count}"></td>
                             <td th:text="${Team.getTeamName()}"></td>
                             <td>
-                                <a th:href="@{/teamModify/{teamName}(teamName=${Team.teamName})}" class="btn btn-primary">
+                                <a th:href="@{/teamModify/{teamName}(teamName=${teamKeyModify.teamName})}" class="btn btn-primary">
                                     Modyfikuj
                                 </a>
                             </td>

@@ -1,5 +1,5 @@
 package com.isa.vacationplanerwebapp.dataManager;
-import com.isa.vacationplanerwebapp.exception.TeamNotFoundException;
+
 import com.isa.vacationplanerwebapp.model.Team;
 import org.springframework.stereotype.Service;
 
@@ -28,32 +28,36 @@ public class DataManagerTeams {
         teams.remove(getTeamByName(teamName));
     }
 
-/*
-    public Team getTeamByName(String teamName) {
-        return teams.stream().filter(team -> team.getTeamName().equals(teamName))
-                .findFirst().orElseThrow(() -> new TeamNotFoundException("Team not found with name"));
-    }*/
-    public List<Team> getTeamByName(String teamName) {
-        return teams.stream()
-                .filter(team -> team.getTeamName().equals(teamName))
-                .collect(Collectors.toList());
-    }
+        public Team getTeamByName(String teamName) {
+            for (Team team : teams) {
+                if (team.getTeamName().equals(teamName)) {
+                    return team;
+                }
+            }
+            return null;
+        }
 
     public void modifyTeam(String teamName, Team team) {
-      //  Team teamToModify = getTeamByName(teamName);
-      //  teamToModify.setTeamName(team.getTeamName());
-
-       teams.replaceAll(team1 -> {
-            if (team1.getTeamName().equals(team.getTeamName())) {
+        teams.replaceAll(team1 -> {
+            if (team1.getTeamName().equals(teamName)) {
                 team1.setTeamName(team.getTeamName());
             }
             return team1;
         });
     }
+//
+  // / public void modifyTeam(String teamName, Team team) {
+      //  Team teamToModify = getTeamByName(teamName);
+      //  teamToModify.setTeamName(team.getTeamName());
 
-   // private boolean isTeamNameExists(String teamName) {
-     //   return teams.stream().anyMatch(team -> team.getTeamName().equals(teamName));
-    //}
+       //teams.replaceAll(team1 -> {
+       //     if (team1.getTeamName().equals(team.getTeamName())) {
+      //          team1.setTeamName(team.getTeamName());
+       //     }
+       //     return team1;
+      //  });
+   // }
+
     private List<Team> importTeams() {
 
         List<Team> teams = new ArrayList<>();

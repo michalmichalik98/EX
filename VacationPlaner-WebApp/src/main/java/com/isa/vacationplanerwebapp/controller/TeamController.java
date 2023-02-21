@@ -54,14 +54,14 @@ public class TeamController {
         model.addAttribute("teamKeyModify", new Team());
         return "teamModify";
     }
-        @GetMapping("/teamModify/{teamName}")
-        public String displayTeamToModify(@PathVariable(required = false, name="teamName") String teamName, Model model) {
+    @GetMapping("/teamModify/{teamName}")
+    public String displayTeamToModify(@PathVariable(required = false, name="teamName") String teamName, Model model) {
 
-            model.addAttribute("teamKeyModify", dataManagerTeams.getTeamByName(teamName).get(0));
-            model.addAttribute("AllTeams", dataManagerTeams.getTeams());
+        model.addAttribute("teamKeyModify", dataManagerTeams.getTeamByName(teamName));
+        model.addAttribute("AllTeams", dataManagerTeams.getTeams());
 
-            return "teamModify";
-        }
+        return "teamModify";
+    }
 
     @PostMapping("/teamModify/{teamName}")
     public String modifyTeamRequest(@PathVariable String teamName, @ModelAttribute("teamKeyModify") Team team) {
