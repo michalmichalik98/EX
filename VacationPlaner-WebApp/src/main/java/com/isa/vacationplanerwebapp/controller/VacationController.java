@@ -2,6 +2,7 @@ package com.isa.vacationplanerwebapp.controller;
 
 import com.isa.vacationplanerwebapp.dataManager.DataManagerEmployees;
 import com.isa.vacationplanerwebapp.model.Employee;
+import com.isa.vacationplanerwebapp.model.Vacation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,8 @@ public class VacationController {
     public String MainVacationAdd(Model model) {
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         model.addAttribute("Employee", new Employee());
+        model.addAttribute("Vacation", new Vacation());
+
         return "/vacationAdd";
     }
 
@@ -30,6 +33,7 @@ public class VacationController {
 
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         model.addAttribute("Employee", dataManagerEmployees.getEmployeeById(Id));
+        model.addAttribute("Vacation", new Vacation());
 
         return "/vacationAdd";
     }
