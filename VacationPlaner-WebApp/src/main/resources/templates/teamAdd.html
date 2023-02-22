@@ -32,11 +32,12 @@
                 </ol>
             </div>
             <div class="container">
-            <form action="#" th:action="@{/employeeAdd.html}" th:object="${employee}" method="post"
+            <form action="#" th:action="@{/teamAdd}" th:object="${Team}" method="post"
                   class="row g-3 needs-validation" novalidate>
                 <div class="col-md-4">
                     <label for="validationCustom01" class="form-label">Nazwa zespołu</label>
-                    <input type="text" class="form-control" id="validationCustom01">
+                    <input type="text" class="form-control" id="validationCustom01" th:field="*{teamName}">
+
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -45,8 +46,29 @@
                     <button class="btn btn-success" type="submit">Zapisz</button>
                 </div>
             </form>
+            </div>
 
-        </main>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                    <tr>
+                        <th>Nazwa</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Nazwa</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr th:each="Team: ${AllTeams}">
+                        <th th:text="${Team.getTeamName()}"></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+    </main>
+
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">

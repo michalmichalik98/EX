@@ -1,4 +1,5 @@
 package com.isa.vacationplanerwebapp.dataManager;
+
 import com.isa.vacationplanerwebapp.model.Team;
 import org.springframework.stereotype.Service;
 
@@ -18,14 +19,20 @@ public class DataManagerTeams {
         return teams;
     }
 
-    public void addTeam(Team team) {
-        teams.add(team);
+    public boolean addTeam(Team team) {
+        if (teams.contains(team)) {
+            return false;
+        }
+        return teams.add(team);
     }
 
     public void deleteTeam(Team team) {
         teams.remove(team);
     }
 
+    public boolean teamWithNameExists(String team){
+        return teams.stream().anyMatch(obj ->obj.getTeamName().equals(team));
+    }
     //ToD
     // Modyfikacja teamu, przekazqanie Team
 
