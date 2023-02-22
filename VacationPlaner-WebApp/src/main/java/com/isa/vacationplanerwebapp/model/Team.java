@@ -7,6 +7,9 @@ import java.util.Scanner;
 public class Team {
     private String teamName;
 
+    public Team() {
+    }
+
     public Team(String teamName) {
         this.teamName = teamName;
     }
@@ -33,7 +36,6 @@ public class Team {
     public ArrayList<Integer> getEmployeesID() {
         return employeesID;
     }
-
 
 
     @Override
