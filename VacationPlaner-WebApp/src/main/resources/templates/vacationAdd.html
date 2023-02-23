@@ -31,7 +31,6 @@
                     <li class="breadcrumb-item active">by Luz_Blue</li>
                 </ol>
             </div>
-
             <div class="container">
                 <form action="#" th:action="@{/vacationAdd}" th:object="${Employee}" method="post"
                       class="row g-3 needs-validation" novalidate>
@@ -51,16 +50,18 @@
                 </form>
             </div>
             <div class="container">
-                <form action="#" th:action="@{/vacationAdd}" th:object="${Vacation}" method="post"
+                <form action="#" th:action="@{/vacationAdd/{id}(id=${Employee.employeeId})}" th:object="${Vacation}" method="post"
                       class="row g-3 needs-validation" novalidate>
                     <div class="col-md-4">
                         <label for="start" class="form-label">Od</label>
                         <input type="date" th:field="*{start}" class="form-control" id="start">
                     </div>
+
                     <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Do</label>
                         <input type="date" th:field="*{stop}" class="form-control" id="va">
                     </div>
+
                     <div class="col-md-4">
                         <label for="start" class="form-label">Rodzaj Urlopu</label>
                         <select class="form-select">
