@@ -1,44 +1,40 @@
 package com.isa.vacationplanerwebapp.model;
 
-
-import net.fortuna.ical4j.model.DateTime;
-import net.fortuna.ical4j.model.property.Summary;
-
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Vacation {
 
-    DateTime start;
-    DateTime stop;
-    Summary summary;
+    String start;
+    String stop;
+    String summary;
     String vacationType;
-
 
     public Vacation() {
     }
 
-    public DateTime getStart() {
-        return start;
-    }
-
-    public void setStart(DateTime start) {
-        this.start = start;
-    }
-
-    public DateTime getStop() {
-        return stop;
-    }
-
-    public void setStop(DateTime stop) {
-        this.stop = stop;
-    }
-
-    public Summary getSummary() {
+    public String getSummary() {
         return summary;
     }
 
-    public void setSummary(Summary summary) {
+    public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getStop() {
+        return stop;
+    }
+
+    public void setStop(String stop) {
+        this.stop = stop;
     }
 
     public String getVacationType() {
@@ -59,5 +55,15 @@ public class Vacation {
     @Override
     public int hashCode() {
         return Objects.hash(start, stop, summary, vacationType);
+    }
+
+    @Override
+    public String toString() {
+        return "Vacation{" +
+                "start=" + start +
+                ", stop=" + stop +
+                ", summary='" + summary + '\'' +
+                ", vacationType='" + vacationType + '\'' +
+                '}';
     }
 }
