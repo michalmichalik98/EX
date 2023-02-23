@@ -30,6 +30,47 @@
                     <li class="breadcrumb-item active">by Luz_Blue</li>
                 </ol>
             </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Lista Pracowników
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                        <tr>
+                            <th>Lp</th>
+                            <th>Start</th>
+                            <th>Stop</th>
+                            <th>Opcje</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Lp</th>
+                            <th>Start</th>
+                            <th>Stop</th>
+                            <th>Opcje</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr th:each="Vacation,iter: ${AllVacation}">
+                            <th th:text="${iter.count}"></th>
+                            <th th:text="${Vacation.getStartDate()}"></th>
+                            <td th:text="${Vacation.getEndDate()}"></td>
+
+                            <td>
+                                <a th:href="@{/vacationDelete/{id}(id=${Vacation.getDescription()})}" class="btn btn-success">
+                                    Usuń
+                                </a>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
 
 

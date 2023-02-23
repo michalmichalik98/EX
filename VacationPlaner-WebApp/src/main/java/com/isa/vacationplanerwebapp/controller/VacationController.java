@@ -39,14 +39,24 @@ public class VacationController {
 
     @PostMapping("/vacationAdd/{id}")
     public String VacationAdd(Vacation vacation, @PathVariable(name = "id", required = false) String id){
+        if(vacation.getStart().isEmpty() || vacation.getStop().isEmpty()){
+            return "redirect:/vacationAdd";
+        }
         dataManagerVacation.creatVEvent(vacation, id);
-
         return "redirect:/index";
+    }
+    @PostMapping("/vacationAdd/")
+    public String noEmployeeFilledSubmit(Model model) {
+        model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
+        model.addAttribute("Employee", new Employee());
+        model.addAttribute("Vacation", new Vacation());
+        return "/vacationAdd";
     }
 
 
     @GetMapping("/vacationDelete")
-    public String getVacationDelete() {
+    public String getVacationDelete(Model model) {
+        model.addAttribute("AllVacation",dataManagerVacation.getAllVacations());
         return "/vacationDelete";
     }
 
