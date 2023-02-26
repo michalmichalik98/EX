@@ -5,8 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 import java.util.Objects;
 
 
-public class Team  {
+public class Team {
     @NotBlank
+
     private String teamName;
 
     public Team(String teamName) {

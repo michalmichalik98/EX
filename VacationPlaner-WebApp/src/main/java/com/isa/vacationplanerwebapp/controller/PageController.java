@@ -57,6 +57,31 @@ public class PageController {
         return "/js/scripts.js";
     }
 
+    @GetMapping("/teamModifySelectedTeam/css/styles.css")
+    public String getCssTeamMod2() {
+        return "/css/styles.css";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/assets/demo/chart-area-demo.js")
+    public String getChartAreaTeamMod2() {
+        return "/assets/demo/chart-area-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/assets/demo/chart-bar-demo.js")
+    public String getCharBarTeamMod2() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/js/datatables-simple-demo.js")
+    public String getDataTableTeamMod2() {
+        return "/js/datatables-simple-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/js/scripts.js")
+    public String getJScriptsTeamMod2() {
+        return "/js/scripts.js";}
+
+
 
     @GetMapping("/teamDeleteShow")
     public String getTeamDelete() {
@@ -97,4 +122,6 @@ public class PageController {
     public String getVacationList() {
         return "/vacationList";
     }
+
+
 }

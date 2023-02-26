@@ -37,10 +37,10 @@ public class DataManagerTeams {
             return null;
         }
 
-    public void modifyTeam(String teamName, Team team) {
+    public void modifyTeam(String teamName) {
         teams.replaceAll(team1 -> {
             if (team1.getTeamName().equals(teamName)) {
-                team1.setTeamName(team.getTeamName());
+                team1.setTeamName("to do");
             }
             return team1;
         });
