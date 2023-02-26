@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class DataManagerTeams {
@@ -67,13 +66,6 @@ public class DataManagerTeams {
         teams.add(new Team("Zieloni"));
         teams.add(new Team("Żółci"));
         teams.add(new Team("Czarni"));
-        teams.add(new Team("Brązowi"));
-        teams.add(new Team("Biali"));
-        teams.add(new Team("Błękitni"));
-        teams.add(new Team("Pomarańczowi"));
-        teams.add(new Team("Różowi"));
-        teams.add(new Team("Szarzy"));
-        teams.add(new Team("Złoci"));
 
         return teams;
     }

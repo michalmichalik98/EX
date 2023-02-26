@@ -2,6 +2,7 @@ package com.isa.vacationplanerwebapp.controller;
 
 import com.isa.vacationplanerwebapp.dataManager.DataManagerEmployees;
 import com.isa.vacationplanerwebapp.dataManager.DataManagerTeams;
+import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Team;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,12 +72,33 @@ public class TeamController {
     }
 
     @GetMapping("/teamModifySelectedTeam/{teamName}")
-    public String SelectedTeamModify(@PathVariable(required = true, name = "teamName") String teamName, Model model){
+    public String SelectedTeamModify(@PathVariable( name = "teamName") String teamName, Model model){
 
-        model.addAttribute("AllEmployees", dataManagerEmployees.getUnAssignedEmployees(teamName));
-
+        model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
+        model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
+        model.addAttribute("TeamName",teamName );
         return "/teamModifySelectedTeam";
     }
 
+    @GetMapping("/teamModifySelectedTeam/delete/{id}/{teamName}")
+    public String deleteTeamMember(@PathVariable( name = "id") String id,@PathVariable( name = "teamName") String teamName,  Model model){
+
+        dataManagerEmployees.removeEmployeeFromTeam(id);
+        model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam("Czarni"));
+        model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
+        model.addAttribute("TeamName",teamName );
+
+
+        return "/teamModifySelectedTeam";
+    }
+    @GetMapping("/teamModifySelectedTeam/add/{id}/{teamName}")
+    public String addTeamMember(@PathVariable( name = "id") String id,@PathVariable( name = "teamName") String teamName, Model model){
+
+        model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam("Czarni"));
+        model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
+        model.addAttribute("TeamName",teamName );
+
+        return "/teamModifySelectedTeam";
+    }
 }
 

@@ -8,6 +8,8 @@ import java.util.UUID;
 
 public class Employee {
 
+    public static final String UNASSIGNED_TEAM = "UnAssignedTeam";
+
     @NotEmpty
     private String name;
     private String surname;
@@ -17,6 +19,7 @@ public class Employee {
     private String phoneNumber;
     private String team;
     private String employeeId;
+
 
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
@@ -29,7 +32,7 @@ public class Employee {
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.team = "UnAssignedTeam";
+        this.team = UNASSIGNED_TEAM;
         this.employeeId = UUID.randomUUID().toString();
     }
 
@@ -45,8 +48,9 @@ public class Employee {
     }
 
     public Employee() {
-        team = "UnAssignedTeam";
+        team = UNASSIGNED_TEAM;
     }
+
     public String getTeam() {
         return team;
     }
@@ -97,7 +101,6 @@ public class Employee {
         this.address = address;
     }
 
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -112,6 +115,10 @@ public class Employee {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public void unAssignedTeam() {
+        this.team = UNASSIGNED_TEAM;
     }
 
     @Override
