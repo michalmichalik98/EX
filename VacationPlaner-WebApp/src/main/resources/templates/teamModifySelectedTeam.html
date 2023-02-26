@@ -41,28 +41,34 @@
                     <table id="datatablesSimple">
                         <thead>
                         <tr>
-                            <th>L.p.</th>
-                            <th>Nazwy zespołów</th>
+                            <th>Imie</th>
+                            <th>Nazwisko</th>
+                            <th>PESEL</th>
                             <th>Opcje</th>
+
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>L.p.</th>
-                            <th>Nazwy zespołów</th>
+                            <th>Imie</th>
+                            <th>Nazwisko</th>
+                            <th>PESEL</th>
                             <th>Opcje</th>
+
                         </tr>
                         </tfoot>
                         <tbody>
-                        <tr th:each="Team,iter: ${AllTeams}">
-                            <td th:text="${iter.count}"></td>
-                            <td th:text="${Team.getTeamName()}"></td>
+                        <tr th:each="Employee: ${AllEmployees}">
+                            <th th:text="${Employee.getName()}"></th>
+                            <td th:text="${Employee.getSurname()}"></td>
+                            <td th:text="${Employee.getPesel()}"></td>
                             <td>
-                                <a th:href="@{/teamModify/{teamName}(teamName=${Team.getTeamName()})}" class="btn btn-primary">
-                                    Modyfikuj
+                                <a th:href="@{/teamModifySelectedTeam/{id}(id=${Employee.getEmployeeId()})}"  class="btn btn-danger">
+                                    USUŃ
                                 </a>
                             </td>
                         </tr>
+
                         </tbody>
                     </table>
                 </div>

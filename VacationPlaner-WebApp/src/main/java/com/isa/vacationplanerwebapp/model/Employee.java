@@ -33,6 +33,17 @@ public class Employee {
         this.employeeId = UUID.randomUUID().toString();
     }
 
+    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber, String team) {
+        this.name = name;
+        this.surname = surname;
+        this.pesel = pesel;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.team = team;
+        this.employeeId = UUID.randomUUID().toString();
+    }
+
     public Employee() {
         team = "UnAssignedTeam";
     }

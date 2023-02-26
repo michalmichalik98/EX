@@ -52,7 +52,7 @@ public class TeamController {
 
     @GetMapping("/teamModify")
     public String modifyTeam(Model model) {
-        model.addAttribute("AllEmoloyees", dataManagerEmployees.getEmployees());
+        model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         model.addAttribute("AllTeams", dataManagerTeams.getTeams());
         model.addAttribute("teamKeyModify", new Team());
         return "teamModify";
@@ -71,7 +71,9 @@ public class TeamController {
     }
 
     @GetMapping("/teamModifySelectedTeam/{teamName}")
-    public String SelectedTeamModify(@PathVariable(required = true, name = "teamName") String teamName){
+    public String SelectedTeamModify(@PathVariable(required = true, name = "teamName") String teamName, Model model){
+
+        model.addAttribute("AllEmployees", dataManagerEmployees.getUnAssignedEmployees(teamName));
 
         return "/teamModifySelectedTeam";
     }

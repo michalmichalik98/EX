@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class DataManagerEmployees {
@@ -52,6 +53,12 @@ public class DataManagerEmployees {
     });
     }
 
+    public List<Employee> getUnAssignedEmployees(String nazwa){
+        return employees.stream()
+                .filter(employee -> employee.getTeam().equals(nazwa))
+                .toList();
+    }
+
     private List<Employee> importEmployees() {
 
         List<Employee> employees = new ArrayList<>();
@@ -62,10 +69,10 @@ public class DataManagerEmployees {
         address.setHouseNumber("2/5");
         address.setZipCode("80-809");
 
-        employees.add(new Employee("Marcin", "Adamski", "872345601", "adamskim@gmail.com", address, "608753496"));
-        employees.add(new Employee("Anna", "Nowak", "872613485", "anna.nowak@gmail.com", address, "603984672"));
-        employees.add(new Employee("Jan", "Kowalski", "871425363", "jkowalski@o2.pl", address, "604236589"));
-        employees.add(new Employee("Agnieszka", "Wiśniewska", "873654287", "wiśniewska@wp.pl", address, "604987563"));
+        employees.add(new Employee("Marcin", "Adamski", "872345601", "adamskim@gmail.com", address, "608753496", "Czarni"));
+        employees.add(new Employee("Anna", "Nowak", "872613485", "anna.nowak@gmail.com", address, "603984672","Czarni"));
+        employees.add(new Employee("Jan", "Kowalski", "871425363", "jkowalski@o2.pl", address, "604236589","Czarni"));
+        employees.add(new Employee("Agnieszka", "Wiśniewska", "873654287", "wiśniewska@wp.pl", address, "604987563","Czarni"));
         employees.add(new Employee("Tomasz", "Mazur", "877532648", "mazur.t@gmail.com", address, "605987236"));
         employees.add(new Employee("Marta", "Wójcik", "871523645", "martawojcik@o2.pl", address, "608753421"));
         employees.add(new Employee("Katarzyna", "Jankowska", "874567312", "jankowska.k@gmail.com", address, "609765432"));
