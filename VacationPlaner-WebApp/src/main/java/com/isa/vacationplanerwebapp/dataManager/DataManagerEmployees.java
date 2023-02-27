@@ -61,9 +61,8 @@ public class DataManagerEmployees {
                 .toList();
     }
 
-    public void removeEmployeeFromTeam(String id) {
-        Employee employee = getEmployeeById(id);
-        employee.unAssignedTeam();
+    public void removeEmployeeFromTeam(String teamName) {
+        getEmployeesByTeam(teamName).forEach(Employee::unAssignedTeam);
     }
 
     public void addEmployeeToTeam(String id, String teamName) {

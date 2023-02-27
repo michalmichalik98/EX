@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PageController {
 
-
     @GetMapping("/css/styles.css")
     public String getCSS() {
         return "/css/styles.css";
@@ -180,28 +179,6 @@ public class PageController {
         return "/js/datatables-simple-demo.js";
     }
 
-
-
-    @GetMapping("/teamDeleteShow")
-    public String getTeamDelete() {
-        return "/teamDelete";
-    }
-
-    @GetMapping("/teamAddShow")
-    public String getTeamAdd() {
-        return "/teamAdd";
-    }
-
-    @GetMapping("/teamModifyShow")
-    public String getTeamModify() {
-        return "/teamModify";
-    }
-
-    @GetMapping("/teamListShow")
-    public String getTeamList() {
-
-        return "/teamList";
-    }
 
     @GetMapping("/addTeam/assets/demo/chart-area-demo.js")
     public String getChartAreaTeam() {

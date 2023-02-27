@@ -45,8 +45,9 @@ public class TeamController {
     }
 
     @GetMapping("/teamDelete/{teamName}")
-    public String deleteTeamRequest(@PathVariable(required = false, name = "teamName") String teamName) {
+    public String deleteTeamRequest(@PathVariable( name = "teamName") String teamName) {
         dataManagerTeams.deleteTeam(teamName);
+        dataManagerEmployees.removeEmployeeFromTeam(teamName);
         return "redirect:/teamDelete";
     }
 
@@ -84,7 +85,6 @@ public class TeamController {
         model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
         model.addAttribute("TeamName", teamName);
-
 
         return "/teamModifySelectedTeam";
     }
