@@ -48,6 +48,7 @@ public class EmployeeController {
     @GetMapping("/employeeDelete")
     public String deleteEmployee(Model model) {
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
+
         return "/employeeDelete";
     }
     @GetMapping("/employeeDelete/{id}")

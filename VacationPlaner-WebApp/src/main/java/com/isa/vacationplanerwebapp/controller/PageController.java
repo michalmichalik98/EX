@@ -199,27 +199,34 @@ public class PageController {
 
     @GetMapping("/teamListShow")
     public String getTeamList() {
+
         return "/teamList";
     }
 
-    @GetMapping("/vacationDelete")
-    public String getVacationDelete() {
-        return "/vacationDelete";
+    @GetMapping("/addTeam/assets/demo/chart-area-demo.js")
+    public String getChartAreaTeam() {
+        return "/assets/demo/chart-area-demo.js";
     }
 
-    @GetMapping("/vacationAdd")
-    public String getVacationAdd() {
-        return "/vacationAdd";
+    @GetMapping("/addTeam/assets/demo/chart-bar-demo.js")
+    public String getCharBarTeam() {
+        return "/assets/demo/chart-bar-demo.js";
     }
 
-    @GetMapping("/vacationModify")
-    public String getVacationModify() {
-        return "/vacationModify";
+    @GetMapping("/addTeam/js/datatables-simple-demo.js")
+    public String getDataTableTeam() {
+        return "/js/datatables-simple-demo.js";
     }
 
-    @GetMapping("/vacationList")
-    public String getVacationList() {
-        return "/vacationList";
+
+    @GetMapping("/vacationAdd/css/styles.css")
+    public String getCSSVacation() {
+        return "/css/styles.css";
+    }
+
+    @GetMapping("/vacationAdd/assets/demo/chart-area-demo.js")
+    public String getChartAreaVacation() {
+        return "/assets/demo/chart-area-demo.js";
     }
 
 

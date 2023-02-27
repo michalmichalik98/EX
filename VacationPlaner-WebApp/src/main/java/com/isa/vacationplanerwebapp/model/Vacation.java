@@ -1,35 +1,69 @@
 package com.isa.vacationplanerwebapp.model;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class Vacation {
 
-    private Integer vacationId;
-    LocalDate startDate = LocalDate.parse("2022-12-04");
-    LocalDate endDate = LocalDate.parse("2022-12-04");
+    String start;
+    String stop;
+    String summary;
+    String vacationType;
+
+    public Vacation() {
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getStop() {
+        return stop;
+    }
+
+    public void setStop(String stop) {
+        this.stop = stop;
+    }
+
+    public String getVacationType() {
+        return vacationType;
+    }
+
+    public void setVacationType(String vacationType) {
+        this.vacationType = vacationType;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Vacation vacation = (Vacation) o;
-        return Objects.equals(startDate, vacation.startDate);
+        if (!(o instanceof Vacation vacation)) return false;
+        return Objects.equals(start, vacation.start) && Objects.equals(stop, vacation.stop) && Objects.equals(summary, vacation.summary) && Objects.equals(vacationType, vacation.vacationType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(startDate);
+        return Objects.hash(start, stop, summary, vacationType);
     }
 
-    public void setVacationId(Integer vacationId) {
-        this.vacationId = vacationId;
-    }
-
-    public Integer getVacationId() {
-        return vacationId;
+    @Override
+    public String toString() {
+        return "Vacation{" +
+                "start=" + start +
+                ", stop=" + stop +
+                ", summary='" + summary + '\'' +
+                ", vacationType='" + vacationType + '\'' +
+                '}';
     }
 }

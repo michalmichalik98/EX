@@ -1,8 +1,4 @@
 package com.isa.vacationplanerwebapp.model;
 
-
-public class Calendar {
-
-
+public class TypeOfVacation {
 }
-

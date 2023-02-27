@@ -19,8 +19,11 @@ public class DataManagerTeams {
         return teams;
     }
 
-    public void addTeam(Team team) {
-        teams.add(team);
+    public boolean addTeam(Team team) {
+        if (teams.contains(team)) {
+            return false;
+        }
+        return teams.add(team);
     }
 
     public void deleteTeam(String teamName) {
@@ -48,6 +51,7 @@ public class DataManagerTeams {
   // / public void modifyTeam(String teamName, Team team) {
       //  Team teamToModify = getTeamByName(teamName);
       //  teamToModify.setTeamName(team.getTeamName());
+
 
        //teams.replaceAll(team1 -> {
        //     if (team1.getTeamName().equals(team.getTeamName())) {
