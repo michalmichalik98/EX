@@ -1,10 +1,13 @@
 package com.isa.vacationplanerwebapp.model;
 
-import java.util.ArrayList;
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.Objects;
-import java.util.Scanner;
+
 
 public class Team {
+    @NotBlank
+
     private String teamName;
 
     public Team() {
@@ -14,8 +17,8 @@ public class Team {
         this.teamName = teamName;
     }
 
-    private ArrayList<Integer> employeesID = new ArrayList<>();
-
+    public Team() {
+    }
 
     public String getTeamName() {
         return teamName;
@@ -25,34 +28,21 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public void addEmployeesID(Integer employeesID) {
-        this.employeesID.add(employeesID);
-    }
-
-    public void deleteEmployeesID(Integer employeesID) {
-        this.employeesID.remove(employeesID);
-    }
-
-    public ArrayList<Integer> getEmployeesID() {
-        return employeesID;
-    }
-
-
-    @Override
-    public String toString() {
-        return teamName;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Team team = (Team) o;
-        return Objects.equals(teamName, team.teamName) && Objects.equals(employeesID, team.employeesID);
+        return Objects.equals(teamName, team.teamName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(teamName, employeesID);
+        return Objects.hash(teamName);
+    }
+
+    @Override
+    public String toString() {
+        return teamName;
     }
 }
