@@ -26,24 +26,51 @@ public class DataManagerTeams {
         return teams.add(team);
     }
 
-    public void deleteTeam(Team team) {
-        teams.remove(team);
+    public void deleteTeam(String teamName) {
+        teams.remove(getTeamByName(teamName));
     }
 
-    public boolean teamWithNameExists(String team){
-        return teams.stream().anyMatch(obj ->obj.getTeamName().equals(team));
-    }
-    //ToD
-    // Modyfikacja teamu, przekazqanie Team
+        public Team getTeamByName(String teamName) {
+            for (Team team : teams) {
+                if (team.getTeamName().equals(teamName)) {
+                    return team;
+                }
+            }
+            return null;
+        }
 
+    public void modifyTeam(String teamName) {
+        teams.replaceAll(team1 -> {
+            if (team1.getTeamName().equals(teamName)) {
+                team1.setTeamName("to do");
+            }
+            return team1;
+        });
+    }
+//
+  // / public void modifyTeam(String teamName, Team team) {
+      //  Team teamToModify = getTeamByName(teamName);
+      //  teamToModify.setTeamName(team.getTeamName());
+
+
+       //teams.replaceAll(team1 -> {
+       //     if (team1.getTeamName().equals(team.getTeamName())) {
+      //          team1.setTeamName(team.getTeamName());
+       //     }
+       //     return team1;
+      //  });
+   // }
 
     private List<Team> importTeams() {
-        List<Team> team = new ArrayList<>();
-        team.add(new Team("Niebiescy"));
-        team.add(new Team("Czerwoni"));
-        team.add(new Team("Zieloni"));
-        team.add(new Team("Żółci"));
 
-        return team;
+        List<Team> teams = new ArrayList<>();
+
+        teams.add(new Team("Niebiescy"));
+        teams.add(new Team("Czerwoni"));
+        teams.add(new Team("Zieloni"));
+        teams.add(new Team("Żółci"));
+        teams.add(new Team("Czarni"));
+
+        return teams;
     }
 }

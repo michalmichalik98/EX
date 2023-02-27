@@ -57,20 +57,149 @@ public class PageController {
         return "/js/scripts.js";
     }
 
+    @GetMapping("/teamModifySelectedTeam/css/styles.css")
+    public String getCssTeamModSelected() {
+        return "/css/styles.css";
+    }
 
-    @GetMapping("/teamDelete")
-    public String getDeleteTeam() {
+    @GetMapping("/teamModifySelectedTeam/assets/demo/chart-area-demo.js")
+    public String getChartAreaTeamModSelected() {
+        return "/assets/demo/chart-area-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/assets/demo/chart-bar-demo.js")
+    public String getCharBarTeamModSelected() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/js/datatables-simple-demo.js")
+    public String getDataTableTeamModSelected() {
+        return "/js/datatables-simple-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/js/scripts.js")
+    public String getJScriptsTeamModSelected() {
+        return "/js/scripts.js";
+    }
+
+
+    @GetMapping("/teamModifySelectedTeam/delete/{}/css/styles.css")
+    public String getCssTeamModDelete() {
+        return "/css/styles.css";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/{}/assets/demo/chart-area-demo.js")
+    public String getChartAreaTeamModDelete() {
+        return "/assets/demo/chart-area-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/{}/assets/demo/chart-bar-demo.js")
+    public String getCharBarTeamModDelete() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/{}/js/datatables-simple-demo.js")
+    public String getDataTableTeamModDelete() {
+        return "/js/datatables-simple-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/{}/js/scripts.js")
+    public String getJScriptsTeamModDelete() {
+        return "/js/scripts.js";
+    }
+
+
+    @GetMapping("/teamModifySelectedTeam/delete/css/styles.css")
+    public String getCssTeamModDeleteMain() {
+        return "/css/styles.css";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/assets/demo/chart-area-demo.js")
+    public String getChartAreaTeamModDeleteMain() {
+        return "/assets/demo/chart-area-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/assets/demo/chart-bar-demo.js")
+    public String getCharBarTeamModDeleteMain() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/js/datatables-simple-demo.js")
+    public String getDataTableTeamModDeleteMain() {
+        return "/js/datatables-simple-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/js/scripts.js")
+    public String getJScriptsTeamModDeleteMain() {
+        return "/js/scripts.js";
+    }
+
+
+    @GetMapping("/teamModifySelectedTeam/add/{}/css/styles.css")
+    public String getCssTeamModAdd() {
+        return "/css/styles.css";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/{}/assets/demo/chart-area-demo.js")
+    public String getChartAreaTeamModAdd() {
+        return "/assets/demo/chart-area-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/{}/assets/demo/chart-bar-demo.js")
+    public String getCharBarTeamModAdd() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/{}/js/datatables-simple-demo.js")
+    public String getDataTableTeamModAdd() {
+        return "/js/datatables-simple-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/js/scripts.js")
+    public String getJScriptsTeamModAddMain() {
+        return "/js/scripts.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/css/styles.css")
+    public String getCssTeamModAddMain() {
+        return "/css/styles.css";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/assets/demo/chart-area-demo.js")
+    public String getChartAreaTeamModMain() {
+        return "/assets/demo/chart-area-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/assets/demo/chart-bar-demo.js")
+    public String getCharBarTeamModAddMain() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/js/datatables-simple-demo.js")
+    public String getDataTableTeamModAddMain() {
+        return "/js/datatables-simple-demo.js";
+    }
+
+
+
+    @GetMapping("/teamDeleteShow")
+    public String getTeamDelete() {
         return "/teamDelete";
     }
 
+    @GetMapping("/teamAddShow")
+    public String getTeamAdd() {
+        return "/teamAdd";
+    }
 
-    @GetMapping("/teamModify")
-    public String getModifyTeam() {
+    @GetMapping("/teamModifyShow")
+    public String getTeamModify() {
         return "/teamModify";
     }
 
-    @GetMapping("/teamList")
-    public String getTeamListTeam() {
+    @GetMapping("/teamListShow")
+    public String getTeamList() {
+
         return "/teamList";
     }
 
@@ -100,19 +229,5 @@ public class PageController {
         return "/assets/demo/chart-area-demo.js";
     }
 
-    @GetMapping("/vacationAdd/assets/demo/chart-bar-demo.js")
-    public String getCharBarVacation() {
-        return "/assets/demo/chart-bar-demo.js";
-    }
-
-    @GetMapping("/vacationAdd/js/datatables-simple-demo.js")
-    public String getDataTableVacation() {
-        return "/js/datatables-simple-demo.js";
-    }
-
-    @GetMapping("/vacationAdd/js/scripts.js")
-    public String getJScriptsVacation() {
-        return "/js/scripts.js";
-    }
 
 }
