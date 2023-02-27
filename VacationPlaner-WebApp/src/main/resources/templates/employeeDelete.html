@@ -65,7 +65,7 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                        <tr th:each="Employee,iter: ${AllEmployees}">
+                        <tr th:each="Employee,iter: ${AllEmployee}">
                             <th th:text="${iter.count}"></th>
                             <th th:text="${Employee.getName()}"></th>
                             <td th:text="${Employee.getSurname()}"></td>

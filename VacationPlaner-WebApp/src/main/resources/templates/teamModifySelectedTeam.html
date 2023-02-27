@@ -31,14 +31,16 @@
             </div>
 
             <div class="container">
-                <form action="#" th:action="@{/}" th:object="${TeamName}" method="post"
+                <form action="#" th:action="@{/teamModifySelectedTeam/add/{oldTeamName}(oldTeamName=${TeamName})}" th:object="${TeamName}" method="post"
                       class="row g-3 needs-validation" novalidate>
                     <div class="col-md-4">
                         <label for="validationCustom01" th:field="${TeamName}" class="form-label">Zmień nazwę zespołu</label>
-                        <input type="text" name = "teamName" class="form-control" id="validationCustom01">
+                        <input type="text" name = "newTeamName" class="form-control" id="validationCustom01">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
+                        <input type="hidden" name = "oldTeamName" th:field="${TeamName}" class="form-control" id="hiddenID">
+
                     </div>
                     <div class="col-12">
                         <button class="btn btn-success" type="submit">Zapisz zmiane </button>

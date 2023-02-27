@@ -61,9 +61,8 @@ public class DataManagerEmployees {
                 .toList();
     }
 
-    public void removeEmployeeFromTeam(String id) {
-        Employee employee = getEmployeeById(id);
-        employee.unAssignedTeam();
+    public void removeEmployeeFromTeam(String teamName) {
+        getEmployeesByTeam(teamName).forEach(Employee::unAssignedTeam);
     }
 
     public void addEmployeeToTeam(String id, String teamName) {
@@ -71,6 +70,14 @@ public class DataManagerEmployees {
         employee.setTeam(teamName);
     }
 
+    public void changeTeam(String oldTeamName, String newTeamName){
+        employees.replaceAll(employee -> {
+            if (employee.getTeam().equals(oldTeamName)) {
+                employee.setTeam(newTeamName);
+            }
+            return employee;
+        });
+    }
 
     private List<Employee> importEmployees() {
 
