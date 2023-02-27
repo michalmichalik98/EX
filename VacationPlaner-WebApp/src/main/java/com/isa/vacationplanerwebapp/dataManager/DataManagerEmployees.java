@@ -62,11 +62,15 @@ public class DataManagerEmployees {
     }
 
     public void removeEmployeeFromTeam(String id) {
-
         Employee employee = getEmployeeById(id);
         employee.unAssignedTeam();
-
     }
+
+    public void addEmployeeToTeam(String id, String teamName) {
+        Employee employee = getEmployeeById(id);
+        employee.setTeam(teamName);
+    }
+
 
     private List<Employee> importEmployees() {
 
@@ -84,23 +88,23 @@ public class DataManagerEmployees {
         employees.add(new Employee("Agnieszka", "Wiśniewska", "873654287", "wiśniewska@wp.pl", address, "604987563", "Czarni"));
         employees.add(new Employee("Tomasz", "Mazur", "877532648", "mazur.t@gmail.com", address, "605987236", "Niebiescy"));
         employees.add(new Employee("Marta", "Wójcik", "871523645", "martawojcik@o2.pl", address, "608753421", "Niebiescy"));
-        employees.add(new Employee("Katarzyna", "Jankowska", "874567312", "jankowska.k@gmail.com", address, "609765432","Niebiescy"));
-        employees.add(new Employee("Piotr", "Król", "875896321", "piotrkrol@wp.pl", address, "604372569","Niebiescy"));
+        employees.add(new Employee("Katarzyna", "Jankowska", "874567312", "jankowska.k@gmail.com", address, "609765432", "Niebiescy"));
+        employees.add(new Employee("Piotr", "Król", "875896321", "piotrkrol@wp.pl", address, "604372569", "Niebiescy"));
         employees.add(new Employee("Monika", "Woźniak", "876543298", "wozniakm@o2.pl", address, "609874563", "Zieloni"));
-        employees.add(new Employee("Tomasz", "Kowalski", "748523169", "tomasz.kowalski@gmail.com", address, "501236789","Zieloni"));
-        employees.add(new Employee("Agnieszka", "Wiśniewska", "986237514", "agnieszka.wisniewska@gmail.com", address, "604179832","Zieloni"));
-        employees.add(new Employee("Jan", "Kowalczyk", "623987451", "jan.kowalczyk@gmail.com", address, "507213698","Zieloni"));
-        employees.add(new Employee("Monika", "Mazur", "981237564", "monika.mazur@gmail.com", address, "605172398","Zieloni"));
-        employees.add(new Employee("Krzysztof", "Jankowski", "623985147", "krzysztof.jankowski@gmail.com", address, "506213987","Czerwoni"));
+        employees.add(new Employee("Tomasz", "Kowalski", "748523169", "tomasz.kowalski@gmail.com", address, "501236789", "Zieloni"));
+        employees.add(new Employee("Agnieszka", "Wiśniewska", "986237514", "agnieszka.wisniewska@gmail.com", address, "604179832", "Zieloni"));
+        employees.add(new Employee("Jan", "Kowalczyk", "623987451", "jan.kowalczyk@gmail.com", address, "507213698", "Zieloni"));
+        employees.add(new Employee("Monika", "Mazur", "981237564", "monika.mazur@gmail.com", address, "605172398", "Zieloni"));
+        employees.add(new Employee("Krzysztof", "Jankowski", "623985147", "krzysztof.jankowski@gmail.com", address, "506213987", "Czerwoni"));
         employees.add(new Employee("Ewa", "Wojciechowska", "981325764", "ewa.wojciechowska@gmail.com", address, "603172598", "Czerwoni"));
-        employees.add(new Employee("Andrzej", "Kaczmarek", "623751849", "andrzej.kaczmarek@gmail.com", address, "507213489","Czerwoni"));
-        employees.add(new Employee("Marta", "Zielińska", "987152364", "marta.zielinska@gmail.com", address, "603179528","Czerwoni"));
-        employees.add(new Employee("Marek", "Piotrowski", "623987541", "marek.piotrowski@gmail.com", address, "507214689","Czerwoni"));
+        employees.add(new Employee("Andrzej", "Kaczmarek", "623751849", "andrzej.kaczmarek@gmail.com", address, "507213489", "Czerwoni"));
+        employees.add(new Employee("Marta", "Zielińska", "987152364", "marta.zielinska@gmail.com", address, "603179528", "Czerwoni"));
+        employees.add(new Employee("Marek", "Piotrowski", "623987541", "marek.piotrowski@gmail.com", address, "507214689", "Czerwoni"));
         employees.add(new Employee("Małgorzata", "Nowakowska", "981247536", "malgorzata.nowakowska@gmail.com", address, "605127498", "Żółci"));
-        employees.add(new Employee("Janusz", "Wieczorek", "623985471", "janusz.wieczorek@gmail.com", address, "507213486","Żółci"));
-        employees.add(new Employee("Alicja", "Krupa", "981237546", "alicja.krupa@gmail.com", address, "603175892","Żółci"));
-        employees.add(new Employee("Piotr", "Jabłoński", "623985741", "piotr.jablonski@gmail.com", address, "507213596","Żółci"));
-        employees.add(new Employee("Jan", "Kowalski", "123748965", "jan.kowalski@gmail.com", address, "501236789","Żółci"));
+        employees.add(new Employee("Janusz", "Wieczorek", "623985471", "janusz.wieczorek@gmail.com", address, "507213486", "Żółci"));
+        employees.add(new Employee("Alicja", "Krupa", "981237546", "alicja.krupa@gmail.com", address, "603175892", "Żółci"));
+        employees.add(new Employee("Piotr", "Jabłoński", "623985741", "piotr.jablonski@gmail.com", address, "507213596", "Żółci"));
+        employees.add(new Employee("Jan", "Kowalski", "123748965", "jan.kowalski@gmail.com", address, "501236789", "Żółci"));
         employees.add(new Employee("Agnieszka", "Kowalczyk", "543216789", "agnieszka.kowalczyk@gmail.com", address, "605172398"));
         employees.add(new Employee("Ewa", "Mazur", "753162948", "ewa.mazur@gmail.com", address, "506213987"));
         employees.add(new Employee("Tomasz", "Wojciechowski", "632581749", "tomasz.wojciechowski@gmail.com", address, "603172598"));

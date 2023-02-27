@@ -84,7 +84,7 @@ public class TeamController {
     public String deleteTeamMember(@PathVariable( name = "id") String id,@PathVariable( name = "teamName") String teamName,  Model model){
 
         dataManagerEmployees.removeEmployeeFromTeam(id);
-        model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam("Czarni"));
+        model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
         model.addAttribute("TeamName",teamName );
 
@@ -93,8 +93,8 @@ public class TeamController {
     }
     @GetMapping("/teamModifySelectedTeam/add/{id}/{teamName}")
     public String addTeamMember(@PathVariable( name = "id") String id,@PathVariable( name = "teamName") String teamName, Model model){
-
-        model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam("Czarni"));
+        dataManagerEmployees.addEmployeeToTeam(id,teamName);
+        model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
         model.addAttribute("TeamName",teamName );
 
