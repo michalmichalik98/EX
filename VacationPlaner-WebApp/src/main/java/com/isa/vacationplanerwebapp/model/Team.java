@@ -7,7 +7,6 @@ import java.util.Objects;
 
 public class Team {
     @NotBlank
-
     private String teamName;
 
     public Team() {
@@ -17,8 +16,6 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public Team() {
-    }
 
     public String getTeamName() {
         return teamName;
