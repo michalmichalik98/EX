@@ -58,11 +58,6 @@ public class TeamController {
         return "teamModify";
     }
 
-    @PostMapping("/teamModify/")
-    public String modifyTeamRequest(@ModelAttribute("teamKeyModify") Team team) {
-        dataManagerTeams.modifyTeam(team.getTeamName());
-        return "redirect:/teamModify";
-    }
 
     @GetMapping("/teamList")
     public String listOfTeams(Model model) {
@@ -71,34 +66,56 @@ public class TeamController {
     }
 
     @GetMapping("/teamModifySelectedTeam/{teamName}")
-    public String SelectedTeamModify(@PathVariable( name = "teamName") String teamName, Model model){
+    public String SelectedTeamModify(@PathVariable(name = "teamName") String teamName, Model model) {
 
         model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
-        model.addAttribute("TeamName",teamName );
+        model.addAttribute("TeamName", teamName);
         return "/teamModifySelectedTeam";
     }
 
     @GetMapping("/teamModifySelectedTeam/delete/{id}/{teamName}")
-    public String deleteTeamMember(@PathVariable( name = "id") String id,@PathVariable( name = "teamName") String teamName,  Model model){
+    public String deleteTeamMember(@PathVariable(name = "id") String id,
+                                   @PathVariable(name = "teamName") String teamName,
+                                   Model model) {
 
         dataManagerEmployees.removeEmployeeFromTeam(id);
+
         model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
-        model.addAttribute("TeamName",teamName );
+        model.addAttribute("TeamName", teamName);
 
 
         return "/teamModifySelectedTeam";
     }
+
     @GetMapping("/teamModifySelectedTeam/add/{id}/{teamName}")
-    public String addTeamMember(@PathVariable( name = "id") String id,@PathVariable( name = "teamName") String teamName, Model model){
-        dataManagerEmployees.addEmployeeToTeam(id,teamName);
+    public String addTeamMember(@PathVariable(name = "id") String id,
+                                @PathVariable(name = "teamName") String teamName,
+                                Model model) {
+
+        dataManagerEmployees.addEmployeeToTeam(id, teamName);
+
         model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
-        model.addAttribute("TeamName",teamName );
+        model.addAttribute("TeamName", teamName);
 
         return "/teamModifySelectedTeam";
     }
 
+    @PostMapping("/teamModifySelectedTeam/add/{oldTeamName}")
+    public String changeTeamName(@RequestParam(name = "newTeamName", required = false) String newTeamName,
+                                 @PathVariable(name = "oldTeamName") String oldTeamName, Model model) {
+
+        dataManagerEmployees.changeTeam(oldTeamName, newTeamName);
+        dataManagerTeams.renameTeam(oldTeamName, newTeamName);
+
+        model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(newTeamName));
+        model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
+        model.addAttribute("TeamName", newTeamName);
+        return "/teamModifySelectedTeam";
+    }
 }
+
+
 
