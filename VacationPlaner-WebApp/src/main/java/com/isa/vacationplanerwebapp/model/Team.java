@@ -6,8 +6,7 @@ import java.util.Objects;
 
 
 public class Team {
-    @NotBlankgit
-
+    @NotBlank
     private String teamName;
 
     public Team() {
