@@ -83,55 +83,103 @@ public class PageController {
     }
 
 
-    @GetMapping("/teamModifySelectedTeam/delete/css/styles.css")
+    @GetMapping("/teamModifySelectedTeam/delete/{}/css/styles.css")
     public String getCssTeamModDelete() {
         return "/css/styles.css";
     }
 
-    @GetMapping("/teamModifySelectedTeam/delete/assets/demo/chart-area-demo.js")
+    @GetMapping("/teamModifySelectedTeam/delete/{}/assets/demo/chart-area-demo.js")
     public String getChartAreaTeamModDelete() {
         return "/assets/demo/chart-area-demo.js";
     }
 
-    @GetMapping("/teamModifySelectedTeam/delete/assets/demo/chart-bar-demo.js")
+    @GetMapping("/teamModifySelectedTeam/delete/{}/assets/demo/chart-bar-demo.js")
     public String getCharBarTeamModDelete() {
         return "/assets/demo/chart-bar-demo.js";
     }
 
-    @GetMapping("/teamModifySelectedTeam/delete/js/datatables-simple-demo.js")
+    @GetMapping("/teamModifySelectedTeam/delete/{}/js/datatables-simple-demo.js")
     public String getDataTableTeamModDelete() {
         return "/js/datatables-simple-demo.js";
     }
 
-    @GetMapping("/teamModifySelectedTeam/delete/js/scripts.js")
+    @GetMapping("/teamModifySelectedTeam/delete/{}/js/scripts.js")
     public String getJScriptsTeamModDelete() {
         return "/js/scripts.js";
     }
 
-    @GetMapping("/teamModifySelectedTeam/add/css/styles.css")
+
+    @GetMapping("/teamModifySelectedTeam/delete/css/styles.css")
+    public String getCssTeamModDeleteMain() {
+        return "/css/styles.css";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/assets/demo/chart-area-demo.js")
+    public String getChartAreaTeamModDeleteMain() {
+        return "/assets/demo/chart-area-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/assets/demo/chart-bar-demo.js")
+    public String getCharBarTeamModDeleteMain() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/js/datatables-simple-demo.js")
+    public String getDataTableTeamModDeleteMain() {
+        return "/js/datatables-simple-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/delete/js/scripts.js")
+    public String getJScriptsTeamModDeleteMain() {
+        return "/js/scripts.js";
+    }
+
+
+    @GetMapping("/teamModifySelectedTeam/add/{}/css/styles.css")
     public String getCssTeamModAdd() {
         return "/css/styles.css";
     }
 
-    @GetMapping("/teamModifySelectedTeam/add/assets/demo/chart-area-demo.js")
+    @GetMapping("/teamModifySelectedTeam/add/{}/assets/demo/chart-area-demo.js")
     public String getChartAreaTeamModAdd() {
         return "/assets/demo/chart-area-demo.js";
     }
 
-    @GetMapping("/teamModifySelectedTeam/add/assets/demo/chart-bar-demo.js")
+    @GetMapping("/teamModifySelectedTeam/add/{}/assets/demo/chart-bar-demo.js")
     public String getCharBarTeamModAdd() {
         return "/assets/demo/chart-bar-demo.js";
     }
 
-    @GetMapping("/teamModifySelectedTeam/add/js/datatables-simple-demo.js")
+    @GetMapping("/teamModifySelectedTeam/add/{}/js/datatables-simple-demo.js")
     public String getDataTableTeamModAdd() {
         return "/js/datatables-simple-demo.js";
     }
 
     @GetMapping("/teamModifySelectedTeam/add/js/scripts.js")
-    public String getJScriptsTeamModAdd() {
+    public String getJScriptsTeamModAddMain() {
         return "/js/scripts.js";
     }
+
+    @GetMapping("/teamModifySelectedTeam/add/css/styles.css")
+    public String getCssTeamModAddMain() {
+        return "/css/styles.css";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/assets/demo/chart-area-demo.js")
+    public String getChartAreaTeamModMain() {
+        return "/assets/demo/chart-area-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/assets/demo/chart-bar-demo.js")
+    public String getCharBarTeamModAddMain() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/teamModifySelectedTeam/add/js/datatables-simple-demo.js")
+    public String getDataTableTeamModAddMain() {
+        return "/js/datatables-simple-demo.js";
+    }
+
 
 
     @GetMapping("/teamDeleteShow")
