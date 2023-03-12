@@ -1,4 +1,7 @@
 package com.isa.vacationplanerwebapp.model;
 
-public class TypeOfVacation {
+public enum TypeOfVacation {
+    OTHER,
+    ON_DEMAND,
+    HOLIDAY
 }

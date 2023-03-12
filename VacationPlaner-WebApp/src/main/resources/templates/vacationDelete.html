@@ -34,13 +34,14 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Lista Pracowników
+                    Lista Urlopów
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
                         <thead>
                         <tr>
                             <th>Lp</th>
+                            <th>Imię</th>
                             <th>Start</th>
                             <th>Stop</th>
                             <th>Opcje</th>
@@ -49,23 +50,27 @@
                         <tfoot>
                         <tr>
                             <th>Lp</th>
+                            <th>Imię</th>
                             <th>Start</th>
                             <th>Stop</th>
                             <th>Opcje</th>
                         </tr>
                         </tfoot>
                         <tbody>
-                        <tr th:each="Vacation,iter: ${AllVacation}">
+                        <tr th:each="Vacation,iter: ${AllVacation}" >
                             <th th:text="${iter.count}"></th>
-                            <th th:text="${Vacation.getStartDate()}"></th>
-                            <td th:text="${Vacation.getEndDate()}"></td>
+                            <th th:text="${Vacation.getEmployeeID()}"></th>
+                            <th th:text="${Vacation.getStart()}"></th>
+                            <td th:text="${Vacation.getStop()}"></td>
 
                             <td>
-                                <a th:href="@{/vacationDelete/{id}(id=${Vacation.getDescription()})}" class="btn btn-success">
+                                <a th:href="@{/vacationDelete/{id}(id=${Vacation.getEmployeeID()})}" class="btn btn-success">
                                     Usuń
                                 </a>
                             </td>
                         </tr>
+
+
 
                         </tbody>
                     </table>

@@ -39,10 +39,11 @@ public class VacationController {
 
     @PostMapping("/vacationAdd/{id}")
     public String VacationAdd(Vacation vacation, @PathVariable(name = "id", required = false) String id){
-        if(vacation.getStart().isEmpty() || vacation.getStop().isEmpty()){
+     /*   if(vacation.getStart().isEmpty() || vacation.getStop().isEmpty()){
             return "redirect:/vacationAdd";
-        }
-        dataManagerVacation.creatVEvent(vacation, id);
+        }*/
+        vacation.setEmployeeID(id);
+        dataManagerVacation.addVacation(vacation);
         return "redirect:/index";
     }
     @PostMapping("/vacationAdd/")
@@ -57,6 +58,7 @@ public class VacationController {
     @GetMapping("/vacationDelete")
     public String getVacationDelete(Model model) {
         model.addAttribute("AllVacation",dataManagerVacation.getAllVacations());
+        model.addAttribute("AllEmployees",dataManagerEmployees);
         return "/vacationDelete";
     }
 
