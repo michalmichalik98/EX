@@ -43,6 +43,8 @@ public class VacationController {
             return "redirect:/vacationAdd";
         }*/
         vacation.setEmployeeID(id);
+        vacation.setName(dataManagerEmployees.getEmployeeById(id).getName());
+        vacation.setSurname(dataManagerEmployees.getEmployeeById(id).getSurname());
         dataManagerVacation.addVacation(vacation);
         return "redirect:/index";
     }
@@ -58,8 +60,13 @@ public class VacationController {
     @GetMapping("/vacationDelete")
     public String getVacationDelete(Model model) {
         model.addAttribute("AllVacation",dataManagerVacation.getAllVacations());
-        model.addAttribute("AllEmployees",dataManagerEmployees);
         return "/vacationDelete";
+    }
+
+    @GetMapping("/vacationDelete/{id}")
+    public String VacationAdd( @PathVariable(name = "id", required = false) String id) {
+        dataManagerVacation.deleteVacation(id);
+        return "redirect:/vacationDelete";
     }
 
     @GetMapping("/vacationModify")
