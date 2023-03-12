@@ -2,6 +2,7 @@ package com.isa.vacationplanerwebapp.model;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Vacation {
 
@@ -9,15 +10,42 @@ public class Vacation {
     private LocalDate stop;
     private TypeOfVacation vacationType;
     private String employeeID;
+    private String name;
+    private String surname;
+    private String vacationId;
 
     public Vacation() {
+       this.vacationId = UUID.randomUUID().toString();
     }
 
-    public Vacation(LocalDate start, LocalDate stop, TypeOfVacation vacationType, String employeeID) {
+    public Vacation(LocalDate start, LocalDate stop, TypeOfVacation vacationType, String employeeID, String name, String surname) {
         this.start = start;
         this.stop = stop;
         this.vacationType = vacationType;
         this.employeeID = employeeID;
+        this.name = name;
+        this.surname = surname;
+        this.vacationId = UUID.randomUUID().toString();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getVacationId() {
+        return vacationId;
     }
 
     public LocalDate getStart() {
@@ -61,7 +89,7 @@ public class Vacation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(start, stop, vacationType, employeeID);
+        return Objects.hash(start, stop, vacationType, employeeID, name, surname, vacationId);
     }
 
     @Override
@@ -69,11 +97,12 @@ public class Vacation {
         return "Vacation{" +
                 "start=" + start +
                 ", stop=" + stop +
-                ", vacationType='" + vacationType + '\'' +
+                ", vacationType=" + vacationType +
                 ", employeeID='" + employeeID + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", vacationId='" + vacationId + '\'' +
                 '}';
     }
-
-
 }
 

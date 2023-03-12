@@ -42,6 +42,7 @@
                         <tr>
                             <th>Lp</th>
                             <th>Imię</th>
+                            <th>Nazwisko</th>
                             <th>Start</th>
                             <th>Stop</th>
                             <th>Opcje</th>
@@ -51,6 +52,7 @@
                         <tr>
                             <th>Lp</th>
                             <th>Imię</th>
+                            <th>Nazwisko</th>
                             <th>Start</th>
                             <th>Stop</th>
                             <th>Opcje</th>
@@ -59,12 +61,13 @@
                         <tbody>
                         <tr th:each="Vacation,iter: ${AllVacation}" >
                             <th th:text="${iter.count}"></th>
-                            <th th:text="${Vacation.getEmployeeID()}"></th>
+                            <th th:text="${Vacation.getName()}"></th>
+                            <th th:text="${Vacation.getSurname()}"></th>
                             <th th:text="${Vacation.getStart()}"></th>
                             <td th:text="${Vacation.getStop()}"></td>
 
                             <td>
-                                <a th:href="@{/vacationDelete/{id}(id=${Vacation.getEmployeeID()})}" class="btn btn-success">
+                                <a th:href="@{/vacationDelete/{id}(id=${Vacation.getVacationId()})}" class="btn btn-danger">
                                     Usuń
                                 </a>
                             </td>
