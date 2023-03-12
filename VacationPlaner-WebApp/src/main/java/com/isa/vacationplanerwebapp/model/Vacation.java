@@ -5,43 +5,50 @@ import java.util.Objects;
 
 public class Vacation {
 
-    String start;
-    String stop;
-    String summary;
-    String vacationType;
+    private LocalDate start;
+    private LocalDate stop;
+    private TypeOfVacation vacationType;
+    private String employeeID;
 
     public Vacation() {
     }
 
-    public String getSummary() {
-        return summary;
+    public Vacation(LocalDate start, LocalDate stop, TypeOfVacation vacationType, String employeeID) {
+        this.start = start;
+        this.stop = stop;
+        this.vacationType = vacationType;
+        this.employeeID = employeeID;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public String getStart() {
+    public LocalDate getStart() {
         return start;
     }
 
-    public void setStart(String start) {
+    public void setStart(LocalDate start) {
         this.start = start;
     }
 
-    public String getStop() {
+    public LocalDate getStop() {
         return stop;
     }
 
-    public void setStop(String stop) {
+    public void setStop(LocalDate stop) {
         this.stop = stop;
     }
 
-    public String getVacationType() {
+    public void setEmployeeID(String employeeID) {
+        this.employeeID = employeeID;
+    }
+
+    public String getEmployeeID() {
+        return employeeID;
+    }
+
+    public TypeOfVacation getVacationType() {
         return vacationType;
     }
 
-    public void setVacationType(String vacationType) {
+    public void setVacationType(TypeOfVacation vacationType) {
         this.vacationType = vacationType;
     }
 
@@ -49,12 +56,12 @@ public class Vacation {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Vacation vacation)) return false;
-        return Objects.equals(start, vacation.start) && Objects.equals(stop, vacation.stop) && Objects.equals(summary, vacation.summary) && Objects.equals(vacationType, vacation.vacationType);
+        return Objects.equals(start, vacation.start) && Objects.equals(stop, vacation.stop) && Objects.equals(vacationType, vacation.vacationType) && Objects.equals(employeeID, vacation.employeeID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(start, stop, summary, vacationType);
+        return Objects.hash(start, stop, vacationType, employeeID);
     }
 
     @Override
@@ -62,8 +69,11 @@ public class Vacation {
         return "Vacation{" +
                 "start=" + start +
                 ", stop=" + stop +
-                ", summary='" + summary + '\'' +
                 ", vacationType='" + vacationType + '\'' +
+                ", employeeID='" + employeeID + '\'' +
                 '}';
     }
+
+
 }
+
