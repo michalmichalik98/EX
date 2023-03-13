@@ -70,8 +70,12 @@ public class VacationController {
     }
 
     @GetMapping("/vacationModify")
-    public String getVacationModify() {
-        return "/vacationModify";
+    public String modifyEmployee(Model model) {
+
+        model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
+
+        model.addAttribute("Vacation", new Vacation());
+        return "/employeeModify";
     }
 
     @GetMapping("/vacationList")
