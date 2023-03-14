@@ -207,4 +207,30 @@ public class PageController {
     }
 
 
+    @GetMapping("/vacationModify/assets/demo/chart-area-demo.js")
+    public String getChartAreaVacationModify() {
+        return "/assets/demo/chart-area-demo.js";
+    }
+
+    @GetMapping("/vacationModify/assets/demo/chart-bar-demo.js")
+    public String getCharBarVacationModify() {
+        return "/assets/demo/chart-bar-demo.js";
+    }
+
+    @GetMapping("/vacationModify/js/datatables-simple-demo.js")
+    public String getDataTableVacationModify() {
+        return "/js/datatables-simple-demo.js";
+    }
+
+    @GetMapping("/vacationModify/js/scripts.js")
+    public String getJScriptsVacationModify() {
+        return "/js/scripts.js";
+    }
+
+    @GetMapping("/vacationModify/css/styles.css")
+    public String getCssVacationModify() {
+        return "/css/styles.css";
+    }
+
+
 }

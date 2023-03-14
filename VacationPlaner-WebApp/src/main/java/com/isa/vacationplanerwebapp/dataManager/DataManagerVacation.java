@@ -45,10 +45,19 @@ public class DataManagerVacation {
 
     }
 
-    private Vacation getVacationById(String id) {
+    public Vacation getVacationById(String id) {
         return allVacations.stream().
                 filter(vacation -> vacation.getVacationId().equals(id))
                 .findAny().orElseThrow(() -> new EmployeeNotFoundException("Employee not found with ID"));
     }
-}
 
+    public void modifyVacation(Vacation vacation) {
+        allVacations.replaceAll(vacation1 -> {
+            if (vacation1.getVacationId().equals(vacation.getVacationId())) {
+                vacation1 = vacation;
+            }
+            return vacation1;
+        });
+    }
+
+}

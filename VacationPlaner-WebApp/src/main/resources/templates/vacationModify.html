@@ -7,7 +7,8 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>Modyfikacja Urlopów</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet"/>
@@ -35,18 +36,7 @@
             <div class="container">
                 <form action="#" th:action="@{/vacationModify}" th:object="${Vacation}" method="post"
                       class="row g-3 needs-validation" novalidate>
-                    <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Imię</label>
-                        <input type="text" th:field="*{name}" class="form-control" id="validationCustom01" disabled>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustom02" class="form-label">Nazwisko</label>
-                        <input type="text" th:field="*{surname}" class="form-control" id="validationCustom02" disabled>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustom02" class="form-label">Nazwisko</label>
-                        <input type="text" th:field="*{}" class="form-control" id="team" disabled>
-                    </div>
+
                     <div class="col-md-4">
                         <label for="start" class="form-label">Od</label>
                         <input type="date" th:field="*{start}" class="form-control" id="start">
@@ -65,13 +55,70 @@
                             <option value="3" th:field="*{vacationType}">Inny</option>
                         </select>
                     </div>
+                    <div class="col-md-4">
+                        <label for="validationCustom01" class="form-label">Imię</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="validationCustom01" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationCustom02" class="form-label">Nazwisko</label>
+                        <input type="text" th:field="*{surname}" class="form-control" id="validationCustom02" disabled>
+                    </div>
                     <div class="col-12">
                         <button class="btn btn-success" type="submit">Zmień dane urlopu</button>
                     </div>
                 </form>
+
+                <H1></H1>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Lista Urlopów
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                            <tr>
+                                <th>Lp</th>
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                                <th>Start</th>
+                                <th>Stop</th>
+                                <th>Opcje</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Lp</th>
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                                <th>Start</th>
+                                <th>Stop</th>
+                                <th>Opcje</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            <tr th:each="Vacation,iter: ${AllVacation}">
+                                <th th:text="${iter.count}"></th>
+                                <th th:text="${Vacation.getName()}"></th>
+                                <th th:text="${Vacation.getSurname()}"></th>
+                                <th th:text="${Vacation.getStart()}"></th>
+                                <td th:text="${Vacation.getStop()}"></td>
+
+                                <td>
+                                    <a th:href="@{/vacationModify/{id}(id=${Vacation.getVacationId()})}"
+                                       class="btn btn-primary">
+                                        Zmień
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-
-
 
 
         </main>
