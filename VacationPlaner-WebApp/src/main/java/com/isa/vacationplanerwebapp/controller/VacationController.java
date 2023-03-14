@@ -70,12 +70,27 @@ public class VacationController {
     }
 
     @GetMapping("/vacationModify")
-    public String modifyEmployee(Model model) {
+    public String modifyVacation(Model model) {
 
         model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
-
         model.addAttribute("Vacation", new Vacation());
-        return "/employeeModify";
+        return "/vacationModify";
+    }
+
+    @GetMapping("/vacationModify/{id}")
+    public String modifyVacationSelected(Model model, @PathVariable(name = "id", required = false) String id) {
+
+        model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
+        model.addAttribute("Vacation", dataManagerVacation.getVacationById(id));
+        return "/vacationModify";
+    }
+
+    @PostMapping("/vacationModify")
+    public String vacationModify(Vacation vacation){
+
+        dataManagerVacation.modifyVacation(vacation);
+
+        return "redirect:/index";
     }
 
     @GetMapping("/vacationList")
