@@ -75,7 +75,7 @@ public class VacationController {
         model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
 
         model.addAttribute("Vacation", new Vacation());
-        return "/employeeModify";
+        return "/vacationModify";
     }
 
     @GetMapping("/vacationList")

@@ -33,7 +33,7 @@
             </div>
 
             <div class="container">
-                <form action="#" th:action="@{/vacationAdd/{id}(id=${Employee.employeeId})}" th:object="${Vacation}" method="post"
+                <form action="#" th:action="@{/vacationModify}" th:object="${Vacation}" method="post"
                       class="row g-3 needs-validation" novalidate>
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Imię</label>
@@ -42,6 +42,10 @@
                     <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Nazwisko</label>
                         <input type="text" th:field="*{surname}" class="form-control" id="validationCustom02" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationCustom02" class="form-label">Nazwisko</label>
+                        <input type="text" th:field="*{}" class="form-control" id="team" disabled>
                     </div>
                     <div class="col-md-4">
                         <label for="start" class="form-label">Od</label>
@@ -62,10 +66,12 @@
                         </select>
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-success" type="submit">Dodaj Urlopa</button>
+                        <button class="btn btn-success" type="submit">Zmień dane urlopu</button>
                     </div>
                 </form>
             </div>
+
+
 
 
         </main>
