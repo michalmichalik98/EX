@@ -89,12 +89,6 @@ public class VacationController {
     @PostMapping("/vacationModify")
     public String vacationModify(Vacation vacation){
 
-        System.out.println(vacation.getVacationId() + "<----");
-        System.out.println(vacation.getStart() + "<----");
-        System.out.println(vacation.getStop() + "<----");
-        System.out.println(vacation.getEmployeeID() + "<----");
-        System.out.println(vacation.getVacationType() + "<----");
-
         dataManagerVacation.modifyVacation(vacation);
 
         return "redirect:/vacationModify";
