@@ -52,12 +52,14 @@ public class DataManagerVacation {
         allVacations = new ArrayList<>();
         LocalDate today = LocalDate.now();
 
-        allVacations.add(new Vacation(today, today.plusDays(10), TypeOfVacation.HOLIDAY, "7db420b8-f6d4-4380-b702-c4253a8c1a8d", "Marcin", "Adamski"));
-        allVacations.add(new Vacation(today, today.plusDays(5), TypeOfVacation.HOLIDAY, "d9bfe988-2a33-470c-b636-bc5ae8475d27", "Marcin", "Adamski"));
-        allVacations.add(new Vacation(today, today.plusDays(7), TypeOfVacation.HOLIDAY, "00b68768-c1d2-4a2a-9851-9deef5e37563", "Marcin", "Adamski"));
-        allVacations.add(new Vacation(today, today.plusDays(6), TypeOfVacation.HOLIDAY, "8f31aacf-9b2d-48e5-91d4-3016bf38d48e", "Marcin", "Adamski"));
-        allVacations.add(new Vacation(today, today.plusDays(11), TypeOfVacation.HOLIDAY, "3174f289-0db9-43d2-a69f-4de58cc02a72", "Marcin", "Adamski"));
-        allVacations.add(new Vacation(today, today.plusDays(12), TypeOfVacation.HOLIDAY, "1e073fa4-f403-4a8a-b913-498c1da826cb", "Marcin", "Adamski"));
-        allVacations.add(new Vacation(today, today.plusDays(16), TypeOfVacation.HOLIDAY, "56ca0eab-41e8-4d8c-a76d-853e44c436d9", "Marcin", "Adamski"));
+        allVacations.add(new Vacation(today.minusDays(2), today.plusDays(10), TypeOfVacation.HOLIDAY, "f0ba16ce-ceb1-4d0d-a8b9-0756681e4ae4", "Janusz", "Nowakowski"));
+        allVacations.add(new Vacation(today.minusDays(3), today.plusDays(5), TypeOfVacation.ON_DEMAND, "1cef0f12-0360-4403-ab11-f620851c6611", "Alicja", "Wieczorek"));
+        allVacations.add(new Vacation(today.minusDays(5), today.plusDays(7), TypeOfVacation.OTHER, "2122720c-57d1-49d3-aed2-56846f7244d3", "Marek", "Krupa"));
+        allVacations.add(new Vacation(today.minusDays(1), today.plusDays(6), TypeOfVacation.ON_DEMAND, "2a58891a-0c4c-4f13-86a7-018aa9afe082", "Krzysztof", "Nowak"));
+        allVacations.add(new Vacation(today.minusDays(2), today.plusDays(5), TypeOfVacation.HOLIDAY, "c926aa10-ac4d-49ff-8700-8598489a6d7b", "Piotr", "Zieliński"));
+        allVacations.add(new Vacation(today.minusDays(5), today.plusDays(1), TypeOfVacation.OTHER, "e1825f46-b246-40fb-a91c-012ffc44d108", "Jan", "Kowalski"));
+        allVacations.add(new Vacation(today.minusDays(8), today.plusDays(3), TypeOfVacation.HOLIDAY, "3c7a4498-b5c0-4c69-b1af-e7e9b7e6db69", "Ewa", "Mazur"));
+        allVacations.add(new Vacation(today.minusDays(2), today.plusDays(7), TypeOfVacation.ON_DEMAND, "1d54bdd1-52a9-47fb-8fed-952b49b5d48e", "Marta", "Jabłońska"));
+        allVacations.add(new Vacation(today.minusDays(1), today.plusDays(6), TypeOfVacation.HOLIDAY, "36dab8db-1fa5-4b33-a20a-ad314abaa8ba", "Tomasz", "Wojciechowski"));
     }
 }
