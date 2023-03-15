@@ -39,9 +39,16 @@ public class DataManagerVacation {
     }
 
     public void modifyVacation(Vacation vacation) {
+
         allVacations.replaceAll(vacation1 -> {
+
+            System.out.println(vacation1.getVacationId());
+
             if (vacation1.getVacationId().equals(vacation.getVacationId())) {
-                vacation1 = vacation;
+                System.out.println("scoreee !");
+                vacation1.setStart(vacation.getStart());
+                vacation1.setStop(vacation.getStop());
+                vacation1.setVacationType(vacation.getVacationType());
             }
             return vacation1;
         });

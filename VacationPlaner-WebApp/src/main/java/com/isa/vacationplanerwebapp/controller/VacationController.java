@@ -81,6 +81,7 @@ public class VacationController {
     public String modifyVacationSelected(Model model, @PathVariable(name = "id", required = false) String id) {
 
         model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
+        System.out.println(dataManagerVacation.getVacationById(id).getVacationId()+ "id get ");
         model.addAttribute("Vacation", dataManagerVacation.getVacationById(id));
         return "/vacationModify";
     }
@@ -88,9 +89,15 @@ public class VacationController {
     @PostMapping("/vacationModify")
     public String vacationModify(Vacation vacation){
 
+        System.out.println(vacation.getVacationId() + "<----");
+        System.out.println(vacation.getStart() + "<----");
+        System.out.println(vacation.getStop() + "<----");
+        System.out.println(vacation.getEmployeeID() + "<----");
+        System.out.println(vacation.getVacationType() + "<----");
+
         dataManagerVacation.modifyVacation(vacation);
 
-        return "/vacationModify";
+        return "redirect:/vacationModify";
     }
 
     @GetMapping("/vacationList")

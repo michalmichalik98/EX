@@ -46,7 +46,10 @@
                         <label for="validationCustom02" class="form-label">Do</label>
                         <input type="date" th:field="*{stop}" class="form-control" id="va">
                     </div>
-
+                    <input type="hidden" th:field="*{employeeID}" class="form-control" id="employeeId">
+                    <input type="text" th:field="*{vacationId}" class="form-control" id="vacationId">
+                    <input type="hidden" th:field="*{name}" class="form-control" id="name">
+                    <input type="hidden" th:field="*{surname}" class="form-control" id="surname">
                     <div class="col-md-4">
                         <label for="start" class="form-label">Rodzaj Urlopu</label>
                         <select class="form-select">
@@ -67,7 +70,7 @@
                         <button class="btn btn-success" type="submit">Zmień dane urlopu</button>
                     </div>
                 </form>
-
+            </div>
                 <H1></H1>
 
                 <div class="card mb-4">
@@ -118,8 +121,6 @@
                         </table>
                     </div>
                 </div>
-            </div>
-
 
         </main>
 
