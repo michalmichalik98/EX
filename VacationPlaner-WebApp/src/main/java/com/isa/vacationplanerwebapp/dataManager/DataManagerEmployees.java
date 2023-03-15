@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class DataManagerEmployees {
@@ -61,8 +59,12 @@ public class DataManagerEmployees {
                 .toList();
     }
 
-    public void removeEmployeeFromTeam(String teamName) {
+    public void removeAllEmployeesFromTeam(String teamName) {
         getEmployeesByTeam(teamName).forEach(Employee::unAssignedTeam);
+    }
+
+    public void setTeamToUnassigned(String id){
+        getEmployeeById(id).setTeam(Employee.UNASSIGNED_TEAM);
     }
 
     public void addEmployeeToTeam(String id, String teamName) {
@@ -70,7 +72,7 @@ public class DataManagerEmployees {
         employee.setTeam(teamName);
     }
 
-    public void changeTeam(String oldTeamName, String newTeamName) {
+    public void changeTeamName(String oldTeamName, String newTeamName) {
         employees.replaceAll(employee -> {
             if (employee.getTeam().equals(oldTeamName)) {
                 employee.setTeam(newTeamName);
