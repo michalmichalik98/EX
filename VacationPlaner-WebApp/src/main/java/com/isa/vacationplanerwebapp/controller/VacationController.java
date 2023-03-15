@@ -46,7 +46,7 @@ public class VacationController {
         vacation.setName(dataManagerEmployees.getEmployeeById(id).getName());
         vacation.setSurname(dataManagerEmployees.getEmployeeById(id).getSurname());
         dataManagerVacation.addVacation(vacation);
-        return "redirect:/index";
+        return "redirect:/vacationModify";
     }
     @PostMapping("/vacationAdd/")
     public String noEmployeeFilledSubmit(Model model) {
@@ -90,7 +90,7 @@ public class VacationController {
 
         dataManagerVacation.modifyVacation(vacation);
 
-        return "redirect:/index";
+        return "/vacationModify";
     }
 
     @GetMapping("/vacationList")

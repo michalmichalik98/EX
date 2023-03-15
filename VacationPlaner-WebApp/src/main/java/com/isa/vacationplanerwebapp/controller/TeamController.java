@@ -113,7 +113,7 @@ public class TeamController {
         model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(newTeamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
         model.addAttribute("TeamName", newTeamName);
-        return "/teamModifySelectedTeam";
+        return "redirect:/teamModifySelectedTeam";
     }
 }
 
