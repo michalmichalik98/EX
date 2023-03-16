@@ -48,6 +48,10 @@ public class Vacation {
         return vacationId;
     }
 
+    public void setVacationId(String vacationId) {
+        this.vacationId = vacationId;
+    }
+
     public LocalDate getStart() {
         return start;
     }

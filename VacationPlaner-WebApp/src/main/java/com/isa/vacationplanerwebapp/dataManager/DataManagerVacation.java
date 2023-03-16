@@ -41,11 +41,7 @@ public class DataManagerVacation {
     public void modifyVacation(Vacation vacation) {
 
         allVacations.replaceAll(vacation1 -> {
-
-            System.out.println(vacation1.getVacationId());
-
             if (vacation1.getVacationId().equals(vacation.getVacationId())) {
-                System.out.println("scoreee !");
                 vacation1.setStart(vacation.getStart());
                 vacation1.setStop(vacation.getStop());
                 vacation1.setVacationType(vacation.getVacationType());
@@ -60,7 +56,7 @@ public class DataManagerVacation {
         LocalDate today = LocalDate.now();
 
         allVacations.add(new Vacation(today.minusDays(2), today.plusDays(10), TypeOfVacation.HOLIDAY, "f0ba16ce-ceb1-4d0d-a8b9-0756681e4ae4", "Janusz", "Nowakowski"));
-        allVacations.add(new Vacation(today.minusDays(3), today.plusDays(5), TypeOfVacation.ON_DEMAND, "1cef0f12-0360-4403-ab11-f620851c6611", "Alicja", "Wieczorek"));
+        allVacations.add(new Vacation(today.minusDays(3), today.plusDays(5), TypeOfVacation.ON_DEMAND, "1cef0f12-0360-4403-ab11-f620851c6611", "Czerwoni", "Wieczorek"));
         allVacations.add(new Vacation(today.minusDays(5), today.plusDays(7), TypeOfVacation.OTHER, "2122720c-57d1-49d3-aed2-56846f7244d3", "Marek", "Krupa"));
         allVacations.add(new Vacation(today.minusDays(1), today.plusDays(6), TypeOfVacation.ON_DEMAND, "2a58891a-0c4c-4f13-86a7-018aa9afe082", "Krzysztof", "Nowak"));
         allVacations.add(new Vacation(today.minusDays(2), today.plusDays(5), TypeOfVacation.HOLIDAY, "c926aa10-ac4d-49ff-8700-8598489a6d7b", "Piotr", "Zieliński"));

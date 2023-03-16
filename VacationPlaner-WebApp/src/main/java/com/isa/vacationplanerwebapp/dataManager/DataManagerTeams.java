@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class DataManagerTeams {
@@ -39,7 +40,6 @@ public class DataManagerTeams {
         return null;
     }
 
-
     public void renameTeam(String oldTeamName, String newTeamName) {
         teams.replaceAll(team1 -> {
             if (team1.getTeamName().equals(oldTeamName)) {
@@ -48,19 +48,8 @@ public class DataManagerTeams {
             return team1;
         });
     }
-//
-    // / public void modifyTeam(String teamName, Team team) {
-    //  Team teamToModify = getTeamByName(teamName);
-    //  teamToModify.setTeamName(team.getTeamName());
 
 
-    //teams.replaceAll(team1 -> {
-    //     if (team1.getTeamName().equals(team.getTeamName())) {
-    //          team1.setTeamName(team.getTeamName());
-    //     }
-    //     return team1;
-    //  });
-    // }
 
     private List<Team> importTeams() {
 

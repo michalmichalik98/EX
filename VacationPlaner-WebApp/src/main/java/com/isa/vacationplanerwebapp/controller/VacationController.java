@@ -1,6 +1,7 @@
 package com.isa.vacationplanerwebapp.controller;
 
 import com.isa.vacationplanerwebapp.dataManager.DataManagerEmployees;
+import com.isa.vacationplanerwebapp.dataManager.DataManagerTeams;
 import com.isa.vacationplanerwebapp.dataManager.DataManagerVacation;
 import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Vacation;
@@ -15,10 +16,12 @@ public class VacationController {
 
     private final DataManagerEmployees dataManagerEmployees;
     private final DataManagerVacation dataManagerVacation;
+    private final DataManagerTeams dataManagerTeams;
 
-    public VacationController(DataManagerEmployees dataManagerEmployees, DataManagerVacation dataManagerVacation) {
+    public VacationController(DataManagerEmployees dataManagerEmployees, DataManagerVacation dataManagerVacation, DataManagerTeams dataManagerTeams ) {
         this.dataManagerEmployees = dataManagerEmployees;
         this.dataManagerVacation = dataManagerVacation;
+        this.dataManagerTeams = dataManagerTeams;
     }
 
     @GetMapping("/vacationAdd")
@@ -81,7 +84,6 @@ public class VacationController {
     public String modifyVacationSelected(Model model, @PathVariable(name = "id", required = false) String id) {
 
         model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
-        System.out.println(dataManagerVacation.getVacationById(id).getVacationId()+ "id get ");
         model.addAttribute("Vacation", dataManagerVacation.getVacationById(id));
         return "/vacationModify";
     }
@@ -89,19 +91,16 @@ public class VacationController {
     @PostMapping("/vacationModify")
     public String vacationModify(Vacation vacation){
 
-        System.out.println(vacation.getVacationId() + "<----");
-        System.out.println(vacation.getStart() + "<----");
-        System.out.println(vacation.getStop() + "<----");
-        System.out.println(vacation.getEmployeeID() + "<----");
-        System.out.println(vacation.getVacationType() + "<----");
-
         dataManagerVacation.modifyVacation(vacation);
 
         return "redirect:/vacationModify";
     }
 
     @GetMapping("/vacationList")
-    public String getVacationList() {
+    public String getVacationList(Model model) {
+
+        model.addAttribute("TeamEmployeeMap", dataManagerEmployees.groupEmployeesByTeam());
+        model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
         return "/vacationList";
     }
 
