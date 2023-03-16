@@ -28,17 +28,16 @@ public class DataManager {
     public static ArrayList<Vacation> vacationList = new ArrayList<>();
 
 
-
-    private static final Path pathForEmployeeDataFile = Paths.get("src", "main", "resources","dataFiles", "Employee.json");
-    private static final Path pathForTeamDataFile = Paths.get("src", "main", "resources","dataFiles", "Team.json");
-    private static final Path pathForVacationDataFile = Paths.get("src", "main", "resources","dataFiles", "Vacation.json");
-    private static final Path pathForIdNumberDataFile = Paths.get("src", "main", "resources","dataFiles", "ID.txt");
+    private static final Path pathForEmployeeDataFile = Paths.get("src", "main", "resources", "dataFiles", "Employee.json");
+    private static final Path pathForTeamDataFile = Paths.get("src", "main", "resources", "dataFiles", "Team.json");
+    private static final Path pathForVacationDataFile = Paths.get("src", "main", "resources", "dataFiles", "Vacation.json");
+    private static final Path pathForIdNumberDataFile = Paths.get("src", "main", "resources", "dataFiles", "ID.txt");
 
     public DataManager() {
     }
-    public void setproperty(){
+    public void setproperty() {
         Properties properties = new Properties();
-        properties.setProperty("filePath","src/main/resources/dataFiles/Employee.json");
+        properties.setProperty("filePath", "src/main/resources/dataFiles/Employee.json");
 
         try {
             properties.store(new FileOutputStream("config.properties"), null);
@@ -54,7 +53,7 @@ public class DataManager {
         saveVacationToFile();
     }
 
-    public static boolean addEmployee(Employee employee) {
+        public static boolean addEmployee(Employee employee) {
 
         if (employeeList.contains(employee)) {
             System.out.println("Pracownik już istnieje");
@@ -64,7 +63,6 @@ public class DataManager {
             return true;
         }
     }
-
     public static void saveEmployeesToFIle() {
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -93,7 +91,7 @@ public class DataManager {
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (IOException e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
 
     }
@@ -228,14 +226,14 @@ public class DataManager {
 
         Integer lastUsedI = 0;
 
-        if(!Files.exists(pathForIdNumberDataFile)){
+        if (!Files.exists(pathForIdNumberDataFile)) {
             try {
                 Files.createFile(pathForIdNumberDataFile);
-                Files.write(pathForIdNumberDataFile,"0".getBytes());
-            }catch (Exception e){
+                Files.write(pathForIdNumberDataFile, "0".getBytes());
+            } catch (Exception e) {
                 System.out.println("Nie mogłem stworzyc pliku");
             }
-        };
+        }
         try {
             lastUsedI = Integer.parseInt(Files.readString(pathForIdNumberDataFile));
             lastUsedI++;
