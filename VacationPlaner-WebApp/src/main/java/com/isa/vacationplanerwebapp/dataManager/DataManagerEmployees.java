@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class DataManagerEmployees {
@@ -63,7 +65,7 @@ public class DataManagerEmployees {
         getEmployeesByTeam(teamName).forEach(Employee::unAssignedTeam);
     }
 
-    public void setTeamToUnassigned(String id){
+    public void setTeamToUnassigned(String id) {
         getEmployeeById(id).setTeam(Employee.UNASSIGNED_TEAM);
     }
 
@@ -79,6 +81,19 @@ public class DataManagerEmployees {
             }
             return employee;
         });
+    }
+
+    public Map<String, List<String>>groupEmployeesByTeam() {
+
+        Map<String, List<Employee>> employeesGrouped = employees.stream().collect(Collectors.groupingBy(Employee::getTeam));
+
+        return employeesGrouped.entrySet().stream()
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        e -> e.getValue().stream()
+                                .map(Employee::getEmployeeId)
+                                .collect(Collectors.toList())));
+
     }
 
     private List<Employee> importEmployees() {

@@ -99,7 +99,7 @@ public class VacationController {
     @GetMapping("/vacationList")
     public String getVacationList(Model model) {
 
-        model.addAttribute("AllTeams", dataManagerTeams.getTeams());
+        model.addAttribute("TeamEmployeeMap", dataManagerEmployees.groupEmployeesByTeam());
         model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
         return "/vacationList";
     }

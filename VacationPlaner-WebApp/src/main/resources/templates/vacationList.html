@@ -32,13 +32,12 @@
                 </ol>
             </div>
 
-            <div class="container" th:each="team : ${AllTeams}">
-                <h3 th:text="${team}"></h3>
+            <div class="container" th:each="entry : ${TeamEmployeeMap.entrySet()}">
+                <h3 th:text="${entry.getKey()}"></h3>
 
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Lp</th>
                         <th>Imię</th>
                         <th>Nazwisko</th>
                         <th>Start</th>
@@ -46,8 +45,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:if="${Vacation.getName().equals(AllTeams.get(1).getTeamName())}" th:each="Vacation,iter: ${AllVacation}">
-                        <td th:text="${iter.count}"></td>
+                    <tr  th:if="${entry.getValue().contains(Vacation.getEmployeeID())}"  th:each="Vacation,iter: ${AllVacation}">
                         <td th:text="${Vacation.getName()}"></td>
                         <td th:text="${Vacation.getSurname()}"></td>
                         <td th:text="${Vacation.getStart()}"></td>
