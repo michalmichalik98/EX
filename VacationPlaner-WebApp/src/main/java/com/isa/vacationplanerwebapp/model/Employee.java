@@ -25,7 +25,7 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
-    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber) {
+    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber, String employeeId) {
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
@@ -33,10 +33,10 @@ public class Employee {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.team = UNASSIGNED_TEAM;
-        this.employeeId = UUID.randomUUID().toString();
+        this.employeeId = employeeId;
     }
 
-    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber, String team) {
+    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber, String team, String employeeId) {
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
@@ -44,11 +44,13 @@ public class Employee {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.team = team;
-        this.employeeId = UUID.randomUUID().toString();
+        this.employeeId = employeeId;
     }
 
     public Employee() {
         team = UNASSIGNED_TEAM;
+        this.employeeId = UUID.randomUUID().toString();
+
     }
 
     public String getTeam() {
