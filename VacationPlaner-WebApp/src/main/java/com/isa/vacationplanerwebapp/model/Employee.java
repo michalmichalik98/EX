@@ -12,6 +12,7 @@ public class Employee {
 
     @NotEmpty
     private String name;
+
     private String surname;
     private String pesel;
     private String email;
@@ -21,11 +22,7 @@ public class Employee {
     private String employeeId;
 
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber) {
+    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber, String employeeId) {
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
@@ -33,10 +30,10 @@ public class Employee {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.team = UNASSIGNED_TEAM;
-        this.employeeId = UUID.randomUUID().toString();
+        this.employeeId = employeeId;
     }
 
-    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber, String team) {
+    public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber, String team, String employeeId) {
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
@@ -44,11 +41,17 @@ public class Employee {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.team = team;
-        this.employeeId = UUID.randomUUID().toString();
+        this.employeeId = employeeId;
     }
 
     public Employee() {
         team = UNASSIGNED_TEAM;
+        this.employeeId = UUID.randomUUID().toString();
+
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getTeam() {
