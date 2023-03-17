@@ -35,6 +35,7 @@ public class DataManager {
 
     public DataManager() {
     }
+
     public void setproperty() {
         Properties properties = new Properties();
         properties.setProperty("filePath", "src/main/resources/dataFiles/Employee.json");
@@ -53,16 +54,20 @@ public class DataManager {
         saveVacationToFile();
     }
 
-        public static boolean addEmployee(Employee employee) {
 
-        if (employeeList.contains(employee)) {
-            System.out.println("Pracownik już istnieje");
-            return false;
-        } else {
-            employeeList.add(employee);
-            return true;
+    public static boolean addEmployee(Employee employee) {
+        for (Employee e : employeeList) {
+            if (e.getName().equals(employee.getName()) && e.getSurname().equals(employee.getSurname()) &&
+                    e.getPesel().equals(employee.getPesel()) && e.getEmail().equals(employee.getEmail()) &&
+                    e.getAddress().equals(employee.getAddress()) && e.getPhoneNumber().equals(employee.getPhoneNumber())) {
+                System.out.println("Pracownik już istnieje.");
+                return false;
+            }
         }
+        employeeList.add(employee);
+        return true;
     }
+
     public static void saveEmployeesToFIle() {
         ObjectMapper objectMapper = new ObjectMapper();
 

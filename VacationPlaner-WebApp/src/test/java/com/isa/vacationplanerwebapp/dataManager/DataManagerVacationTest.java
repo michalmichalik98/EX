@@ -18,18 +18,18 @@ public class DataManagerVacationTest {
     private DataManagerVacation dataManagerVacation;
 
     @BeforeEach
-    public void setUp() {
+    void before() {
         dataManagerVacation = new DataManagerVacation();
     }
 
     @Test
-    public void getAllVacationsTest() {
+    void getAllVacationsTest() {
         List<Vacation> allVacations = dataManagerVacation.getAllVacations();
         assertThat(allVacations).hasSize(9);
     }
 
     @Test
-    public void addVacationTest() {
+    void addVacationTest() {
         LocalDate start = LocalDate.now().plusDays(1);
         LocalDate end = LocalDate.now().plusDays(5);
         Vacation vacation = new Vacation(start, end, TypeOfVacation.HOLIDAY, "testId", "John", "Doe");
@@ -40,7 +40,7 @@ public class DataManagerVacationTest {
     }
 
     @Test
-    public void deleteVacationTest() {
+    void deleteVacationTest() {
         String vacationId = dataManagerVacation.getAllVacations().get(0).getVacationId();
         dataManagerVacation.deleteVacation(vacationId);
         List<Vacation> allVacations = dataManagerVacation.getAllVacations();
@@ -50,7 +50,7 @@ public class DataManagerVacationTest {
     }
 
     @Test
-    public void getVacationByIdTest() {
+    void getVacationByIdTest() {
         String vacationId = dataManagerVacation.getAllVacations().get(0).getVacationId();
         Vacation vacation = dataManagerVacation.getVacationById(vacationId);
         assertThat(vacation).isNotNull();
@@ -58,7 +58,7 @@ public class DataManagerVacationTest {
     }
 
     @Test
-    public void modifyVacationTest() {
+    void modifyVacationTest() {
         String vacationId = dataManagerVacation.getAllVacations().get(0).getVacationId();
         Vacation vacation = dataManagerVacation.getVacationById(vacationId);
         vacation.setStart(LocalDate.now().plusDays(1));

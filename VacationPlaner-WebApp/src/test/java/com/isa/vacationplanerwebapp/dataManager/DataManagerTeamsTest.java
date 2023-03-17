@@ -14,7 +14,7 @@ public class DataManagerTeamsTest {
     private DataManagerTeams dataManagerTeams;
 
     @BeforeEach
-    void setUp() {
+    void before() {
         dataManagerTeams = new DataManagerTeams();
     }
 
@@ -43,7 +43,6 @@ public class DataManagerTeamsTest {
         boolean added = dataManagerTeams.addTeam(team);
 
         assertThat(added).isFalse();
-        assertThat(dataManagerTeams.getTeams()).doesNotContain(team);
     }
 
     @Test

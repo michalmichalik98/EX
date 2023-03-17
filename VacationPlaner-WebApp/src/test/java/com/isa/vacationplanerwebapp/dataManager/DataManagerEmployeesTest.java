@@ -3,8 +3,9 @@ package com.isa.vacationplanerwebapp.dataManager;
 import com.isa.vacationplanerwebapp.exception.EmployeeNotFoundException;
 import com.isa.vacationplanerwebapp.model.Address;
 import com.isa.vacationplanerwebapp.model.Employee;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import com.isa.vacationplanerwebapp.model.Team;
+
+
 import org.junit.jupiter.api.Test;
 
 
@@ -75,10 +76,14 @@ public class DataManagerEmployeesTest {
 
     @Test
     void changeTeamNameTest() {
-        Employee employee = new Employee("Jan", "Kowalski", "12345678901", "jan.kowalski@gmail.com",address, "111222333", "Czarni1");
+        Team team = new Team("Czarni1");
+        DataManagerTeams dataManagerTeams = new DataManagerTeams();
+        dataManagerTeams.addTeam(team);
+        Employee employee = new Employee("Jan", "Kowalski", "12345678901", "jan.kowalski@gmail.com",address, "111222333");
         dataManagerEmployees.addEmployee(employee);
-        dataManagerEmployees.changeTeamName("Czarni1", "Biali1");
-        assertThat(dataManagerEmployees.getEmployeesByTeam("Czarni1")).isEmpty();
+        dataManagerEmployees.addEmployeeToTeam(employee.getEmployeeId(), team.getTeamName());
+        dataManagerEmployees.changeTeamName(team.getTeamName(), "Biali1");
+        assertThat(dataManagerEmployees.getEmployeesByTeam(team.getTeamName())).isEmpty();
         assertThat(dataManagerEmployees.getEmployeesByTeam("Biali1")).hasSize(1);
     }
 
