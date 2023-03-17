@@ -64,5 +64,8 @@ public class DataManagerVacation {
         allVacations.add(new Vacation(today.minusDays(8), today.plusDays(3), TypeOfVacation.HOLIDAY, "f0ba16ce-cebs-4ddd-a8b9-0756681e4ae4", "Ewa", "Mazur"));
         allVacations.add(new Vacation(today.minusDays(2), today.plusDays(7), TypeOfVacation.ON_DEMAND, "h0ba16ce-ceb1-4d0d-a8b9-0756681e4ae4", "Marta", "Jabłońska"));
         allVacations.add(new Vacation(today.minusDays(1), today.plusDays(6), TypeOfVacation.HOLIDAY, "f0ba16ce-ceb1-4d0d-a8b9-0756681e4ae4", "Tomasz", "Wojciechowski"));
+        allVacations.add(new Vacation(today.minusDays(10), today.plusDays(20), TypeOfVacation.HOLIDAY, "f0ba16ce-ceb1-4d0d-a8b9-0756681e5ae4", "Alicja", "Wieczorek"));
+        allVacations.add(new Vacation(today.minusDays(10), today.plusDays(20), TypeOfVacation.HOLIDAY, "fgba16ce-ceb1-4d0d-a8b9-0756681e4ae4", "Krzysztof", "Jankowski"));
+        allVacations.add(new Vacation(today.minusDays(10), today.plusDays(20), TypeOfVacation.HOLIDAY, "f0da16ce-ceb1-4d0d-a8b9-0756681e4ae4", "Andrzej", "Kaczmarek"));
     }
 }

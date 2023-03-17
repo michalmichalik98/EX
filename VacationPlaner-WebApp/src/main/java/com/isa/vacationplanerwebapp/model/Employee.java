@@ -12,6 +12,7 @@ public class Employee {
 
     @NotEmpty
     private String name;
+
     private String surname;
     private String pesel;
     private String email;
@@ -20,10 +21,6 @@ public class Employee {
     private String team;
     private String employeeId;
 
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
 
     public Employee(String name, String surname, String pesel, String email, Address address, String phoneNumber, String employeeId) {
         this.name = name;
@@ -51,6 +48,10 @@ public class Employee {
         team = UNASSIGNED_TEAM;
         this.employeeId = UUID.randomUUID().toString();
 
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getTeam() {

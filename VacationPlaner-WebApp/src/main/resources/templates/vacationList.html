@@ -32,8 +32,8 @@
                 </ol>
             </div>
 
-            <div class="container" th:each="entry : ${TeamEmployeeMap.entrySet()}">
-                <h3 th:text="${entry.getKey()}"></h3>
+            <div class="container-lg" th:each="entry : ${TeamEmployeeMap.entrySet()}">
+                <h3 th:text="${entry.getKey() == 'UnAssignedTeam' ? 'Bez zespołu' : entry.getKey()}"></h3>
 
                 <table class="table table-striped">
                     <thead>
