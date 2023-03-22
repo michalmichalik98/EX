@@ -18,7 +18,8 @@ public class TeamController {
     private final DataManagerTeams dataManagerTeams;
     private final DataManagerEmployees dataManagerEmployees;
 
-    private static final Logger logger = LogManager.getLogger(TeamController.class);
+
+    public static Logger logger = LogManager.getLogger(TeamController.class);
 
     @Autowired
     public TeamController(DataManagerTeams dataManagerTeams, DataManagerEmployees dataManagerEmployees) {
