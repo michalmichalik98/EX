@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class EmployeeController {
 
     private final DataManagerEmployees dataManagerEmployees;
-    private static final Logger logger = LogManager.getLogger(EmployeeController.class);
+
+    public static Logger logger = LogManager.getLogger(EmployeeController.class);
 
     @Autowired
     public EmployeeController(DataManagerEmployees dataManagerEmployees) {
