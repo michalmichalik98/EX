@@ -5,6 +5,8 @@ import com.isa.vacationplanerwebapp.dataManager.DataManagerTeams;
 import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Team;
 import jakarta.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,31 +18,38 @@ public class TeamController {
     private final DataManagerTeams dataManagerTeams;
     private final DataManagerEmployees dataManagerEmployees;
 
+    private static final Logger logger = LogManager.getLogger(TeamController.class);
+
     @Autowired
     public TeamController(DataManagerTeams dataManagerTeams, DataManagerEmployees dataManagerEmployees) {
         this.dataManagerTeams = dataManagerTeams;
         this.dataManagerEmployees = dataManagerEmployees;
+        logger.info("Initialized TeamController with DataManagerTeams and DataManagerEmployees");
     }
 
     @GetMapping("/teamAdd")
     public String addTeam(Model model) {
         Team team = new Team();
         model.addAttribute("teamKeyAdd", team);
+        logger.info("Received request for adding team");
         return "teamAdd";
     }
 
     @PostMapping("/teamAdd")
     public String addTeamRequest(@Valid Team team, BindingResult result) {
         if (result.hasErrors()) {
+            logger.warn("Validation errors occurred while adding team");
             return "teamAdd";
         }
         dataManagerTeams.addTeam(team);
+        logger.info("Added new team with name {}", team.getTeamName());
         return "redirect:/teamList";
     }
 
     @GetMapping("/teamDelete")
     public String deleteTeam(Model model) {
         model.addAttribute("AllTeams", dataManagerTeams.getTeams());
+        logger.info("Received request for deleting team");
         return "/teamDelete";
     }
 
@@ -48,6 +57,7 @@ public class TeamController {
     public String deleteTeamRequest(@PathVariable( name = "teamName") String teamName) {
         dataManagerTeams.deleteTeam(teamName);
         dataManagerEmployees.removeAllEmployeesFromTeam(teamName);
+        logger.info("Deleted team with name {} from DataManagerTeams and all the employees from the team", teamName);
         return "redirect:/teamDelete";
     }
 
@@ -56,6 +66,7 @@ public class TeamController {
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         model.addAttribute("AllTeams", dataManagerTeams.getTeams());
         model.addAttribute("teamKeyModify", new Team());
+        logger.info("Received request for modifying team");
         return "teamModify";
     }
 
@@ -63,6 +74,7 @@ public class TeamController {
     @GetMapping("/teamList")
     public String listOfTeams(Model model) {
         model.addAttribute("AllTeams", dataManagerTeams.getTeams());
+        logger.info("Received request for team list");
         return "teamList";
     }
 
@@ -72,6 +84,7 @@ public class TeamController {
         model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
         model.addAttribute("TeamName", teamName);
+        logger.info("Received request for modifying the selected team {}", teamName);
         return "/teamModifySelectedTeam";
     }
 
@@ -85,7 +98,7 @@ public class TeamController {
         model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
         model.addAttribute("TeamName", teamName);
-
+        logger.info("Deleted team member with id: " + id + " from team: " + teamName);
         return "/teamModifySelectedTeam";
     }
 
@@ -99,7 +112,7 @@ public class TeamController {
         model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(teamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
         model.addAttribute("TeamName", teamName);
-
+        logger.info("Added team member with id: " + id + " to team: " + teamName);
         return "/teamModifySelectedTeam";
     }
 
@@ -109,7 +122,7 @@ public class TeamController {
 
         dataManagerEmployees.changeTeamName(oldTeamName, newTeamName);
         dataManagerTeams.renameTeam(oldTeamName, newTeamName);
-
+        logger.info("Changed team name from: " + oldTeamName + " to: " + newTeamName);
         model.addAttribute("AllTeamEmployees", dataManagerEmployees.getEmployeesByTeam(newTeamName));
         model.addAttribute("AllUnassignedEmployees", dataManagerEmployees.getEmployeesByTeam(Employee.UNASSIGNED_TEAM));
         model.addAttribute("TeamName", newTeamName);
