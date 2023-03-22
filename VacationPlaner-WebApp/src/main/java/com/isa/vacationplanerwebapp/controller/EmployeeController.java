@@ -24,6 +24,7 @@ public class EmployeeController {
     @Autowired
     public EmployeeController(DataManagerEmployees dataManagerEmployees) {
         this.dataManagerEmployees = dataManagerEmployees;
+        logger.info("Initialized EmployeeController with DataManagerEmployees");
     }
 
 
