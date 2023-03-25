@@ -5,8 +5,9 @@ import com.isa.vacationplanerwebapp.dataManager.DataManagerTeams;
 import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Team;
 import jakarta.validation.Valid;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,7 @@ public class TeamController {
     private final DataManagerEmployees dataManagerEmployees;
 
 
-    public static Logger logger = LogManager.getLogger(TeamController.class);
+    public static final Logger logger = LoggerFactory.getLogger(TeamController.class);
 
     @Autowired
     public TeamController(DataManagerTeams dataManagerTeams, DataManagerEmployees dataManagerEmployees) {

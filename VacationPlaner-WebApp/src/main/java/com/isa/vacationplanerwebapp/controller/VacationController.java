@@ -5,8 +5,9 @@ import com.isa.vacationplanerwebapp.dataManager.DataManagerTeams;
 import com.isa.vacationplanerwebapp.dataManager.DataManagerVacation;
 import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Vacation;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class VacationController {
     private final DataManagerTeams dataManagerTeams;
 
 
-    public static Logger logger = LogManager.getLogger(VacationController.class);
+    public static final Logger logger = LoggerFactory.getLogger(VacationController.class);
 
     public VacationController(DataManagerEmployees dataManagerEmployees, DataManagerVacation dataManagerVacation, DataManagerTeams dataManagerTeams ) {
         this.dataManagerEmployees = dataManagerEmployees;

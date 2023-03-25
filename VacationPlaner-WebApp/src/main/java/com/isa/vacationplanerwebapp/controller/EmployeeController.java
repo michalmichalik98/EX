@@ -3,8 +3,9 @@ package com.isa.vacationplanerwebapp.controller;
 import com.isa.vacationplanerwebapp.dataManager.DataManagerEmployees;
 import com.isa.vacationplanerwebapp.model.Employee;
 import jakarta.validation.Valid;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,7 @@ public class EmployeeController {
 
     private final DataManagerEmployees dataManagerEmployees;
 
-    public static Logger logger = LogManager.getLogger(EmployeeController.class);
+    public static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
     @Autowired
     public EmployeeController(DataManagerEmployees dataManagerEmployees) {
