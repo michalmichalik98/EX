@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class ToDoList {
 
-    private final List<ToDo> todolist;
+    public List<ToDo> todolist;
 
     public ToDoList() {
         this.todolist = importToDoList();
@@ -21,7 +21,7 @@ public class ToDoList {
         return todolist;
     }
 
-    private static List<ToDo> importToDoList() {
+    public static List<ToDo> importToDoList() {
         List<ToDo> todolist = new ArrayList<>();
         todolist.add(new ToDo(Category.DOM, "Kupić kilo ziemniaków", 3, LocalDate.of(2023, 12, 1)));
         todolist.add(new ToDo(Category.PRACA, "Wypić w pracy 10 kaw", 5, LocalDate.of(2023, 3, 2)));
