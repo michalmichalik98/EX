@@ -5,6 +5,9 @@ import com.isa.vacationplanerwebapp.dataManager.DataManagerTeams;
 import com.isa.vacationplanerwebapp.dataManager.DataManagerVacation;
 import com.isa.vacationplanerwebapp.model.Employee;
 import com.isa.vacationplanerwebapp.model.Vacation;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +21,9 @@ public class VacationController {
     private final DataManagerVacation dataManagerVacation;
     private final DataManagerTeams dataManagerTeams;
 
+
+    public static final Logger logger = LoggerFactory.getLogger(VacationController.class);
+
     public VacationController(DataManagerEmployees dataManagerEmployees, DataManagerVacation dataManagerVacation, DataManagerTeams dataManagerTeams ) {
         this.dataManagerEmployees = dataManagerEmployees;
         this.dataManagerVacation = dataManagerVacation;
@@ -29,6 +35,7 @@ public class VacationController {
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         model.addAttribute("Employee", new Employee());
         model.addAttribute("Vacation", new Vacation());
+        logger.info("Displaying vacation add page");
         return "/vacationAdd";
     }
 
@@ -37,6 +44,7 @@ public class VacationController {
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         model.addAttribute("Employee", dataManagerEmployees.getEmployeeById(Id));
         model.addAttribute("Vacation", new Vacation());
+        logger.info("Displaying vacation add page for employee with ID {}", Id);
         return "/vacationAdd";
     }
 
@@ -49,6 +57,7 @@ public class VacationController {
         vacation.setName(dataManagerEmployees.getEmployeeById(id).getName());
         vacation.setSurname(dataManagerEmployees.getEmployeeById(id).getSurname());
         dataManagerVacation.addVacation(vacation);
+        logger.info("Added vacation for employee with ID {}", id);
         return "redirect:/vacationModify";
     }
     @PostMapping("/vacationAdd/")
@@ -56,6 +65,7 @@ public class VacationController {
         model.addAttribute("AllEmployees", dataManagerEmployees.getEmployees());
         model.addAttribute("Employee", new Employee());
         model.addAttribute("Vacation", new Vacation());
+        logger.info("Displaying vacation add page");
         return "/vacationAdd";
     }
 
@@ -63,12 +73,14 @@ public class VacationController {
     @GetMapping("/vacationDelete")
     public String getVacationDelete(Model model) {
         model.addAttribute("AllVacation",dataManagerVacation.getAllVacations());
+        logger.info("Displaying vacation delete page");
         return "/vacationDelete";
     }
 
     @GetMapping("/vacationDelete/{id}")
     public String VacationAdd( @PathVariable(name = "id", required = false) String id) {
         dataManagerVacation.deleteVacation(id);
+        logger.info("Deleting vacation with ID {}", id);
         return "redirect:/vacationDelete";
     }
 
@@ -77,6 +89,7 @@ public class VacationController {
 
         model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
         model.addAttribute("Vacation", new Vacation());
+        logger.info("Received request to modify vacation");
         return "/vacationModify";
     }
 
@@ -85,6 +98,7 @@ public class VacationController {
 
         model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
         model.addAttribute("Vacation", dataManagerVacation.getVacationById(id));
+        logger.info("Received request to modify vacation with ID: " + id);
         return "/vacationModify";
     }
 
@@ -92,7 +106,7 @@ public class VacationController {
     public String vacationModify(Vacation vacation){
 
         dataManagerVacation.modifyVacation(vacation);
-
+        logger.info("Modifying vacation with id: " + vacation.getVacationId());
         return "redirect:/vacationModify";
     }
 
@@ -101,6 +115,7 @@ public class VacationController {
 
         model.addAttribute("TeamEmployeeMap", dataManagerEmployees.groupEmployeesByTeam());
         model.addAttribute("AllVacation", dataManagerVacation.getAllVacations());
+        logger.info("Retrieving vacation list.");
         return "/vacationList";
     }
 
