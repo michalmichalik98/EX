@@ -1,0 +1,34 @@
+version: "3"
+volumes:
+  some-text-volume:
+services:
+  myapp:
+    image: myapp:latest
+    ports:
+      - "8080:8080"
+  mysql:
+    image: "mysql:8.0.32"
+    environment:
+      MYSQL_ROOT_PASSWORD: someSecret
+      MYSQL_DATABASE: SOME_TEXT
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    volumes:
+      - some-text-volume:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  rest:
+    build: .
+    ports:
+      - "8082:8080"
+    environment:
+      DB_HOST: mysql
+    depends_on:
+      mysql:
+        condition: service_healthy
